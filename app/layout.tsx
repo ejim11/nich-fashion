@@ -2,6 +2,11 @@ import type { Metadata } from "next";
 import { Montserrat } from "next/font/google";
 import "./globals.css";
 import localFont from "next/font/local";
+import AppWrapper from "../components/AppWrapper";
+import Header from "@/components/Header";
+import "react-toastify/dist/ReactToastify.css";
+import { ToastContainer } from "react-toastify";
+import Footer from "@/components/Footer";
 
 const satoshi = localFont({
   src: "../public/fonts/Satoshi-Variable.ttf",
@@ -28,7 +33,12 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body className={`${satoshi.variable} ${monserrat.variable} antialiased`}>
-        {children}
+        <AppWrapper>
+          <Header />
+          {children}
+          <Footer />
+          <ToastContainer />
+        </AppWrapper>
       </body>
     </html>
   );
