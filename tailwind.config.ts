@@ -12,6 +12,10 @@ export default {
         background: "var(--background)",
         foreground: "var(--foreground)",
       },
+      fontFamily: {
+        satoshi: "var(--font-satoshi)",
+        monserrat: "var(--font-monserrat)",
+      },
     },
   },
   plugins: [],
