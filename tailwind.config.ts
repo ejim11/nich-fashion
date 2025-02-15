@@ -9,8 +9,21 @@ export default {
   theme: {
     extend: {
       colors: {
-        background: "var(--background)",
-        foreground: "var(--foreground)",
+        "color-current": "curentColor",
+        "color-transparent": "transparent",
+        "color-white": "#FFFFFF",
+        "color-black": "#000000",
+        "color-grey": {
+          1: "#E5E5E5",
+          2: "#A09F9F1A",
+          3: "#F3F3F3",
+          4: "#F0EEED",
+          5: "#BEBEBE",
+        },
+        "color-red": {
+          1: "#FF3333",
+          2: "#FF33331A",
+        },
       },
       fontFamily: {
         satoshi: "var(--font-satoshi)",
