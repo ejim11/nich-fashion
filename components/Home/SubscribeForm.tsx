@@ -27,7 +27,7 @@ const SubscribeForm = () => {
       setIsLoading(false);
     } catch (e: any) {
       setIsLoading(false);
-      // eslint-disable-next-line @typescript-eslint/no-unsafe-assignment
+      // eslint-disable-next-line @typescript-eslint/no-unsafe-assignment, @typescript-eslint/no-unused-vars
       const errMsg: string = e.response?.data?.message.includes("duplicate")
         ? "You have already subscribed."
         : e.message;
