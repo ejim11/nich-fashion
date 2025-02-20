@@ -39,7 +39,7 @@ const Header = () => {
   ];
 
   return (
-    <header className="flex h-[7.5rem] items-center px-[8rem] bg-color-white justify-between border-b border-[#F0EEED]">
+    <header className="flex h-[7.5rem] fixed top-0 left-0 right-0 z-50 items-center px-[8rem] bg-color-white justify-between border-b border-[#F0EEED]">
       <div className="w-[9.3rem] h-[4.3rem]">
         <Image
           src={logo}
