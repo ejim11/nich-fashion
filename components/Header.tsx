@@ -20,10 +20,10 @@ const Header = () => {
       title: "collections",
       subComponent: <CollectionSubComponent />,
     },
-    {
-      title: "products",
-      link: "/products",
-    },
+    // {
+    //   title: "products",
+    //   link: "/products",
+    // },
     {
       title: "shop",
       subComponent: <ShopSubComponent />,
