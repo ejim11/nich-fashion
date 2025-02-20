@@ -1,4 +1,5 @@
-import React, { ReactNode } from "react";
+"use client";
+import React, { ReactNode, useEffect } from "react";
 import MainContainer from "../MainContainer";
 import ContactUsForm from "./ContactUsForm";
 import { FaPhoneVolume } from "react-icons/fa6";
@@ -22,6 +23,10 @@ const ContactComp = () => {
       icon: <ImLocation className={iconClassname} />,
     },
   ];
+
+  useEffect(() => {
+    window.scrollTo({ top: -80, behavior: "smooth" });
+  }, []);
 
   return (
     <MainContainer>

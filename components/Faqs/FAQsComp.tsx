@@ -58,7 +58,7 @@ const FAQsComp = () => {
   ];
 
   useEffect(() => {
-    window.scrollTo({ top: -90, behavior: "smooth" });
+    window.scrollTo({ top: -80, behavior: "smooth" });
   }, []);
 
   return (
