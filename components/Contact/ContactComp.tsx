@@ -31,7 +31,7 @@ const ContactComp = () => {
         </h2>
         <div className="w-full flex justify-between">
           <ContactUsForm />
-          <div className="w-[45%] bg-[#D9D9D9] px-[4.6rem] rounded-[2rem] flex flex-col justify-center">
+          <div className="w-[48%] bg-[#D9D9D9] px-[4.6rem] rounded-[2rem] flex flex-col justify-center">
             {contactUsInfo.map((item: { text: string; icon: ReactNode }) => (
               <div
                 key={item.text}
