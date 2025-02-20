@@ -2,7 +2,7 @@
 // import { useAppDispatch, useAppSelector } from "@/hooks/customHook";
 // import { authActions } from "@/slices/authSlice";
 import { useRouter } from "next/navigation";
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 // import { FallingLines } from "react-loader-spinner";
 // import OtpInput from "react-otp-input";
 import OtpInput from "react18-input-otp";
@@ -12,6 +12,10 @@ const OTPForm = () => {
   //   const dispatchFn = useAppDispatch();
   const [otp, setOtp] = useState<string>("");
   const router = useRouter();
+
+  useEffect(() => {
+    window.scrollTo({ top: -80, behavior: "smooth" });
+  }, []);
 
   return (
     <div>

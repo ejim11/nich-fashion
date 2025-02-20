@@ -1,5 +1,5 @@
 "use client";
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import { SubmitHandler, useForm } from "react-hook-form";
 import { registrationOption } from "@/utils/inputValidator";
 import InputComponent from "../InputComponent";
@@ -50,6 +50,10 @@ const LoginForm = () => {
   //       `/dashboard/${name.toLowerCase().slice().split(" ").join("-")}`
   //     );
   //   };
+
+  useEffect(() => {
+    window.scrollTo({ top: -80, behavior: "smooth" });
+  }, []);
 
   const onSubmit: SubmitHandler<FormData> = (data: FormData) => {
     console.log(data);
