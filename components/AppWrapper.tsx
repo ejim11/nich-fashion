@@ -24,7 +24,7 @@ const AppWrapper: React.FC<{ children: React.ReactNode }> = ({ children }) => {
   //     autoLogoutHandler();
   //   }, [autoLogoutHandler, dispatchFn]);
 
-  return <div>{children}</div>;
+  return <div className="mt-[7.5rem]">{children}</div>;
 };
 
 export default AppWrapper;

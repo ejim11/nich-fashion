@@ -16,6 +16,7 @@ Default styles
 html {
   box-sizing: border-box;
   font-size: 62.5%;
+  scroll-behavior: smooth !important;
 }
 
 body {
@@ -29,4 +30,35 @@ img {
 textarea,
 input {
   font-size: 16px !important;
+}
+
+/* Firefox */
+input[type="number"] {
+  -moz-appearance: textfield;
+}
+
+::-webkit-scrollbar {
+  width: 10px;
+}
+
+::-webkit-scrollbar {
+  height: 1rem;
+  /* @media all and (max-width: 700px) {
+  height: 1rem;
+} */
+}
+
+/* Track */
+::-webkit-scrollbar-track {
+  background: #e5e5e5;
+}
+
+/* Handle */
+::-webkit-scrollbar-thumb {
+  background: #000000;
+}
+
+/* Handle on hover */
+::-webkit-scrollbar-thumb:hover {
+  background: #000000;
 }
