@@ -29,6 +29,11 @@ export default {
         satoshi: "var(--font-satoshi)",
         monserrat: "var(--font-monserrat)",
       },
+      boxShadow: {
+        custom: "0px 5px 16px 0px rgba(8, 15, 52, 0.06)",
+        "custom-2": "0px 5px 16px 0px rgba(8, 15, 52, 0.06)",
+        "custom-3": "0px 6px 16px 0px rgba(132, 132, 132, 0.25)",
+      },
     },
   },
   plugins: [],
