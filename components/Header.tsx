@@ -9,6 +9,7 @@ import { FiChevronDown } from "react-icons/fi";
 import { LuSearch, LuShoppingCart } from "react-icons/lu";
 import { FaRegUserCircle } from "react-icons/fa";
 import HeaderNavigationLink from "./HeaderLinkSubComponents/HeaderNavLink";
+import Link from "next/link";
 
 const Header = () => {
   const headerNavLinks: HeaderNavLink[] = [
@@ -68,11 +69,21 @@ const Header = () => {
         <button>
           <LuShoppingCart className="w-[2.4rem] h-[2.4rem] text-color-current mx-[1.4rem]" />
         </button>
-        <button className="flex items-center">
-          <FaRegUserCircle className="w-[2.4rem] h-[2.4rem] text-color-current mr-[0.3rem]" />
-          <FiChevronDown className="w-[1.6rem] h-[1.6rem] text-color-current" />
-        </button>
-        <p className="font-satoshi ml-[1.5rem]">NA</p>
+        <div className="hidden">
+          <button className="flex items-center ">
+            <FaRegUserCircle className="w-[2.4rem] h-[2.4rem] text-color-current mr-[0.3rem]" />
+            <FiChevronDown className="w-[1.6rem] h-[1.6rem] text-color-current" />
+          </button>
+          <p className="font-satoshi ml-[1.5rem]">NA</p>
+        </div>
+        <Link
+          href={"/login"}
+          className="bg-black text-white px-[2rem] py-[1rem] rounded-[0.6rem]"
+        >
+          Login
+        </Link>
+
+        {/* <div className="fixed top-[8rem] right-[5rem] w-[20rem] h-[20rem] shadow-lg bg-white"></div> */}
       </div>
     </header>
   );
