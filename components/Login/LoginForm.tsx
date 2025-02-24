@@ -12,6 +12,7 @@ import { AiOutlineMail } from "react-icons/ai";
 // import { LuBadgeAlert } from "react-icons/lu";
 import { FallingLines } from "react-loader-spinner";
 import { useRouter } from "next/navigation";
+import { IoMdLock } from "react-icons/io";
 
 // import { useRouter } from "next/navigation";
 
@@ -89,7 +90,19 @@ const LoginForm = () => {
           <AiOutlineMail className="absolute w-[2.2rem] h-[2.2rem] top-[1.2rem] left-[1rem] text-color-primary-1" />
         }
       />
-
+      <InputComponent
+        placeholder={"************"}
+        type={"password"}
+        register={register}
+        error={errors}
+        name={"password"}
+        validation={registrationOption.password}
+        label="Password"
+        labelTextColor="text-[2rem] font-satoshi"
+        icon={
+          <IoMdLock className="absolute w-[2.2rem] h-[2.2rem] top-[1rem] left-[1rem] text-color-primary-1" />
+        }
+      />
       <button
         disabled={isLoading}
         type="submit"
