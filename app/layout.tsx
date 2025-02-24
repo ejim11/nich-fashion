@@ -7,6 +7,7 @@ import Header from "@/components/Header";
 import "react-toastify/dist/ReactToastify.css";
 import { ToastContainer } from "react-toastify";
 import Footer from "@/components/Footer";
+import ReduxProviderWrapper from "@/components/ReduxProviderWrapper";
 
 const satoshi = localFont({
   src: "../public/fonts/Satoshi-Variable.ttf",
@@ -33,12 +34,14 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body className={`${satoshi.variable} ${monserrat.variable} antialiased`}>
-        <AppWrapper>
-          <Header />
-          {children}
-          <Footer />
-          <ToastContainer />
-        </AppWrapper>
+        <ReduxProviderWrapper>
+          <AppWrapper>
+            <Header />
+            {children}
+            <Footer />
+            <ToastContainer />
+          </AppWrapper>
+        </ReduxProviderWrapper>
       </body>
     </html>
   );
