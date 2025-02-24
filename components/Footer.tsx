@@ -42,7 +42,7 @@ const Footer = () => {
 
   return (
     <footer className="bg-[#FFFBFB]   flex flex-col font-satoshi ">
-      <div className="flex w-full px-[12rem] py-[7rem] ">
+      <div className="flex w-full px-[8rem] py-[7rem] ">
         <div className="w-[25rem] mr-[10rem]">
           <div className="w-[9.3rem] h-[4.3rem]">
             <Image
@@ -97,7 +97,7 @@ const Footer = () => {
           )}
         </div>
       </div>
-      <div className="border-t border-[#0000001A] py-[2rem] mx-[10rem] flex justify-between items-center">
+      <div className="border-t border-[#0000001A] py-[2rem] mx-[8rem] flex justify-between items-center">
         <p>nich © 2025, All Rights Reserved</p>
         <div className="flex items-center ml-auto">
           {cardImgs.map((img: StaticImageData, i: number) => (

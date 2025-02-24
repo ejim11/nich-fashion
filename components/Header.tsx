@@ -3,7 +3,7 @@ import Image from "next/image";
 import React from "react";
 import logo from "../assets/logo.svg";
 import { HeaderNavLink } from "@/types/headerNavLink";
-import CollectionSubComponent from "./HeaderLinkSubComponents/CollectionSubComponent";
+// import CollectionSubComponent from "./HeaderLinkSubComponents/CollectionSubComponent";
 import ShopSubComponent from "./HeaderLinkSubComponents/ShopSubComponent";
 import { FiChevronDown } from "react-icons/fi";
 import { LuSearch, LuShoppingCart } from "react-icons/lu";
@@ -19,7 +19,8 @@ const Header = () => {
     },
     {
       title: "collections",
-      subComponent: <CollectionSubComponent />,
+      link: "/collections",
+      // subComponent: <CollectionSubComponent />,
     },
     // {
     //   title: "products",
