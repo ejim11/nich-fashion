@@ -58,7 +58,7 @@ const CollectionsNav: React.FC<{ children: ReactNode }> = ({ children }) => {
             Apply Filter
           </button>
         </div>
-        <div className="flex-1 ml-[3.4rem] bg-red-400 ">{children}</div>
+        <div className="flex-1 ml-[3.4rem] ">{children}</div>
       </div>
     </MainContainer>
   );
