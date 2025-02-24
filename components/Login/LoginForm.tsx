@@ -19,6 +19,7 @@ import { IoMdLock } from "react-icons/io";
 const LoginForm = () => {
   type FormData = {
     email: string;
+    password: string;
   };
 
   const router = useRouter();
@@ -37,6 +38,7 @@ const LoginForm = () => {
   } = useForm<FormData>({
     defaultValues: {
       email: "",
+      password: "",
     },
   });
 
