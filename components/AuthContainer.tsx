@@ -23,7 +23,9 @@ const AuthContainer: React.FC<{
           className="w-full h-full"
         />
       </div>
-      <p className="font-satoshi font-medium text-[1.8rem] mb-[4rem]">{text}</p>
+      <p className="font-satoshi font-medium text-[1.8rem] mb-[4rem] text-center">
+        {text}
+      </p>
       <div className="w-full self-start">{children}</div>
     </div>
   );
