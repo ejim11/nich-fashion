@@ -6,7 +6,7 @@ import React from "react";
 export default function Login() {
   return (
     <MainContainer classname="min-h-screen flex justify-center items-center font-satoshi">
-      <AuthContainer text="Enter your email and we’ll send you a login code">
+      <AuthContainer text="Enter your email and password to login">
         <LoginForm />
       </AuthContainer>
     </MainContainer>
