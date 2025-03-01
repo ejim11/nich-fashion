@@ -1,5 +1,5 @@
 import AuthContainer from "@/components/AuthContainer";
-import OTPForm from "@/components/Login/OTPForm";
+import OTPForm from "@/components/OTP/OTPForm";
 import MainContainer from "@/components/MainContainer";
 import React from "react";
 
