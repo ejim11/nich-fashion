@@ -1,13 +1,13 @@
 import AuthContainer from "@/components/AuthContainer";
-import LoginForm from "@/components/Login/LoginForm";
+import ForgotPasswordForm from "@/components/ForgotPassword/ForgotPasswordForm";
 import MainContainer from "@/components/MainContainer";
 import React from "react";
 
-export default function Login() {
+export default function ForgotPassword() {
   return (
     <MainContainer classname="min-h-screen flex justify-center items-center font-satoshi">
-      <AuthContainer text="Enter your email and password to login">
-        <LoginForm />
+      <AuthContainer text="Retrieve your account easily though your mail">
+        <ForgotPasswordForm />
       </AuthContainer>
     </MainContainer>
   );

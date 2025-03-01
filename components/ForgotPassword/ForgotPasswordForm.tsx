@@ -11,19 +11,16 @@ import { AiOutlineMail } from "react-icons/ai";
 // import { FaRegCircleCheck } from "react-icons/fa6";
 // import { LuBadgeAlert } from "react-icons/lu";
 import { FallingLines } from "react-loader-spinner";
-// import { useRouter } from "next/navigation";
-import { IoMdLock } from "react-icons/io";
-import Link from "next/link";
+import { useRouter } from "next/navigation";
 
 // import { useRouter } from "next/navigation";
 
-const LoginForm = () => {
+const ForgotPasswordForm = () => {
   type FormData = {
     email: string;
-    password: string;
   };
 
-  // const router = useRouter();
+  const router = useRouter();
 
   //   const dispatch = useAppDispatch();
 
@@ -39,7 +36,6 @@ const LoginForm = () => {
   } = useForm<FormData>({
     defaultValues: {
       email: "",
-      password: "",
     },
   });
 
@@ -62,7 +58,7 @@ const LoginForm = () => {
   const onSubmit: SubmitHandler<FormData> = (data: FormData) => {
     console.log(data);
 
-    // router.push("/otp");
+    router.push("/otp");
 
     // dispatch(
     //   loginInvestorHandler(
@@ -93,27 +89,6 @@ const LoginForm = () => {
           <AiOutlineMail className="absolute w-[2.2rem] h-[2.2rem] top-[1.2rem] left-[1rem] text-color-primary-1" />
         }
       />
-      <InputComponent
-        placeholder={"************"}
-        type={"password"}
-        register={register}
-        error={errors}
-        name={"password"}
-        validation={registrationOption.password}
-        label="Password"
-        labelTextColor="text-[2rem] font-satoshi"
-        icon={
-          <IoMdLock className="absolute w-[2.2rem] h-[2.2rem] top-[1rem] left-[1rem] text-color-primary-1" />
-        }
-      />
-      <div className="flex ">
-        <Link
-          href={"/forgot-password"}
-          className="text-black ml-auto block font-satoshi font-medium "
-        >
-          Forgot password?
-        </Link>
-      </div>
 
       <button
         disabled={isLoading}
@@ -132,4 +107,4 @@ const LoginForm = () => {
   );
 };
 
-export default LoginForm;
+export default ForgotPasswordForm;
