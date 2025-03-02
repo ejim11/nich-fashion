@@ -13,11 +13,13 @@ import { AiOutlineMail } from "react-icons/ai";
 import { FallingLines } from "react-loader-spinner";
 import { useRouter } from "next/navigation";
 import { IoMdLock } from "react-icons/io";
+import { FaRegCircleUser } from "react-icons/fa6";
 
 // import { useRouter } from "next/navigation";
 
 const RegisterForm = () => {
   type FormData = {
+    name: string;
     email: string;
     password: string;
   };
@@ -37,6 +39,7 @@ const RegisterForm = () => {
     formState: { errors },
   } = useForm<FormData>({
     defaultValues: {
+      name: "",
       email: "",
       password: "",
     },
@@ -80,7 +83,20 @@ const RegisterForm = () => {
   return (
     <form onSubmit={handleSubmit(onSubmit)} noValidate>
       <InputComponent
-        placeholder={"Enter you mail address"}
+        placeholder={"Enter your full name"}
+        type={"text"}
+        register={register}
+        error={errors}
+        label="Fullname"
+        labelTextColor="text-[2rem] font-satoshi"
+        name={"name"}
+        validation={registrationOption.name}
+        icon={
+          <FaRegCircleUser className="absolute w-[2.2rem] h-[2.2rem] top-[1.2rem] left-[1rem] text-color-primary-1" />
+        }
+      />
+      <InputComponent
+        placeholder={"Enter your mail address"}
         type={"email"}
         register={register}
         error={errors}
