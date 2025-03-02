@@ -6,7 +6,7 @@ import React from "react";
 export default function Register() {
   return (
     <MainContainer classname="min-h-screen flex justify-center items-center font-satoshi">
-      <AuthContainer text="Enter your email and a password, we’ll send you a login code">
+      <AuthContainer text="Enter your details, we’ll send you an otp code">
         <RegisterForm />
       </AuthContainer>
     </MainContainer>
