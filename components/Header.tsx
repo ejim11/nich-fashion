@@ -10,10 +10,15 @@ import { LuSearch, LuShoppingCart } from "react-icons/lu";
 import { FaRegUserCircle } from "react-icons/fa";
 import HeaderNavigationLink from "./HeaderLinkSubComponents/HeaderNavLink";
 import Link from "next/link";
-import { useAppSelector } from "@/hooks/stateHooks";
+import { useAppDispatch, useAppSelector } from "@/hooks/stateHooks";
+import { userActions } from "@/slices/userSlice";
 
 const Header = () => {
+  const dispatch = useAppDispatch();
+
   const { checkout } = useAppSelector((state) => state.checkout);
+
+  const { details } = useAppSelector((state) => state.user);
 
   const [scaleUp, setScaleUp] = useState<boolean>(false);
 
@@ -57,14 +62,24 @@ const Header = () => {
     };
   }, [checkout]);
 
+  useEffect(() => {
+    if (typeof window !== "undefined") {
+      const details = JSON.parse(window.localStorage.getItem("user") || "{}");
+
+      dispatch(userActions.setUserDetails(details));
+    }
+  }, [dispatch]);
+
   return (
     <div className="w-full flex flex-col fixed top-0 left-0 right-0 z-50">
-      <div className="flex w-full h-[3.8rem] items-center bg-black text-color-white justify-center font-satoshi text-[1.4rem] leading-[1.8rem]">
-        <p>Sign up and get 20% off to your first order. </p>
-        <Link href={"/register"} className="ml-[0.5rem] font-medium underline">
-          Sign Up Now
-        </Link>
-      </div>
+      {details && !details.email && (
+        <div className="flex w-full h-[3.8rem] items-center bg-black text-color-white justify-center font-satoshi text-[1.4rem] leading-[1.8rem]">
+          <p>Sign up and get 20% off to your first order. </p>
+          <Link href={"/auth"} className="ml-[0.5rem] font-medium underline">
+            Sign Up Now
+          </Link>
+        </div>
+      )}
       <header className="flex h-[7.5rem]   items-center px-[8rem] bg-color-white justify-between border-b border-[#F0EEED]">
         <div className="w-[9.3rem] h-[4.3rem]">
           <Image
@@ -101,20 +116,24 @@ const Header = () => {
               {checkout.length}
             </span>
           </button>
-          <div className="hidden">
-            <button className="flex items-center ">
-              <FaRegUserCircle className="w-[2.4rem] h-[2.4rem] text-color-current mr-[0.3rem]" />
-              <FiChevronDown className="w-[1.6rem] h-[1.6rem] text-color-current" />
-            </button>
-            <p className="font-satoshi ml-[1.5rem]">NA</p>
-          </div>
-          <Link
-            href={"/login"}
-            className="bg-black text-white px-[2rem] py-[1rem] rounded-[0.6rem]"
-          >
-            Login
-          </Link>
-
+          {details && details.email ? (
+            <div className="flex items-center">
+              <button className="flex items-center ">
+                <FaRegUserCircle className="w-[2.4rem] h-[2.4rem] text-color-current mr-[0.3rem]" />
+                <FiChevronDown className="w-[1.6rem] h-[1.6rem] text-color-current" />
+              </button>
+              <p className="font-satoshi ml-[1.5rem] uppercase">
+                {details.email.slice(0, 2)}
+              </p>
+            </div>
+          ) : (
+            <Link
+              href={"/auth"}
+              className="bg-black text-white px-[2rem] py-[1rem] rounded-[0.6rem]"
+            >
+              Login
+            </Link>
+          )}
           {/* <div className="fixed top-[8rem] right-[5rem] w-[20rem] h-[20rem] shadow-lg bg-white"></div> */}
         </div>
       </header>
