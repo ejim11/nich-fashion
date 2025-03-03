@@ -2,7 +2,7 @@
 "use client";
 import { useAppSelector } from "@/hooks/stateHooks";
 import { ShoppingItem } from "@/types/shoppingItem";
-import React, { useRef, useState } from "react";
+import React, { useEffect, useRef, useState } from "react";
 import CollectionItem from "./CollectionItem";
 import { MdKeyboardArrowLeft, MdKeyboardArrowRight } from "react-icons/md";
 import ReactPaginate from "react-paginate";
@@ -31,6 +31,10 @@ const CollectionsComp = () => {
   const scrollToSection = () => {
     sectionRef.current?.scrollIntoView({ behavior: "smooth" });
   };
+
+  useEffect(() => {
+    window.scrollTo({ top: -80, behavior: "smooth" });
+  }, []);
 
   return (
     <div>
