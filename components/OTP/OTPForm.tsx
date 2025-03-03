@@ -1,21 +1,43 @@
 "use client";
-// import { useAppDispatch, useAppSelector } from "@/hooks/customHook";
-// import { authActions } from "@/slices/authSlice";
+import { loginWithOtpDispatch } from "@/actions/authActions";
+import { useAppDispatch } from "@/hooks/stateHooks";
+import { toastError, toastSuccess } from "@/utils/toastFuncs";
 import { useRouter } from "next/navigation";
 import React, { useEffect, useState } from "react";
-// import { FallingLines } from "react-loader-spinner";
-// import OtpInput from "react-otp-input";
+import { FaRegCircleCheck } from "react-icons/fa6";
+import { LuBadgeAlert } from "react-icons/lu";
+import { FallingLines } from "react-loader-spinner";
 import OtpInput from "react18-input-otp";
 
 const OTPForm = () => {
-  //   const { otp } = useAppSelector((state) => state.auth);
-  //   const dispatchFn = useAppDispatch();
+  const dispatchFn = useAppDispatch();
   const [otp, setOtp] = useState<string>("");
+
+  const [isLoading, setIsLoading] = useState<boolean>(false);
   const router = useRouter();
 
   useEffect(() => {
     window.scrollTo({ top: -80, behavior: "smooth" });
   }, []);
+
+  const resetForm = () => {
+    setOtp("");
+    router.push("/");
+  };
+
+  const loginUserHandler = () => {
+    dispatchFn(
+      loginWithOtpDispatch(
+        Number(otp),
+        setIsLoading,
+        toastSuccess,
+        toastError,
+        <FaRegCircleCheck className="w-[2.3rem] h-[2.3rem] text-color-primary-1" />,
+        <LuBadgeAlert className="w-[2.3rem] h-[2.3rem] red" />,
+        resetForm
+      )
+    );
+  };
 
   return (
     <div>
@@ -36,14 +58,21 @@ const OTPForm = () => {
           disabled={!otp}
           type="submit"
           className={`mt-[3.5rem] py-[2rem] flex justify-center hover:shadow-lg  font-medium items-center bg-color-black text-color-white w-full border border-color-purple-1 hover:bg-color-purple-2 hover:border-color-purple-2  rounded-lg transition-all duration-150 ease-in  cursor-pointer disabled:bg-color-purple-3 disabled:border-color-purple-3`}
-          onClick={() => {
-            router.push("/auth/reset-password");
-          }}
+          onClick={loginUserHandler}
         >
-          Continue
+          {isLoading ? (
+            <FallingLines
+              height="25"
+              width="25"
+              color={"white"}
+              visible={true}
+            />
+          ) : (
+            "Continue"
+          )}
         </button>
       </div>
-      <div className="flex flex-col items-center mt-[2.4rem]">
+      {/* <div className="flex flex-col items-center mt-[2.4rem]">
         <div className="flex items-center">
           <p className="text-[#222222CC]">Didn’t receive the email? </p>
           <button
@@ -53,7 +82,7 @@ const OTPForm = () => {
             Click to resend
           </button>
         </div>
-      </div>
+      </div> */}
     </div>
   );
 };
