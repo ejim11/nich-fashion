@@ -5,77 +5,62 @@ import { registrationOption } from "@/utils/inputValidator";
 import InputComponent from "../InputComponent";
 import { AiOutlineMail } from "react-icons/ai";
 // import { IoMdLock } from "react-icons/io";
-// import { useAppDispatch } from '@/hooks/;
-// import { loginInvestorHandler } from '@/actions/investorAction';
-// import { toastError, toastSuccess } from '@/utils/helperFns';
-// import { FaRegCircleCheck } from "react-icons/fa6";
-// import { LuBadgeAlert } from "react-icons/lu";
+import { useAppDispatch } from "@/hooks/stateHooks";
+import { toastError, toastSuccess } from "@/utils/toastFuncs";
+import { FaRegCircleCheck } from "react-icons/fa6";
+import { LuBadgeAlert } from "react-icons/lu";
 import { FallingLines } from "react-loader-spinner";
-// import { useRouter } from "next/navigation";
-import { IoMdLock } from "react-icons/io";
-import Link from "next/link";
+import { useRouter } from "next/navigation";
+import { loginWithEmailDispatch } from "@/actions/authActions";
 
 // import { useRouter } from "next/navigation";
 
 const LoginForm = () => {
   type FormData = {
     email: string;
-    password: string;
   };
 
-  // const router = useRouter();
+  const router = useRouter();
 
-  //   const dispatch = useAppDispatch();
+  const dispatch = useAppDispatch();
 
-  // eslint-disable-next-line @typescript-eslint/no-unused-vars
   const [isLoading, setIsLoading] = useState<boolean>(false);
 
   const {
     register,
     handleSubmit,
-    // eslint-disable-next-line @typescript-eslint/no-unused-vars
     reset,
     formState: { errors },
   } = useForm<FormData>({
     defaultValues: {
       email: "",
-      password: "",
+      // password: "",
     },
   });
 
-  //   const resetForm = () => {
-  //     reset({
-  //       email: "",
-  //     });
-  //   };
-
-  //   const navigateFunc = ({ id, name }: { id: string; name: string }) => {
-  //     router.replace(
-  //       `/dashboard/${name.toLowerCase().slice().split(" ").join("-")}`
-  //     );
-  //   };
+  const resetForm = () => {
+    reset({
+      email: "",
+    });
+    router.replace(`/otp`);
+  };
 
   useEffect(() => {
     window.scrollTo({ top: -80, behavior: "smooth" });
   }, []);
 
   const onSubmit: SubmitHandler<FormData> = (data: FormData) => {
-    console.log(data);
-
-    // router.push("/otp");
-
-    // dispatch(
-    //   loginInvestorHandler(
-    //     data,
-    //     setIsLoading,
-    //     toastSuccess,
-    //     toastError,
-    //     <FaRegCircleCheck className="w-[2.3rem] h-[2.3rem] text-color-primary-1" />,
-    //     <LuBadgeAlert className="w-[2.3rem] h-[2.3rem] red" />,
-    //     resetForm,
-    //     navigateFunc
-    //   )
-    // );
+    dispatch(
+      loginWithEmailDispatch(
+        data.email,
+        setIsLoading,
+        toastSuccess,
+        toastError,
+        <FaRegCircleCheck className="w-[2.3rem] h-[2.3rem] text-color-primary-1" />,
+        <LuBadgeAlert className="w-[2.3rem] h-[2.3rem] red" />,
+        resetForm
+      )
+    );
   };
 
   return (
@@ -93,28 +78,6 @@ const LoginForm = () => {
           <AiOutlineMail className="absolute w-[2.2rem] h-[2.2rem] top-[1.2rem] left-[1rem] text-color-primary-1" />
         }
       />
-      <InputComponent
-        placeholder={"************"}
-        type={"password"}
-        register={register}
-        error={errors}
-        name={"password"}
-        validation={registrationOption.password}
-        label="Password"
-        labelTextColor="text-[2rem] font-satoshi"
-        icon={
-          <IoMdLock className="absolute w-[2.2rem] h-[2.2rem] top-[1rem] left-[1rem] text-color-primary-1" />
-        }
-      />
-      <div className="flex ">
-        <Link
-          href={"/forgot-password"}
-          className="text-black ml-auto block font-satoshi font-medium "
-        >
-          Forgot password?
-        </Link>
-      </div>
-
       <button
         disabled={isLoading}
         type="submit"

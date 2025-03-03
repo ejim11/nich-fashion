@@ -1,3 +1,4 @@
+"use client";
 import HomeComp from "@/components/Home/HomeComp";
 
 export default function Home() {

@@ -83,3 +83,24 @@ input[type="number"] {
   background-color: rgba(0, 0, 0, 1);
   color: #fff;
 }
+
+/* toatisfy styles */
+.Toastify__toast {
+  width: 30rem;
+  font-size: 1.6rem;
+
+  @media all and (max-width: 700px) {
+    width: 85%;
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 3rem;
+  }
+}
+
+.Toastify__toast-theme--light {
+  color: "rgba(131, 66, 255, 1)" !important;
+}
+
+.Toastify__toast-body > * {
+  color: "red" !important;
+}

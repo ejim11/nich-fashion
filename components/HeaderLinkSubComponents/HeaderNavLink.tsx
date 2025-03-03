@@ -8,8 +8,6 @@ import { FiChevronDown } from "react-icons/fi";
 const HeaderNavigationLink = ({ navItem }: { navItem: HeaderNavLink }) => {
   const pathname = usePathname();
 
-  console.log(pathname);
-
   return (
     <>
       {navItem.link ? (
