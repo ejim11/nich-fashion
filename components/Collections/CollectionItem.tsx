@@ -6,6 +6,7 @@ import { PiShoppingCartSimpleBold } from "react-icons/pi";
 import { PiShoppingCartSimpleFill } from "react-icons/pi";
 import { useAppDispatch, useAppSelector } from "@/hooks/stateHooks";
 import { checkoutActions } from "@/slices/checkoutSlice";
+import Link from "next/link";
 
 const CollectionItem = ({ collection }: { collection: ShoppingItem }) => {
   const dispatch = useAppDispatch();
@@ -27,11 +28,14 @@ const CollectionItem = ({ collection }: { collection: ShoppingItem }) => {
   };
 
   return (
-    <div className="relative flex flex-col">
+    <Link
+      href={`/collections/${collection.id}`}
+      className="relative flex flex-col"
+    >
       <div className="bg-color-grey-4 rounded-[2rem] px-[5rem] py-[1.8rem]">
         <Image
           src={collection.image}
-          alt={`${collection.title} image`}
+          alt={`${collection.name} image`}
           priority
           width={500}
           height={500}
@@ -40,7 +44,7 @@ const CollectionItem = ({ collection }: { collection: ShoppingItem }) => {
       </div>
       <div className="flex w-full items-start mt-[1rem]">
         <p className=" text-[1.8rem] font-bold font-satoshi mr-[1rem]">
-          {collection.title}
+          {collection.name}
         </p>
         <button
           type="button"
@@ -74,7 +78,7 @@ const CollectionItem = ({ collection }: { collection: ShoppingItem }) => {
           </div>
         )}
       </div>
-    </div>
+    </Link>
   );
 };
 
