@@ -7,8 +7,11 @@ import PriceRangeComp from "./PriceRangeComp";
 import ColorsComp from "./ColorsComp";
 import Sizes from "./Sizes";
 import DressStyle from "./DressStyle";
+import { usePathname } from "next/navigation";
 
 const CollectionsNav: React.FC<{ children: ReactNode }> = ({ children }) => {
+  const pathname: string = usePathname().slice(13);
+
   const [category, setCategory] = useState<CollectionCategory>(
     CollectionCategory.Voltex
   );
@@ -26,8 +29,8 @@ const CollectionsNav: React.FC<{ children: ReactNode }> = ({ children }) => {
   };
 
   return (
-    <MainContainer customPadding="px-[8rem] py-[7rem]">
-      <div className="flex ">
+    <MainContainer customPadding={` px-[8rem] py-[7rem]`}>
+      <div className={`${pathname ? "hidden" : "flex"}`}>
         {collectionCategories.map((cat: CollectionCategory) => (
           <button
             onClick={() => {
@@ -45,7 +48,11 @@ const CollectionsNav: React.FC<{ children: ReactNode }> = ({ children }) => {
         ))}
       </div>
       <div className="w-full flex  mt-[4.1rem] relative">
-        <div className="w-[45rem] h-max sticky top-[8rem] px-[2.3rem] py-[1.9rem] left-0 bg-white border border-[rgba(0,0,0,0.1)] rounded-[2rem]">
+        <div
+          className={`w-[45rem] ${
+            pathname ? " hidden" : "flex flex-col"
+          } h-max sticky top-[8rem] px-[2.3rem] py-[1.9rem] left-0 bg-white border border-[rgba(0,0,0,0.1)] rounded-[2rem]`}
+        >
           <FiltersComp />
           <PriceRangeComp />
           <ColorsComp />
