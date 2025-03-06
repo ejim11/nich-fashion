@@ -29,7 +29,11 @@ const CollectionsComp = () => {
     "block  bg-color-white py-[0.5rem] px-[1rem] rounded-lg  border border-[rgba(0,0,0,0.1)] text-color-black hover:bg-color-[rgba(0,0,0,0.1)] transition-all tableData-200 ease-in capitalize ";
 
   const scrollToSection = () => {
-    sectionRef.current?.scrollIntoView({ behavior: "smooth" });
+    sectionRef.current?.scrollIntoView({
+      behavior: "smooth",
+      block: "start",
+      inline: "nearest",
+    });
   };
 
   useEffect(() => {
