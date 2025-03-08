@@ -18,7 +18,7 @@ async function fetchProduct(shoppingItemId: string) {
 export async function generateMetadata({
   params,
 }: {
-  params: { shoppingItemId: string };
+  params: Promise<{ shoppingItemId: string }>;
 }): Promise<Metadata> {
   const { shoppingItemId } = await params;
   // Fetch product details
@@ -30,11 +30,16 @@ export async function generateMetadata({
   };
 }
 
+type CollectionPageProps = {
+  params: Promise<{
+    shoppingItemId: string;
+  }>;
+  searchParams?: Record<string, string | string[] | undefined>;
+};
+
 export default async function ShoppingItemDetails({
   params,
-}: {
-  params: { shoppingItemId: string };
-}) {
+}: CollectionPageProps) {
   const { shoppingItemId } = await params;
   return <ShoppingItemDetail itemId={shoppingItemId} />;
 }
