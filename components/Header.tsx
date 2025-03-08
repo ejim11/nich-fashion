@@ -4,7 +4,7 @@ import React, { useEffect, useState } from "react";
 import logo from "../assets/logo.svg";
 import { HeaderNavLink } from "@/types/headerNavLink";
 // import CollectionSubComponent from "./HeaderLinkSubComponents/CollectionSubComponent";
-import ShopSubComponent from "./HeaderLinkSubComponents/ShopSubComponent";
+// import ShopSubComponent from "./HeaderLinkSubComponents/ShopSubComponent";
 import { FiChevronDown } from "react-icons/fi";
 import { LuSearch, LuShoppingCart } from "react-icons/lu";
 import { FaRegUserCircle } from "react-icons/fa";
@@ -30,15 +30,6 @@ const Header = () => {
     {
       title: "collections",
       link: "/collections",
-      // subComponent: <CollectionSubComponent />,
-    },
-    // {
-    //   title: "products",
-    //   link: "/products",
-    // },
-    {
-      title: "shop",
-      subComponent: <ShopSubComponent />,
     },
     {
       title: "contact",

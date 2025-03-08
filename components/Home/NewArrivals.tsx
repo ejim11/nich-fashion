@@ -12,11 +12,11 @@ const NewArrivals = () => {
       </h2>
       <div className="grid-cols-4 gap-[10rem] grid w-full">
         {newArrivals.map((item: ShoppingItem) => (
-          <div key={item.title} className="">
+          <div key={item.name} className="">
             <div className="bg-color-grey-4 rounded-[2rem] px-[5rem] py-[1.8rem]">
               <Image
                 src={item.image}
-                alt={`${item.title} image`}
+                alt={`${item.name} image`}
                 priority
                 width={500}
                 height={500}
@@ -24,7 +24,7 @@ const NewArrivals = () => {
               />
             </div>
             <p className="mt-[1rem] text-[1.9rem] font-bold font-satoshi">
-              {item.title}
+              {item.name}
             </p>
             <div className="text-[2rem] leading-[3.1rem] font-bold flex items-center">
               <p className="font-satoshi text-color-black   mr-[1rem]">
