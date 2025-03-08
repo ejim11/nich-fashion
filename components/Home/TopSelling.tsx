@@ -12,7 +12,7 @@ const TopSelling = () => {
       </h2>
       <div className="grid-cols-4 gap-[10rem] grid w-full">
         {topSellings.map((item: ShoppingItem) => (
-          <div key={item.title} className="relative flex flex-col">
+          <div key={item.name} className="relative flex flex-col">
             {item.soldOut && (
               <p className="absolute top-[2.2rem] left-[1.5rem] bg-black text-white font-satoshi font-bold py-[0.3rem] px-[0.6rem] rounded-[0.27rem]">
                 Sold Out
@@ -21,7 +21,7 @@ const TopSelling = () => {
             <div className="bg-color-grey-4 rounded-[2rem] px-[5rem] py-[1.8rem]">
               <Image
                 src={item.image}
-                alt={`${item.title} image`}
+                alt={`${item.name} image`}
                 priority
                 width={500}
                 height={500}
@@ -29,7 +29,7 @@ const TopSelling = () => {
               />
             </div>
             <p className="mt-[1rem] text-[1.9rem] font-bold font-satoshi">
-              {item.title}
+              {item.name}
             </p>
             <div className="text-[2rem] leading-[3.1rem] font-bold flex items-center">
               <p className="font-satoshi text-color-black   mr-[1rem]">
