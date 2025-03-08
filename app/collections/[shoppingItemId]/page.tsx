@@ -3,6 +3,8 @@ import { collections } from "@/data/collections";
 import { ShoppingItem } from "@/types/shoppingItem";
 import { Metadata } from "next";
 
+type Params = Promise<{ shoppingItemId: string }>;
+
 // Utility function to fetch product data
 async function fetchProduct(shoppingItemId: string) {
   const item = collections.find(
@@ -18,9 +20,9 @@ async function fetchProduct(shoppingItemId: string) {
 export async function generateMetadata({
   params,
 }: {
-  params: { shoppingItemId: string };
+  params: Params;
 }): Promise<Metadata> {
-  const { shoppingItemId } = params;
+  const { shoppingItemId } = await params;
   // Fetch product details
   const product = await fetchProduct(shoppingItemId);
 
@@ -30,13 +32,11 @@ export async function generateMetadata({
   };
 }
 
-export default function ShoppingItemDetails({
+export default async function ShoppingItemDetails({
   params,
 }: {
-  params: {
-    shoppingItemId: string;
-  };
+  params: Params;
 }) {
-  const { shoppingItemId } = params;
+  const { shoppingItemId } = await params;
   return <ShoppingItemDetail itemId={shoppingItemId} />;
 }
