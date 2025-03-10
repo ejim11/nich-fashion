@@ -18,7 +18,6 @@ export const newArrivals: ShoppingItem[] = [
     sizes: [],
     shortDescription: "",
     longDescription: [],
-    colors: [],
     otherImages: [],
   },
   {
@@ -34,7 +33,6 @@ export const newArrivals: ShoppingItem[] = [
     sizes: [],
     shortDescription: "",
     longDescription: [],
-    colors: [],
     otherImages: [],
   },
   {
@@ -50,7 +48,6 @@ export const newArrivals: ShoppingItem[] = [
     sizes: [],
     shortDescription: "",
     longDescription: [],
-    colors: [],
     otherImages: [],
   },
   {
@@ -66,7 +63,6 @@ export const newArrivals: ShoppingItem[] = [
     sizes: [],
     shortDescription: "",
     longDescription: [],
-    colors: [],
     otherImages: [],
   },
 ];

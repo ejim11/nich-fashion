@@ -8,6 +8,9 @@ import { FiChevronRight } from "react-icons/fi";
 import ItemDescription from "./ItemDescription";
 import AdditionalInfo from "./Additional-Info";
 import Reviews from "./Reviews";
+import SubscribeToNewsLetter from "@/components/Home/SubscribeToNewsLetter";
+import ShortShoppingItemList from "@/components/ShortShoppingItemList";
+import { newArrivals } from "@/data/newArrivals";
 
 const ShoppingItemDetail: React.FC<{ itemId: string }> = ({ itemId }) => {
   const detailsNav: { text: string; slug: string }[] = [
@@ -42,13 +45,17 @@ const ShoppingItemDetail: React.FC<{ itemId: string }> = ({ itemId }) => {
   const componentViewed = (type: string): ReactNode => {
     switch (type) {
       case "description":
-        return <ItemDescription />;
+        return (
+          <ItemDescription texts={shoppingItem?.longDescription || [""]} />
+        );
       case "additional-info":
-        return <AdditionalInfo />;
+        return <AdditionalInfo shoppingItem={shoppingItem} />;
       case "review":
-        return <Reviews />;
+        return <Reviews reviews={shoppingItem?.reviews} />;
       default:
-        return <ItemDescription />;
+        return (
+          <ItemDescription texts={shoppingItem?.longDescription || [""]} />
+        );
     }
   };
 
@@ -74,7 +81,7 @@ const ShoppingItemDetail: React.FC<{ itemId: string }> = ({ itemId }) => {
           {detailsNav.map((item: { text: string; slug: string }) => (
             <Link
               key={item.slug}
-              className={`capitalize flex text-[2.4rem] font-bold font-satoshi py-[1.6rem] border-b-[0.6rem] relative z-[50] transition-all duration-150 ease-in ${
+              className={`capitalize flex text-[2.4rem] font-bold font-satoshi py-[1.6rem] border-b-[0.6rem] relative z-[20] transition-all duration-150 ease-in ${
                 type === item.slug
                   ? "text-black border-black"
                   : "border-transparent text-[#757575]"
@@ -84,13 +91,15 @@ const ShoppingItemDetail: React.FC<{ itemId: string }> = ({ itemId }) => {
               {item.text}
             </Link>
           ))}
-          <div className="h-[0.6rem] bg-[#E5E2E2] absolute bottom-0 left-0 right-0 w-full"></div>
+          <div className="h-[0.6rem] bg-[#E5E2E2] absolute bottom-0 left-0 right-0 z-10 w-full"></div>
         </div>
         <div>
           {/* {switch} */}
           {componentViewed(type || "")}
         </div>
       </div>
+      <ShortShoppingItemList title={"You may also like"} data={newArrivals} />
+      <SubscribeToNewsLetter />
     </div>
   );
 };

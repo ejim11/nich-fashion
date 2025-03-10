@@ -22,7 +22,6 @@ export const topSellings: ShoppingItem[] = [
     sizes: [],
     shortDescription: "",
     longDescription: [],
-    colors: [],
     otherImages: [],
   },
   {
@@ -38,7 +37,6 @@ export const topSellings: ShoppingItem[] = [
     sizes: [],
     shortDescription: "",
     longDescription: [],
-    colors: [],
     otherImages: [],
   },
   {
@@ -54,7 +52,6 @@ export const topSellings: ShoppingItem[] = [
     sizes: [],
     shortDescription: "",
     longDescription: [],
-    colors: [],
     otherImages: [],
   },
   {
@@ -70,7 +67,6 @@ export const topSellings: ShoppingItem[] = [
     sizes: [],
     shortDescription: "",
     longDescription: [],
-    colors: [],
     otherImages: [],
   },
   {
@@ -86,7 +82,6 @@ export const topSellings: ShoppingItem[] = [
     sizes: [],
     shortDescription: "",
     longDescription: [],
-    colors: [],
     otherImages: [],
   },
   {
@@ -102,7 +97,6 @@ export const topSellings: ShoppingItem[] = [
     sizes: [],
     shortDescription: "",
     longDescription: [],
-    colors: [],
     otherImages: [],
   },
   {
@@ -118,7 +112,6 @@ export const topSellings: ShoppingItem[] = [
     sizes: [],
     shortDescription: "",
     longDescription: [],
-    colors: [],
     otherImages: [],
   },
   {
@@ -134,7 +127,6 @@ export const topSellings: ShoppingItem[] = [
     sizes: [],
     shortDescription: "",
     longDescription: [],
-    colors: [],
     otherImages: [],
   },
 ];

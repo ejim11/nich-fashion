@@ -26,18 +26,95 @@ export const collections: ShoppingItem[] = [
     discount: 0,
     soldOut: true,
     type: "t-shirt",
+    reviews: [
+      {
+        id: "knekfn",
+        reviewer: "Samantha D.",
+        comment:
+          "I absolutely love this t-shirt! The design is unique and the fabric feels so comfortable. As a fellow designer, I appreciate the attention to detail. It's become my favorite go-to shirt.",
+        dateCreated: new Date("August 14, 2023").toDateString(),
+        stars: 4,
+      },
+      {
+        id: "spkajfpwk",
+        reviewer: "Alex M.",
+        comment:
+          "The t-shirt exceeded my expectations! The colors are vibrant and the print quality is top-notch. Being a UI/UX designer myself, I'm quite picky about aesthetics, and this t-shirt definitely gets a thumbs up from me.",
+        dateCreated: new Date("March 2, 2024").toDateString(),
+        stars: 5,
+      },
+      {
+        id: "ljmkqowdn",
+        reviewer: "Alex M.",
+        comment:
+          "The t-shirt exceeded my expectations! The colors are vibrant and the print quality is top-notch. Being a UI/UX designer myself, I'm quite picky about aesthetics, and this t-shirt definitely gets a thumbs up from me.",
+        dateCreated: new Date("June 19, 2024").toDateString(),
+        stars: 3,
+      },
+      {
+        id: "lqodnd",
+        reviewer: "Ethan R.",
+        comment:
+          "This t-shirt is a must-have for anyone who appreciates good design. The minimalistic yet stylish pattern caught my eye, and the fit is perfect. I can see the designer's touch in every aspect of this shirt.",
+        dateCreated: new Date("September 1, 2024").toDateString(),
+        stars: 4,
+      },
+      {
+        id: "lmsodnwo",
+        reviewer: "Olivia P.",
+        comment:
+          "As a UI/UX enthusiast, I value simplicity and functionality. This t-shirt not only represents those principles but also feels great to wear. It's evident that the designer poured their creativity into making this t-shirt stand out.",
+        dateCreated: new Date("December 22, 2024").toDateString(),
+        stars: 2,
+      },
+      {
+        id: "smdkcdo",
+        reviewer: "Liam K.",
+        comment:
+          "This t-shirt is a fusion of comfort and creativity. The fabric is soft, and the design speaks volumes about the designer's skill. It's like wearing a piece of art that reflects my passion for both design and fashion.",
+        dateCreated: new Date("January 14, 2025").toDateString(),
+        stars: 5,
+      },
+    ],
     sizes: [
       {
-        quantity: 3,
         size: "xx-small",
+        colors: [
+          {
+            color: "blue",
+            quantity: 7,
+          },
+          {
+            color: "green",
+            quantity: 7,
+          },
+        ],
       },
       {
-        quantity: 9,
-        size: "xx-small",
+        size: "medium",
+        colors: [
+          {
+            color: "blue",
+            quantity: 7,
+          },
+          {
+            color: "green",
+            quantity: 7,
+          },
+        ],
       },
       {
-        quantity: 6,
-        size: "xx-small",
+        size: "large",
+        colors: [
+          {
+            color: "purple",
+            quantity: 7,
+          },
+          {
+            color: "grey",
+            quantity: 7,
+          },
+        ],
       },
     ],
     material: "cotton",
@@ -48,24 +125,7 @@ export const collections: ShoppingItem[] = [
       "Korem ipsum dolor sit amet, consectetur adipiscing elit. Etiam eu turpis molestie, dictum est a, mattis tellus. Sed dignissim, metus nec fringilla accumsan, risus sem sollicitudin lacus, ut interdum tellus elit sed risus. Maecenas eget condimentum velit, sit amet feugiat lectus. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos. Praesent auctor purus luctus enim egestas, ac scelerisque ante pulvinar. Donec ut rhoncus ex. Suspendisse ac rhoncus nisl, eu tempor urna. Curabitur vel bibendum lorem. Morbi convallis convallis diam sit amet lacinia. Aliquam in elementum tellus.",
       "Korem ipsum dolor sit amet, consectetur adipiscing elit. Etiam eu turpis molestie, dictum est a, mattis tellus. Sed dignissim, metus nec fringilla accumsan, risus sem sollicitudin lacus, ut interdum tellus elit sed risus. Maecenas eget condimentum velit, sit amet feugiat lectus. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos. Praesent auctor purus luctus enim egestas, ac scelerisque ante pulvinar. Donec ut rhoncus ex. Suspendisse ac rhoncus nisl, eu tempor urna. Curabitur vel bibendum lorem. Morbi convallis convallis diam sit amet lacinia. Aliquam in elementum tellus.",
     ],
-    colors: [
-      {
-        color: "blue",
-        quantity: 7,
-      },
-      {
-        color: "red",
-        quantity: 7,
-      },
-      {
-        color: "yellow",
-        quantity: 7,
-      },
-      {
-        color: "green",
-        quantity: 7,
-      },
-    ],
+
     otherImages: [topSellingImg1, topSellingImg1, topSellingImg1],
   },
   {
@@ -76,12 +136,105 @@ export const collections: ShoppingItem[] = [
     discount: 20,
     type: "t-shirt",
     soldOut: false,
-    material: "",
-    brand: "",
-    sizes: [],
+    material: "cotton",
+    brand: "zara",
+
+    reviews: [
+      {
+        id: "knekfn",
+        reviewer: "Samantha D.",
+        comment:
+          "I absolutely love this t-shirt! The design is unique and the fabric feels so comfortable. As a fellow designer, I appreciate the attention to detail. It's become my favorite go-to shirt.",
+        dateCreated: new Date("August 14, 2023").toDateString(),
+        stars: 4,
+      },
+      {
+        id: "spkajfpwk",
+        reviewer: "Alex M.",
+        comment:
+          "The t-shirt exceeded my expectations! The colors are vibrant and the print quality is top-notch. Being a UI/UX designer myself, I'm quite picky about aesthetics, and this t-shirt definitely gets a thumbs up from me.",
+        dateCreated: new Date("March 2, 2024").toDateString(),
+        stars: 5,
+      },
+      {
+        id: "ljmkqowdn",
+        reviewer: "Alex M.",
+        comment:
+          "The t-shirt exceeded my expectations! The colors are vibrant and the print quality is top-notch. Being a UI/UX designer myself, I'm quite picky about aesthetics, and this t-shirt definitely gets a thumbs up from me.",
+        dateCreated: new Date("June 19, 2024").toDateString(),
+        stars: 3,
+      },
+      {
+        id: "lqodnd",
+        reviewer: "Ethan R.",
+        comment:
+          "This t-shirt is a must-have for anyone who appreciates good design. The minimalistic yet stylish pattern caught my eye, and the fit is perfect. I can see the designer's touch in every aspect of this shirt.",
+        dateCreated: new Date("September 1, 2024").toDateString(),
+        stars: 4,
+      },
+      {
+        id: "lmsodnwo",
+        reviewer: "Olivia P.",
+        comment:
+          "As a UI/UX enthusiast, I value simplicity and functionality. This t-shirt not only represents those principles but also feels great to wear. It's evident that the designer poured their creativity into making this t-shirt stand out.",
+        dateCreated: new Date("December 22, 2024").toDateString(),
+        stars: 2,
+      },
+      {
+        id: "smdkcdo",
+        reviewer: "Liam K.",
+        comment:
+          "This t-shirt is a fusion of comfort and creativity. The fabric is soft, and the design speaks volumes about the designer's skill. It's like wearing a piece of art that reflects my passion for both design and fashion.",
+        dateCreated: new Date("January 14, 2025").toDateString(),
+        stars: 5,
+      },
+    ],
+    sizes: [
+      {
+        size: "xx-small",
+        colors: [
+          {
+            color: "blue",
+            quantity: 7,
+          },
+          {
+            color: "green",
+            quantity: 7,
+          },
+        ],
+      },
+      {
+        size: "medium",
+        colors: [
+          {
+            color: "blue",
+            quantity: 7,
+          },
+          {
+            color: "green",
+            quantity: 7,
+          },
+        ],
+      },
+      {
+        size: "large",
+        colors: [
+          {
+            color: "purple",
+            quantity: 7,
+          },
+          {
+            color: "grey",
+            quantity: 7,
+          },
+        ],
+      },
+    ],
     shortDescription: "",
-    longDescription: [],
-    colors: [],
+    longDescription: [
+      "Korem ipsum dolor sit amet, consectetur adipiscing elit. Etiam eu turpis molestie, dictum est a, mattis tellus. Sed dignissim, metus nec fringilla accumsan, risus sem sollicitudin lacus, ut interdum tellus elit sed risus. Maecenas eget condimentum velit, sit amet feugiat lectus. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos. Praesent auctor purus luctus enim egestas, ac scelerisque ante pulvinar. Donec ut rhoncus ex. Suspendisse ac rhoncus nisl, eu tempor urna. Curabitur vel bibendum lorem. Morbi convallis convallis diam sit amet lacinia. Aliquam in elementum tellus.",
+      "Korem ipsum dolor sit amet, consectetur adipiscing elit. Etiam eu turpis molestie, dictum est a, mattis tellus. Sed dignissim, metus nec fringilla accumsan, risus sem sollicitudin lacus, ut interdum tellus elit sed risus. Maecenas eget condimentum velit, sit amet feugiat lectus. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos. Praesent auctor purus luctus enim egestas, ac scelerisque ante pulvinar. Donec ut rhoncus ex. Suspendisse ac rhoncus nisl, eu tempor urna. Curabitur vel bibendum lorem. Morbi convallis convallis diam sit amet lacinia. Aliquam in elementum tellus.",
+    ],
     otherImages: [],
   },
   {
@@ -92,12 +245,105 @@ export const collections: ShoppingItem[] = [
     discount: 0,
     soldOut: true,
     type: "shorts",
-    material: "",
-    brand: "",
-    sizes: [],
+    material: "cotton",
+    brand: "zara",
+
+    reviews: [
+      {
+        id: "knekfn",
+        reviewer: "Samantha D.",
+        comment:
+          "I absolutely love this t-shirt! The design is unique and the fabric feels so comfortable. As a fellow designer, I appreciate the attention to detail. It's become my favorite go-to shirt.",
+        dateCreated: new Date("August 14, 2023").toDateString(),
+        stars: 4,
+      },
+      {
+        id: "spkajfpwk",
+        reviewer: "Alex M.",
+        comment:
+          "The t-shirt exceeded my expectations! The colors are vibrant and the print quality is top-notch. Being a UI/UX designer myself, I'm quite picky about aesthetics, and this t-shirt definitely gets a thumbs up from me.",
+        dateCreated: new Date("March 2, 2024").toDateString(),
+        stars: 5,
+      },
+      {
+        id: "ljmkqowdn",
+        reviewer: "Alex M.",
+        comment:
+          "The t-shirt exceeded my expectations! The colors are vibrant and the print quality is top-notch. Being a UI/UX designer myself, I'm quite picky about aesthetics, and this t-shirt definitely gets a thumbs up from me.",
+        dateCreated: new Date("June 19, 2024").toDateString(),
+        stars: 3,
+      },
+      {
+        id: "lqodnd",
+        reviewer: "Ethan R.",
+        comment:
+          "This t-shirt is a must-have for anyone who appreciates good design. The minimalistic yet stylish pattern caught my eye, and the fit is perfect. I can see the designer's touch in every aspect of this shirt.",
+        dateCreated: new Date("September 1, 2024").toDateString(),
+        stars: 4,
+      },
+      {
+        id: "lmsodnwo",
+        reviewer: "Olivia P.",
+        comment:
+          "As a UI/UX enthusiast, I value simplicity and functionality. This t-shirt not only represents those principles but also feels great to wear. It's evident that the designer poured their creativity into making this t-shirt stand out.",
+        dateCreated: new Date("December 22, 2024").toDateString(),
+        stars: 2,
+      },
+      {
+        id: "smdkcdo",
+        reviewer: "Liam K.",
+        comment:
+          "This t-shirt is a fusion of comfort and creativity. The fabric is soft, and the design speaks volumes about the designer's skill. It's like wearing a piece of art that reflects my passion for both design and fashion.",
+        dateCreated: new Date("January 14, 2025").toDateString(),
+        stars: 5,
+      },
+    ],
+    sizes: [
+      {
+        size: "xx-small",
+        colors: [
+          {
+            color: "blue",
+            quantity: 7,
+          },
+          {
+            color: "green",
+            quantity: 7,
+          },
+        ],
+      },
+      {
+        size: "medium",
+        colors: [
+          {
+            color: "blue",
+            quantity: 7,
+          },
+          {
+            color: "green",
+            quantity: 7,
+          },
+        ],
+      },
+      {
+        size: "large",
+        colors: [
+          {
+            color: "purple",
+            quantity: 7,
+          },
+          {
+            color: "grey",
+            quantity: 7,
+          },
+        ],
+      },
+    ],
     shortDescription: "",
-    longDescription: [],
-    colors: [],
+    longDescription: [
+      "Korem ipsum dolor sit amet, consectetur adipiscing elit. Etiam eu turpis molestie, dictum est a, mattis tellus. Sed dignissim, metus nec fringilla accumsan, risus sem sollicitudin lacus, ut interdum tellus elit sed risus. Maecenas eget condimentum velit, sit amet feugiat lectus. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos. Praesent auctor purus luctus enim egestas, ac scelerisque ante pulvinar. Donec ut rhoncus ex. Suspendisse ac rhoncus nisl, eu tempor urna. Curabitur vel bibendum lorem. Morbi convallis convallis diam sit amet lacinia. Aliquam in elementum tellus.",
+      "Korem ipsum dolor sit amet, consectetur adipiscing elit. Etiam eu turpis molestie, dictum est a, mattis tellus. Sed dignissim, metus nec fringilla accumsan, risus sem sollicitudin lacus, ut interdum tellus elit sed risus. Maecenas eget condimentum velit, sit amet feugiat lectus. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos. Praesent auctor purus luctus enim egestas, ac scelerisque ante pulvinar. Donec ut rhoncus ex. Suspendisse ac rhoncus nisl, eu tempor urna. Curabitur vel bibendum lorem. Morbi convallis convallis diam sit amet lacinia. Aliquam in elementum tellus.",
+    ],
     otherImages: [],
   },
   {
@@ -107,13 +353,107 @@ export const collections: ShoppingItem[] = [
     price: 160,
     discount: 30,
     type: "shirts",
-    sizes: [],
+
+    reviews: [
+      {
+        id: "knekfn",
+        reviewer: "Samantha D.",
+        comment:
+          "I absolutely love this t-shirt! The design is unique and the fabric feels so comfortable. As a fellow designer, I appreciate the attention to detail. It's become my favorite go-to shirt.",
+        dateCreated: new Date("August 14, 2023").toDateString(),
+        stars: 4,
+      },
+      {
+        id: "spkajfpwk",
+        reviewer: "Alex M.",
+        comment:
+          "The t-shirt exceeded my expectations! The colors are vibrant and the print quality is top-notch. Being a UI/UX designer myself, I'm quite picky about aesthetics, and this t-shirt definitely gets a thumbs up from me.",
+        dateCreated: new Date("March 2, 2024").toDateString(),
+        stars: 5,
+      },
+      {
+        id: "ljmkqowdn",
+        reviewer: "Alex M.",
+        comment:
+          "The t-shirt exceeded my expectations! The colors are vibrant and the print quality is top-notch. Being a UI/UX designer myself, I'm quite picky about aesthetics, and this t-shirt definitely gets a thumbs up from me.",
+        dateCreated: new Date("June 19, 2024").toDateString(),
+        stars: 3,
+      },
+      {
+        id: "lqodnd",
+        reviewer: "Ethan R.",
+        comment:
+          "This t-shirt is a must-have for anyone who appreciates good design. The minimalistic yet stylish pattern caught my eye, and the fit is perfect. I can see the designer's touch in every aspect of this shirt.",
+        dateCreated: new Date("September 1, 2024").toDateString(),
+        stars: 4,
+      },
+      {
+        id: "lmsodnwo",
+        reviewer: "Olivia P.",
+        comment:
+          "As a UI/UX enthusiast, I value simplicity and functionality. This t-shirt not only represents those principles but also feels great to wear. It's evident that the designer poured their creativity into making this t-shirt stand out.",
+        dateCreated: new Date("December 22, 2024").toDateString(),
+        stars: 2,
+      },
+      {
+        id: "smdkcdo",
+        reviewer: "Liam K.",
+        comment:
+          "This t-shirt is a fusion of comfort and creativity. The fabric is soft, and the design speaks volumes about the designer's skill. It's like wearing a piece of art that reflects my passion for both design and fashion.",
+        dateCreated: new Date("January 14, 2025").toDateString(),
+        stars: 5,
+      },
+    ],
+    sizes: [
+      {
+        size: "xx-small",
+        colors: [
+          {
+            color: "blue",
+            quantity: 7,
+          },
+          {
+            color: "green",
+            quantity: 7,
+          },
+        ],
+      },
+      {
+        size: "medium",
+        colors: [
+          {
+            color: "blue",
+            quantity: 7,
+          },
+          {
+            color: "green",
+            quantity: 7,
+          },
+        ],
+      },
+      {
+        size: "large",
+        colors: [
+          {
+            color: "purple",
+            quantity: 7,
+          },
+          {
+            color: "grey",
+            quantity: 7,
+          },
+        ],
+      },
+    ],
     soldOut: false,
-    material: "",
-    brand: "",
+    material: "cotton",
+    brand: "zara",
     shortDescription: "",
-    longDescription: [],
-    colors: [],
+    longDescription: [
+      "Korem ipsum dolor sit amet, consectetur adipiscing elit. Etiam eu turpis molestie, dictum est a, mattis tellus. Sed dignissim, metus nec fringilla accumsan, risus sem sollicitudin lacus, ut interdum tellus elit sed risus. Maecenas eget condimentum velit, sit amet feugiat lectus. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos. Praesent auctor purus luctus enim egestas, ac scelerisque ante pulvinar. Donec ut rhoncus ex. Suspendisse ac rhoncus nisl, eu tempor urna. Curabitur vel bibendum lorem. Morbi convallis convallis diam sit amet lacinia. Aliquam in elementum tellus.",
+      "Korem ipsum dolor sit amet, consectetur adipiscing elit. Etiam eu turpis molestie, dictum est a, mattis tellus. Sed dignissim, metus nec fringilla accumsan, risus sem sollicitudin lacus, ut interdum tellus elit sed risus. Maecenas eget condimentum velit, sit amet feugiat lectus. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos. Praesent auctor purus luctus enim egestas, ac scelerisque ante pulvinar. Donec ut rhoncus ex. Suspendisse ac rhoncus nisl, eu tempor urna. Curabitur vel bibendum lorem. Morbi convallis convallis diam sit amet lacinia. Aliquam in elementum tellus.",
+    ],
+
     otherImages: [],
   },
   {
@@ -123,13 +463,107 @@ export const collections: ShoppingItem[] = [
     price: 120,
     discount: 0,
     type: "jeans",
-    sizes: [],
+
+    reviews: [
+      {
+        id: "knekfn",
+        reviewer: "Samantha D.",
+        comment:
+          "I absolutely love this t-shirt! The design is unique and the fabric feels so comfortable. As a fellow designer, I appreciate the attention to detail. It's become my favorite go-to shirt.",
+        dateCreated: new Date("August 14, 2023").toDateString(),
+        stars: 4,
+      },
+      {
+        id: "spkajfpwk",
+        reviewer: "Alex M.",
+        comment:
+          "The t-shirt exceeded my expectations! The colors are vibrant and the print quality is top-notch. Being a UI/UX designer myself, I'm quite picky about aesthetics, and this t-shirt definitely gets a thumbs up from me.",
+        dateCreated: new Date("March 2, 2024").toDateString(),
+        stars: 5,
+      },
+      {
+        id: "ljmkqowdn",
+        reviewer: "Alex M.",
+        comment:
+          "The t-shirt exceeded my expectations! The colors are vibrant and the print quality is top-notch. Being a UI/UX designer myself, I'm quite picky about aesthetics, and this t-shirt definitely gets a thumbs up from me.",
+        dateCreated: new Date("June 19, 2024").toDateString(),
+        stars: 3,
+      },
+      {
+        id: "lqodnd",
+        reviewer: "Ethan R.",
+        comment:
+          "This t-shirt is a must-have for anyone who appreciates good design. The minimalistic yet stylish pattern caught my eye, and the fit is perfect. I can see the designer's touch in every aspect of this shirt.",
+        dateCreated: new Date("September 1, 2024").toDateString(),
+        stars: 4,
+      },
+      {
+        id: "lmsodnwo",
+        reviewer: "Olivia P.",
+        comment:
+          "As a UI/UX enthusiast, I value simplicity and functionality. This t-shirt not only represents those principles but also feels great to wear. It's evident that the designer poured their creativity into making this t-shirt stand out.",
+        dateCreated: new Date("December 22, 2024").toDateString(),
+        stars: 2,
+      },
+      {
+        id: "smdkcdo",
+        reviewer: "Liam K.",
+        comment:
+          "This t-shirt is a fusion of comfort and creativity. The fabric is soft, and the design speaks volumes about the designer's skill. It's like wearing a piece of art that reflects my passion for both design and fashion.",
+        dateCreated: new Date("January 14, 2025").toDateString(),
+        stars: 5,
+      },
+    ],
+    sizes: [
+      {
+        size: "xx-small",
+        colors: [
+          {
+            color: "blue",
+            quantity: 7,
+          },
+          {
+            color: "green",
+            quantity: 7,
+          },
+        ],
+      },
+      {
+        size: "medium",
+        colors: [
+          {
+            color: "blue",
+            quantity: 7,
+          },
+          {
+            color: "green",
+            quantity: 7,
+          },
+        ],
+      },
+      {
+        size: "large",
+        colors: [
+          {
+            color: "purple",
+            quantity: 7,
+          },
+          {
+            color: "grey",
+            quantity: 7,
+          },
+        ],
+      },
+    ],
     soldOut: false,
-    material: "",
-    brand: "",
+    material: "cotton",
+    brand: "zara",
     shortDescription: "",
-    longDescription: [],
-    colors: [],
+    longDescription: [
+      "Korem ipsum dolor sit amet, consectetur adipiscing elit. Etiam eu turpis molestie, dictum est a, mattis tellus. Sed dignissim, metus nec fringilla accumsan, risus sem sollicitudin lacus, ut interdum tellus elit sed risus. Maecenas eget condimentum velit, sit amet feugiat lectus. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos. Praesent auctor purus luctus enim egestas, ac scelerisque ante pulvinar. Donec ut rhoncus ex. Suspendisse ac rhoncus nisl, eu tempor urna. Curabitur vel bibendum lorem. Morbi convallis convallis diam sit amet lacinia. Aliquam in elementum tellus.",
+      "Korem ipsum dolor sit amet, consectetur adipiscing elit. Etiam eu turpis molestie, dictum est a, mattis tellus. Sed dignissim, metus nec fringilla accumsan, risus sem sollicitudin lacus, ut interdum tellus elit sed risus. Maecenas eget condimentum velit, sit amet feugiat lectus. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos. Praesent auctor purus luctus enim egestas, ac scelerisque ante pulvinar. Donec ut rhoncus ex. Suspendisse ac rhoncus nisl, eu tempor urna. Curabitur vel bibendum lorem. Morbi convallis convallis diam sit amet lacinia. Aliquam in elementum tellus.",
+    ],
+
     otherImages: [],
   },
   {
@@ -139,13 +573,107 @@ export const collections: ShoppingItem[] = [
     price: 260,
     discount: 20,
     type: "hoodie",
-    sizes: [],
+
+    reviews: [
+      {
+        id: "knekfn",
+        reviewer: "Samantha D.",
+        comment:
+          "I absolutely love this t-shirt! The design is unique and the fabric feels so comfortable. As a fellow designer, I appreciate the attention to detail. It's become my favorite go-to shirt.",
+        dateCreated: new Date("August 14, 2023").toDateString(),
+        stars: 4,
+      },
+      {
+        id: "spkajfpwk",
+        reviewer: "Alex M.",
+        comment:
+          "The t-shirt exceeded my expectations! The colors are vibrant and the print quality is top-notch. Being a UI/UX designer myself, I'm quite picky about aesthetics, and this t-shirt definitely gets a thumbs up from me.",
+        dateCreated: new Date("March 2, 2024").toDateString(),
+        stars: 5,
+      },
+      {
+        id: "ljmkqowdn",
+        reviewer: "Alex M.",
+        comment:
+          "The t-shirt exceeded my expectations! The colors are vibrant and the print quality is top-notch. Being a UI/UX designer myself, I'm quite picky about aesthetics, and this t-shirt definitely gets a thumbs up from me.",
+        dateCreated: new Date("June 19, 2024").toDateString(),
+        stars: 3,
+      },
+      {
+        id: "lqodnd",
+        reviewer: "Ethan R.",
+        comment:
+          "This t-shirt is a must-have for anyone who appreciates good design. The minimalistic yet stylish pattern caught my eye, and the fit is perfect. I can see the designer's touch in every aspect of this shirt.",
+        dateCreated: new Date("September 1, 2024").toDateString(),
+        stars: 4,
+      },
+      {
+        id: "lmsodnwo",
+        reviewer: "Olivia P.",
+        comment:
+          "As a UI/UX enthusiast, I value simplicity and functionality. This t-shirt not only represents those principles but also feels great to wear. It's evident that the designer poured their creativity into making this t-shirt stand out.",
+        dateCreated: new Date("December 22, 2024").toDateString(),
+        stars: 2,
+      },
+      {
+        id: "smdkcdo",
+        reviewer: "Liam K.",
+        comment:
+          "This t-shirt is a fusion of comfort and creativity. The fabric is soft, and the design speaks volumes about the designer's skill. It's like wearing a piece of art that reflects my passion for both design and fashion.",
+        dateCreated: new Date("January 14, 2025").toDateString(),
+        stars: 5,
+      },
+    ],
+    sizes: [
+      {
+        size: "xx-small",
+        colors: [
+          {
+            color: "blue",
+            quantity: 7,
+          },
+          {
+            color: "green",
+            quantity: 7,
+          },
+        ],
+      },
+      {
+        size: "medium",
+        colors: [
+          {
+            color: "blue",
+            quantity: 7,
+          },
+          {
+            color: "green",
+            quantity: 7,
+          },
+        ],
+      },
+      {
+        size: "large",
+        colors: [
+          {
+            color: "purple",
+            quantity: 7,
+          },
+          {
+            color: "grey",
+            quantity: 7,
+          },
+        ],
+      },
+    ],
     soldOut: false,
-    material: "",
-    brand: "",
+    material: "cotton",
+    brand: "zara",
     shortDescription: "",
-    longDescription: [],
-    colors: [],
+    longDescription: [
+      "Korem ipsum dolor sit amet, consectetur adipiscing elit. Etiam eu turpis molestie, dictum est a, mattis tellus. Sed dignissim, metus nec fringilla accumsan, risus sem sollicitudin lacus, ut interdum tellus elit sed risus. Maecenas eget condimentum velit, sit amet feugiat lectus. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos. Praesent auctor purus luctus enim egestas, ac scelerisque ante pulvinar. Donec ut rhoncus ex. Suspendisse ac rhoncus nisl, eu tempor urna. Curabitur vel bibendum lorem. Morbi convallis convallis diam sit amet lacinia. Aliquam in elementum tellus.",
+      "Korem ipsum dolor sit amet, consectetur adipiscing elit. Etiam eu turpis molestie, dictum est a, mattis tellus. Sed dignissim, metus nec fringilla accumsan, risus sem sollicitudin lacus, ut interdum tellus elit sed risus. Maecenas eget condimentum velit, sit amet feugiat lectus. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos. Praesent auctor purus luctus enim egestas, ac scelerisque ante pulvinar. Donec ut rhoncus ex. Suspendisse ac rhoncus nisl, eu tempor urna. Curabitur vel bibendum lorem. Morbi convallis convallis diam sit amet lacinia. Aliquam in elementum tellus.",
+    ],
+
     otherImages: [],
   },
   {
@@ -156,12 +684,106 @@ export const collections: ShoppingItem[] = [
     discount: 0,
     soldOut: true,
     type: "hoodie",
-    sizes: [],
-    material: "",
-    brand: "",
+
+    reviews: [
+      {
+        id: "knekfn",
+        reviewer: "Samantha D.",
+        comment:
+          "I absolutely love this t-shirt! The design is unique and the fabric feels so comfortable. As a fellow designer, I appreciate the attention to detail. It's become my favorite go-to shirt.",
+        dateCreated: new Date("August 14, 2023").toDateString(),
+        stars: 4,
+      },
+      {
+        id: "spkajfpwk",
+        reviewer: "Alex M.",
+        comment:
+          "The t-shirt exceeded my expectations! The colors are vibrant and the print quality is top-notch. Being a UI/UX designer myself, I'm quite picky about aesthetics, and this t-shirt definitely gets a thumbs up from me.",
+        dateCreated: new Date("March 2, 2024").toDateString(),
+        stars: 5,
+      },
+      {
+        id: "ljmkqowdn",
+        reviewer: "Alex M.",
+        comment:
+          "The t-shirt exceeded my expectations! The colors are vibrant and the print quality is top-notch. Being a UI/UX designer myself, I'm quite picky about aesthetics, and this t-shirt definitely gets a thumbs up from me.",
+        dateCreated: new Date("June 19, 2024").toDateString(),
+        stars: 3,
+      },
+      {
+        id: "lqodnd",
+        reviewer: "Ethan R.",
+        comment:
+          "This t-shirt is a must-have for anyone who appreciates good design. The minimalistic yet stylish pattern caught my eye, and the fit is perfect. I can see the designer's touch in every aspect of this shirt.",
+        dateCreated: new Date("September 1, 2024").toDateString(),
+        stars: 4,
+      },
+      {
+        id: "lmsodnwo",
+        reviewer: "Olivia P.",
+        comment:
+          "As a UI/UX enthusiast, I value simplicity and functionality. This t-shirt not only represents those principles but also feels great to wear. It's evident that the designer poured their creativity into making this t-shirt stand out.",
+        dateCreated: new Date("December 22, 2024").toDateString(),
+        stars: 2,
+      },
+      {
+        id: "smdkcdo",
+        reviewer: "Liam K.",
+        comment:
+          "This t-shirt is a fusion of comfort and creativity. The fabric is soft, and the design speaks volumes about the designer's skill. It's like wearing a piece of art that reflects my passion for both design and fashion.",
+        dateCreated: new Date("January 14, 2025").toDateString(),
+        stars: 5,
+      },
+    ],
+    sizes: [
+      {
+        size: "xx-small",
+        colors: [
+          {
+            color: "blue",
+            quantity: 7,
+          },
+          {
+            color: "green",
+            quantity: 7,
+          },
+        ],
+      },
+      {
+        size: "medium",
+        colors: [
+          {
+            color: "blue",
+            quantity: 7,
+          },
+          {
+            color: "green",
+            quantity: 7,
+          },
+        ],
+      },
+      {
+        size: "large",
+        colors: [
+          {
+            color: "purple",
+            quantity: 7,
+          },
+          {
+            color: "grey",
+            quantity: 7,
+          },
+        ],
+      },
+    ],
+    material: "cotton",
+    brand: "zara",
     shortDescription: "",
-    longDescription: [],
-    colors: [],
+    longDescription: [
+      "Korem ipsum dolor sit amet, consectetur adipiscing elit. Etiam eu turpis molestie, dictum est a, mattis tellus. Sed dignissim, metus nec fringilla accumsan, risus sem sollicitudin lacus, ut interdum tellus elit sed risus. Maecenas eget condimentum velit, sit amet feugiat lectus. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos. Praesent auctor purus luctus enim egestas, ac scelerisque ante pulvinar. Donec ut rhoncus ex. Suspendisse ac rhoncus nisl, eu tempor urna. Curabitur vel bibendum lorem. Morbi convallis convallis diam sit amet lacinia. Aliquam in elementum tellus.",
+      "Korem ipsum dolor sit amet, consectetur adipiscing elit. Etiam eu turpis molestie, dictum est a, mattis tellus. Sed dignissim, metus nec fringilla accumsan, risus sem sollicitudin lacus, ut interdum tellus elit sed risus. Maecenas eget condimentum velit, sit amet feugiat lectus. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos. Praesent auctor purus luctus enim egestas, ac scelerisque ante pulvinar. Donec ut rhoncus ex. Suspendisse ac rhoncus nisl, eu tempor urna. Curabitur vel bibendum lorem. Morbi convallis convallis diam sit amet lacinia. Aliquam in elementum tellus.",
+    ],
+
     otherImages: [],
   },
   {
@@ -171,13 +793,107 @@ export const collections: ShoppingItem[] = [
     price: 380,
     discount: 40,
     type: "jeans",
-    sizes: [],
+
+    reviews: [
+      {
+        id: "knekfn",
+        reviewer: "Samantha D.",
+        comment:
+          "I absolutely love this t-shirt! The design is unique and the fabric feels so comfortable. As a fellow designer, I appreciate the attention to detail. It's become my favorite go-to shirt.",
+        dateCreated: new Date("August 14, 2023").toDateString(),
+        stars: 4,
+      },
+      {
+        id: "spkajfpwk",
+        reviewer: "Alex M.",
+        comment:
+          "The t-shirt exceeded my expectations! The colors are vibrant and the print quality is top-notch. Being a UI/UX designer myself, I'm quite picky about aesthetics, and this t-shirt definitely gets a thumbs up from me.",
+        dateCreated: new Date("March 2, 2024").toDateString(),
+        stars: 5,
+      },
+      {
+        id: "ljmkqowdn",
+        reviewer: "Alex M.",
+        comment:
+          "The t-shirt exceeded my expectations! The colors are vibrant and the print quality is top-notch. Being a UI/UX designer myself, I'm quite picky about aesthetics, and this t-shirt definitely gets a thumbs up from me.",
+        dateCreated: new Date("June 19, 2024").toDateString(),
+        stars: 3,
+      },
+      {
+        id: "lqodnd",
+        reviewer: "Ethan R.",
+        comment:
+          "This t-shirt is a must-have for anyone who appreciates good design. The minimalistic yet stylish pattern caught my eye, and the fit is perfect. I can see the designer's touch in every aspect of this shirt.",
+        dateCreated: new Date("September 1, 2024").toDateString(),
+        stars: 4,
+      },
+      {
+        id: "lmsodnwo",
+        reviewer: "Olivia P.",
+        comment:
+          "As a UI/UX enthusiast, I value simplicity and functionality. This t-shirt not only represents those principles but also feels great to wear. It's evident that the designer poured their creativity into making this t-shirt stand out.",
+        dateCreated: new Date("December 22, 2024").toDateString(),
+        stars: 2,
+      },
+      {
+        id: "smdkcdo",
+        reviewer: "Liam K.",
+        comment:
+          "This t-shirt is a fusion of comfort and creativity. The fabric is soft, and the design speaks volumes about the designer's skill. It's like wearing a piece of art that reflects my passion for both design and fashion.",
+        dateCreated: new Date("January 14, 2025").toDateString(),
+        stars: 5,
+      },
+    ],
+    sizes: [
+      {
+        size: "xx-small",
+        colors: [
+          {
+            color: "blue",
+            quantity: 7,
+          },
+          {
+            color: "green",
+            quantity: 7,
+          },
+        ],
+      },
+      {
+        size: "medium",
+        colors: [
+          {
+            color: "blue",
+            quantity: 7,
+          },
+          {
+            color: "green",
+            quantity: 7,
+          },
+        ],
+      },
+      {
+        size: "large",
+        colors: [
+          {
+            color: "purple",
+            quantity: 7,
+          },
+          {
+            color: "grey",
+            quantity: 7,
+          },
+        ],
+      },
+    ],
     soldOut: false,
-    material: "",
-    brand: "",
+    material: "cotton",
+    brand: "zara",
     shortDescription: "",
-    longDescription: [],
-    colors: [],
+    longDescription: [
+      "Korem ipsum dolor sit amet, consectetur adipiscing elit. Etiam eu turpis molestie, dictum est a, mattis tellus. Sed dignissim, metus nec fringilla accumsan, risus sem sollicitudin lacus, ut interdum tellus elit sed risus. Maecenas eget condimentum velit, sit amet feugiat lectus. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos. Praesent auctor purus luctus enim egestas, ac scelerisque ante pulvinar. Donec ut rhoncus ex. Suspendisse ac rhoncus nisl, eu tempor urna. Curabitur vel bibendum lorem. Morbi convallis convallis diam sit amet lacinia. Aliquam in elementum tellus.",
+      "Korem ipsum dolor sit amet, consectetur adipiscing elit. Etiam eu turpis molestie, dictum est a, mattis tellus. Sed dignissim, metus nec fringilla accumsan, risus sem sollicitudin lacus, ut interdum tellus elit sed risus. Maecenas eget condimentum velit, sit amet feugiat lectus. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos. Praesent auctor purus luctus enim egestas, ac scelerisque ante pulvinar. Donec ut rhoncus ex. Suspendisse ac rhoncus nisl, eu tempor urna. Curabitur vel bibendum lorem. Morbi convallis convallis diam sit amet lacinia. Aliquam in elementum tellus.",
+    ],
+
     otherImages: [],
   },
   {
@@ -188,12 +904,105 @@ export const collections: ShoppingItem[] = [
     discount: 0,
     soldOut: true,
     type: "t-shirt",
-    sizes: [],
-    material: "",
-    brand: "",
+    reviews: [
+      {
+        id: "knekfn",
+        reviewer: "Samantha D.",
+        comment:
+          "I absolutely love this t-shirt! The design is unique and the fabric feels so comfortable. As a fellow designer, I appreciate the attention to detail. It's become my favorite go-to shirt.",
+        dateCreated: new Date("August 14, 2023").toDateString(),
+        stars: 4,
+      },
+      {
+        id: "spkajfpwk",
+        reviewer: "Alex M.",
+        comment:
+          "The t-shirt exceeded my expectations! The colors are vibrant and the print quality is top-notch. Being a UI/UX designer myself, I'm quite picky about aesthetics, and this t-shirt definitely gets a thumbs up from me.",
+        dateCreated: new Date("March 2, 2024").toDateString(),
+        stars: 5,
+      },
+      {
+        id: "ljmkqowdn",
+        reviewer: "Alex M.",
+        comment:
+          "The t-shirt exceeded my expectations! The colors are vibrant and the print quality is top-notch. Being a UI/UX designer myself, I'm quite picky about aesthetics, and this t-shirt definitely gets a thumbs up from me.",
+        dateCreated: new Date("June 19, 2024").toDateString(),
+        stars: 3,
+      },
+      {
+        id: "lqodnd",
+        reviewer: "Ethan R.",
+        comment:
+          "This t-shirt is a must-have for anyone who appreciates good design. The minimalistic yet stylish pattern caught my eye, and the fit is perfect. I can see the designer's touch in every aspect of this shirt.",
+        dateCreated: new Date("September 1, 2024").toDateString(),
+        stars: 4,
+      },
+      {
+        id: "lmsodnwo",
+        reviewer: "Olivia P.",
+        comment:
+          "As a UI/UX enthusiast, I value simplicity and functionality. This t-shirt not only represents those principles but also feels great to wear. It's evident that the designer poured their creativity into making this t-shirt stand out.",
+        dateCreated: new Date("December 22, 2024").toDateString(),
+        stars: 2,
+      },
+      {
+        id: "smdkcdo",
+        reviewer: "Liam K.",
+        comment:
+          "This t-shirt is a fusion of comfort and creativity. The fabric is soft, and the design speaks volumes about the designer's skill. It's like wearing a piece of art that reflects my passion for both design and fashion.",
+        dateCreated: new Date("January 14, 2025").toDateString(),
+        stars: 5,
+      },
+    ],
+    sizes: [
+      {
+        size: "xx-small",
+        colors: [
+          {
+            color: "blue",
+            quantity: 7,
+          },
+          {
+            color: "green",
+            quantity: 7,
+          },
+        ],
+      },
+      {
+        size: "medium",
+        colors: [
+          {
+            color: "blue",
+            quantity: 7,
+          },
+          {
+            color: "green",
+            quantity: 7,
+          },
+        ],
+      },
+      {
+        size: "large",
+        colors: [
+          {
+            color: "purple",
+            quantity: 7,
+          },
+          {
+            color: "grey",
+            quantity: 7,
+          },
+        ],
+      },
+    ],
+    material: "cotton",
+    brand: "nike",
     shortDescription: "",
-    longDescription: [],
-    colors: [],
+    longDescription: [
+      "Korem ipsum dolor sit amet, consectetur adipiscing elit. Etiam eu turpis molestie, dictum est a, mattis tellus. Sed dignissim, metus nec fringilla accumsan, risus sem sollicitudin lacus, ut interdum tellus elit sed risus. Maecenas eget condimentum velit, sit amet feugiat lectus. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos. Praesent auctor purus luctus enim egestas, ac scelerisque ante pulvinar. Donec ut rhoncus ex. Suspendisse ac rhoncus nisl, eu tempor urna. Curabitur vel bibendum lorem. Morbi convallis convallis diam sit amet lacinia. Aliquam in elementum tellus.",
+      "Korem ipsum dolor sit amet, consectetur adipiscing elit. Etiam eu turpis molestie, dictum est a, mattis tellus. Sed dignissim, metus nec fringilla accumsan, risus sem sollicitudin lacus, ut interdum tellus elit sed risus. Maecenas eget condimentum velit, sit amet feugiat lectus. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos. Praesent auctor purus luctus enim egestas, ac scelerisque ante pulvinar. Donec ut rhoncus ex. Suspendisse ac rhoncus nisl, eu tempor urna. Curabitur vel bibendum lorem. Morbi convallis convallis diam sit amet lacinia. Aliquam in elementum tellus.",
+    ],
+
     otherImages: [],
   },
   {
@@ -203,13 +1012,106 @@ export const collections: ShoppingItem[] = [
     price: 260,
     discount: 20,
     type: "t-shirt",
-    sizes: [],
+    reviews: [
+      {
+        id: "knekfn",
+        reviewer: "Samantha D.",
+        comment:
+          "I absolutely love this t-shirt! The design is unique and the fabric feels so comfortable. As a fellow designer, I appreciate the attention to detail. It's become my favorite go-to shirt.",
+        dateCreated: new Date("August 14, 2023").toDateString(),
+        stars: 4,
+      },
+      {
+        id: "spkajfpwk",
+        reviewer: "Alex M.",
+        comment:
+          "The t-shirt exceeded my expectations! The colors are vibrant and the print quality is top-notch. Being a UI/UX designer myself, I'm quite picky about aesthetics, and this t-shirt definitely gets a thumbs up from me.",
+        dateCreated: new Date("March 2, 2024").toDateString(),
+        stars: 5,
+      },
+      {
+        id: "ljmkqowdn",
+        reviewer: "Alex M.",
+        comment:
+          "The t-shirt exceeded my expectations! The colors are vibrant and the print quality is top-notch. Being a UI/UX designer myself, I'm quite picky about aesthetics, and this t-shirt definitely gets a thumbs up from me.",
+        dateCreated: new Date("June 19, 2024").toDateString(),
+        stars: 3,
+      },
+      {
+        id: "lqodnd",
+        reviewer: "Ethan R.",
+        comment:
+          "This t-shirt is a must-have for anyone who appreciates good design. The minimalistic yet stylish pattern caught my eye, and the fit is perfect. I can see the designer's touch in every aspect of this shirt.",
+        dateCreated: new Date("September 1, 2024").toDateString(),
+        stars: 4,
+      },
+      {
+        id: "lmsodnwo",
+        reviewer: "Olivia P.",
+        comment:
+          "As a UI/UX enthusiast, I value simplicity and functionality. This t-shirt not only represents those principles but also feels great to wear. It's evident that the designer poured their creativity into making this t-shirt stand out.",
+        dateCreated: new Date("December 22, 2024").toDateString(),
+        stars: 2,
+      },
+      {
+        id: "smdkcdo",
+        reviewer: "Liam K.",
+        comment:
+          "This t-shirt is a fusion of comfort and creativity. The fabric is soft, and the design speaks volumes about the designer's skill. It's like wearing a piece of art that reflects my passion for both design and fashion.",
+        dateCreated: new Date("January 14, 2025").toDateString(),
+        stars: 5,
+      },
+    ],
+    sizes: [
+      {
+        size: "xx-small",
+        colors: [
+          {
+            color: "blue",
+            quantity: 7,
+          },
+          {
+            color: "green",
+            quantity: 7,
+          },
+        ],
+      },
+      {
+        size: "medium",
+        colors: [
+          {
+            color: "blue",
+            quantity: 7,
+          },
+          {
+            color: "green",
+            quantity: 7,
+          },
+        ],
+      },
+      {
+        size: "large",
+        colors: [
+          {
+            color: "purple",
+            quantity: 7,
+          },
+          {
+            color: "grey",
+            quantity: 7,
+          },
+        ],
+      },
+    ],
     soldOut: false,
-    material: "",
-    brand: "",
+    material: "cotton",
+    brand: "nike",
     shortDescription: "",
-    longDescription: [],
-    colors: [],
+    longDescription: [
+      "Korem ipsum dolor sit amet, consectetur adipiscing elit. Etiam eu turpis molestie, dictum est a, mattis tellus. Sed dignissim, metus nec fringilla accumsan, risus sem sollicitudin lacus, ut interdum tellus elit sed risus. Maecenas eget condimentum velit, sit amet feugiat lectus. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos. Praesent auctor purus luctus enim egestas, ac scelerisque ante pulvinar. Donec ut rhoncus ex. Suspendisse ac rhoncus nisl, eu tempor urna. Curabitur vel bibendum lorem. Morbi convallis convallis diam sit amet lacinia. Aliquam in elementum tellus.",
+      "Korem ipsum dolor sit amet, consectetur adipiscing elit. Etiam eu turpis molestie, dictum est a, mattis tellus. Sed dignissim, metus nec fringilla accumsan, risus sem sollicitudin lacus, ut interdum tellus elit sed risus. Maecenas eget condimentum velit, sit amet feugiat lectus. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos. Praesent auctor purus luctus enim egestas, ac scelerisque ante pulvinar. Donec ut rhoncus ex. Suspendisse ac rhoncus nisl, eu tempor urna. Curabitur vel bibendum lorem. Morbi convallis convallis diam sit amet lacinia. Aliquam in elementum tellus.",
+    ],
+
     otherImages: [],
   },
   {
@@ -220,12 +1122,106 @@ export const collections: ShoppingItem[] = [
     discount: 0,
     soldOut: true,
     type: "shorts",
-    sizes: [],
-    material: "",
-    brand: "",
+
+    reviews: [
+      {
+        id: "knekfn",
+        reviewer: "Samantha D.",
+        comment:
+          "I absolutely love this t-shirt! The design is unique and the fabric feels so comfortable. As a fellow designer, I appreciate the attention to detail. It's become my favorite go-to shirt.",
+        dateCreated: new Date("August 14, 2023").toDateString(),
+        stars: 4,
+      },
+      {
+        id: "spkajfpwk",
+        reviewer: "Alex M.",
+        comment:
+          "The t-shirt exceeded my expectations! The colors are vibrant and the print quality is top-notch. Being a UI/UX designer myself, I'm quite picky about aesthetics, and this t-shirt definitely gets a thumbs up from me.",
+        dateCreated: new Date("March 2, 2024").toDateString(),
+        stars: 5,
+      },
+      {
+        id: "ljmkqowdn",
+        reviewer: "Alex M.",
+        comment:
+          "The t-shirt exceeded my expectations! The colors are vibrant and the print quality is top-notch. Being a UI/UX designer myself, I'm quite picky about aesthetics, and this t-shirt definitely gets a thumbs up from me.",
+        dateCreated: new Date("June 19, 2024").toDateString(),
+        stars: 3,
+      },
+      {
+        id: "lqodnd",
+        reviewer: "Ethan R.",
+        comment:
+          "This t-shirt is a must-have for anyone who appreciates good design. The minimalistic yet stylish pattern caught my eye, and the fit is perfect. I can see the designer's touch in every aspect of this shirt.",
+        dateCreated: new Date("September 1, 2024").toDateString(),
+        stars: 4,
+      },
+      {
+        id: "lmsodnwo",
+        reviewer: "Olivia P.",
+        comment:
+          "As a UI/UX enthusiast, I value simplicity and functionality. This t-shirt not only represents those principles but also feels great to wear. It's evident that the designer poured their creativity into making this t-shirt stand out.",
+        dateCreated: new Date("December 22, 2024").toDateString(),
+        stars: 2,
+      },
+      {
+        id: "smdkcdo",
+        reviewer: "Liam K.",
+        comment:
+          "This t-shirt is a fusion of comfort and creativity. The fabric is soft, and the design speaks volumes about the designer's skill. It's like wearing a piece of art that reflects my passion for both design and fashion.",
+        dateCreated: new Date("January 14, 2025").toDateString(),
+        stars: 5,
+      },
+    ],
+    sizes: [
+      {
+        size: "xx-small",
+        colors: [
+          {
+            color: "blue",
+            quantity: 7,
+          },
+          {
+            color: "green",
+            quantity: 7,
+          },
+        ],
+      },
+      {
+        size: "medium",
+        colors: [
+          {
+            color: "blue",
+            quantity: 7,
+          },
+          {
+            color: "green",
+            quantity: 7,
+          },
+        ],
+      },
+      {
+        size: "large",
+        colors: [
+          {
+            color: "purple",
+            quantity: 7,
+          },
+          {
+            color: "grey",
+            quantity: 7,
+          },
+        ],
+      },
+    ],
+    material: "cotton",
+    brand: "nike",
     shortDescription: "",
-    longDescription: [],
-    colors: [],
+    longDescription: [
+      "Korem ipsum dolor sit amet, consectetur adipiscing elit. Etiam eu turpis molestie, dictum est a, mattis tellus. Sed dignissim, metus nec fringilla accumsan, risus sem sollicitudin lacus, ut interdum tellus elit sed risus. Maecenas eget condimentum velit, sit amet feugiat lectus. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos. Praesent auctor purus luctus enim egestas, ac scelerisque ante pulvinar. Donec ut rhoncus ex. Suspendisse ac rhoncus nisl, eu tempor urna. Curabitur vel bibendum lorem. Morbi convallis convallis diam sit amet lacinia. Aliquam in elementum tellus.",
+      "Korem ipsum dolor sit amet, consectetur adipiscing elit. Etiam eu turpis molestie, dictum est a, mattis tellus. Sed dignissim, metus nec fringilla accumsan, risus sem sollicitudin lacus, ut interdum tellus elit sed risus. Maecenas eget condimentum velit, sit amet feugiat lectus. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos. Praesent auctor purus luctus enim egestas, ac scelerisque ante pulvinar. Donec ut rhoncus ex. Suspendisse ac rhoncus nisl, eu tempor urna. Curabitur vel bibendum lorem. Morbi convallis convallis diam sit amet lacinia. Aliquam in elementum tellus.",
+    ],
+
     otherImages: [],
   },
   {
@@ -235,13 +1231,107 @@ export const collections: ShoppingItem[] = [
     price: 160,
     discount: 30,
     type: "shirts",
-    sizes: [],
+
+    reviews: [
+      {
+        id: "knekfn",
+        reviewer: "Samantha D.",
+        comment:
+          "I absolutely love this t-shirt! The design is unique and the fabric feels so comfortable. As a fellow designer, I appreciate the attention to detail. It's become my favorite go-to shirt.",
+        dateCreated: new Date("August 14, 2023").toDateString(),
+        stars: 4,
+      },
+      {
+        id: "spkajfpwk",
+        reviewer: "Alex M.",
+        comment:
+          "The t-shirt exceeded my expectations! The colors are vibrant and the print quality is top-notch. Being a UI/UX designer myself, I'm quite picky about aesthetics, and this t-shirt definitely gets a thumbs up from me.",
+        dateCreated: new Date("March 2, 2024").toDateString(),
+        stars: 5,
+      },
+      {
+        id: "ljmkqowdn",
+        reviewer: "Alex M.",
+        comment:
+          "The t-shirt exceeded my expectations! The colors are vibrant and the print quality is top-notch. Being a UI/UX designer myself, I'm quite picky about aesthetics, and this t-shirt definitely gets a thumbs up from me.",
+        dateCreated: new Date("June 19, 2024").toDateString(),
+        stars: 3,
+      },
+      {
+        id: "lqodnd",
+        reviewer: "Ethan R.",
+        comment:
+          "This t-shirt is a must-have for anyone who appreciates good design. The minimalistic yet stylish pattern caught my eye, and the fit is perfect. I can see the designer's touch in every aspect of this shirt.",
+        dateCreated: new Date("September 1, 2024").toDateString(),
+        stars: 4,
+      },
+      {
+        id: "lmsodnwo",
+        reviewer: "Olivia P.",
+        comment:
+          "As a UI/UX enthusiast, I value simplicity and functionality. This t-shirt not only represents those principles but also feels great to wear. It's evident that the designer poured their creativity into making this t-shirt stand out.",
+        dateCreated: new Date("December 22, 2024").toDateString(),
+        stars: 2,
+      },
+      {
+        id: "smdkcdo",
+        reviewer: "Liam K.",
+        comment:
+          "This t-shirt is a fusion of comfort and creativity. The fabric is soft, and the design speaks volumes about the designer's skill. It's like wearing a piece of art that reflects my passion for both design and fashion.",
+        dateCreated: new Date("January 14, 2025").toDateString(),
+        stars: 5,
+      },
+    ],
+    sizes: [
+      {
+        size: "xx-small",
+        colors: [
+          {
+            color: "blue",
+            quantity: 7,
+          },
+          {
+            color: "green",
+            quantity: 7,
+          },
+        ],
+      },
+      {
+        size: "medium",
+        colors: [
+          {
+            color: "blue",
+            quantity: 7,
+          },
+          {
+            color: "green",
+            quantity: 7,
+          },
+        ],
+      },
+      {
+        size: "large",
+        colors: [
+          {
+            color: "purple",
+            quantity: 7,
+          },
+          {
+            color: "grey",
+            quantity: 7,
+          },
+        ],
+      },
+    ],
     soldOut: false,
-    material: "",
-    brand: "",
+    material: "cotton",
+    brand: "nike",
     shortDescription: "",
-    longDescription: [],
-    colors: [],
+    longDescription: [
+      "Korem ipsum dolor sit amet, consectetur adipiscing elit. Etiam eu turpis molestie, dictum est a, mattis tellus. Sed dignissim, metus nec fringilla accumsan, risus sem sollicitudin lacus, ut interdum tellus elit sed risus. Maecenas eget condimentum velit, sit amet feugiat lectus. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos. Praesent auctor purus luctus enim egestas, ac scelerisque ante pulvinar. Donec ut rhoncus ex. Suspendisse ac rhoncus nisl, eu tempor urna. Curabitur vel bibendum lorem. Morbi convallis convallis diam sit amet lacinia. Aliquam in elementum tellus.",
+      "Korem ipsum dolor sit amet, consectetur adipiscing elit. Etiam eu turpis molestie, dictum est a, mattis tellus. Sed dignissim, metus nec fringilla accumsan, risus sem sollicitudin lacus, ut interdum tellus elit sed risus. Maecenas eget condimentum velit, sit amet feugiat lectus. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos. Praesent auctor purus luctus enim egestas, ac scelerisque ante pulvinar. Donec ut rhoncus ex. Suspendisse ac rhoncus nisl, eu tempor urna. Curabitur vel bibendum lorem. Morbi convallis convallis diam sit amet lacinia. Aliquam in elementum tellus.",
+    ],
+
     otherImages: [],
   },
   {
@@ -251,13 +1341,107 @@ export const collections: ShoppingItem[] = [
     price: 120,
     discount: 0,
     type: "jeans",
-    sizes: [],
+
+    reviews: [
+      {
+        id: "knekfn",
+        reviewer: "Samantha D.",
+        comment:
+          "I absolutely love this t-shirt! The design is unique and the fabric feels so comfortable. As a fellow designer, I appreciate the attention to detail. It's become my favorite go-to shirt.",
+        dateCreated: new Date("August 14, 2023").toDateString(),
+        stars: 4,
+      },
+      {
+        id: "spkajfpwk",
+        reviewer: "Alex M.",
+        comment:
+          "The t-shirt exceeded my expectations! The colors are vibrant and the print quality is top-notch. Being a UI/UX designer myself, I'm quite picky about aesthetics, and this t-shirt definitely gets a thumbs up from me.",
+        dateCreated: new Date("March 2, 2024").toDateString(),
+        stars: 5,
+      },
+      {
+        id: "ljmkqowdn",
+        reviewer: "Alex M.",
+        comment:
+          "The t-shirt exceeded my expectations! The colors are vibrant and the print quality is top-notch. Being a UI/UX designer myself, I'm quite picky about aesthetics, and this t-shirt definitely gets a thumbs up from me.",
+        dateCreated: new Date("June 19, 2024").toDateString(),
+        stars: 3,
+      },
+      {
+        id: "lqodnd",
+        reviewer: "Ethan R.",
+        comment:
+          "This t-shirt is a must-have for anyone who appreciates good design. The minimalistic yet stylish pattern caught my eye, and the fit is perfect. I can see the designer's touch in every aspect of this shirt.",
+        dateCreated: new Date("September 1, 2024").toDateString(),
+        stars: 4,
+      },
+      {
+        id: "lmsodnwo",
+        reviewer: "Olivia P.",
+        comment:
+          "As a UI/UX enthusiast, I value simplicity and functionality. This t-shirt not only represents those principles but also feels great to wear. It's evident that the designer poured their creativity into making this t-shirt stand out.",
+        dateCreated: new Date("December 22, 2024").toDateString(),
+        stars: 2,
+      },
+      {
+        id: "smdkcdo",
+        reviewer: "Liam K.",
+        comment:
+          "This t-shirt is a fusion of comfort and creativity. The fabric is soft, and the design speaks volumes about the designer's skill. It's like wearing a piece of art that reflects my passion for both design and fashion.",
+        dateCreated: new Date("January 14, 2025").toDateString(),
+        stars: 5,
+      },
+    ],
+    sizes: [
+      {
+        size: "xx-small",
+        colors: [
+          {
+            color: "blue",
+            quantity: 7,
+          },
+          {
+            color: "green",
+            quantity: 7,
+          },
+        ],
+      },
+      {
+        size: "medium",
+        colors: [
+          {
+            color: "blue",
+            quantity: 7,
+          },
+          {
+            color: "green",
+            quantity: 7,
+          },
+        ],
+      },
+      {
+        size: "large",
+        colors: [
+          {
+            color: "purple",
+            quantity: 7,
+          },
+          {
+            color: "grey",
+            quantity: 7,
+          },
+        ],
+      },
+    ],
     soldOut: false,
-    material: "",
-    brand: "",
+    material: "cotton",
+    brand: "nike",
     shortDescription: "",
-    longDescription: [],
-    colors: [],
+    longDescription: [
+      "Korem ipsum dolor sit amet, consectetur adipiscing elit. Etiam eu turpis molestie, dictum est a, mattis tellus. Sed dignissim, metus nec fringilla accumsan, risus sem sollicitudin lacus, ut interdum tellus elit sed risus. Maecenas eget condimentum velit, sit amet feugiat lectus. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos. Praesent auctor purus luctus enim egestas, ac scelerisque ante pulvinar. Donec ut rhoncus ex. Suspendisse ac rhoncus nisl, eu tempor urna. Curabitur vel bibendum lorem. Morbi convallis convallis diam sit amet lacinia. Aliquam in elementum tellus.",
+      "Korem ipsum dolor sit amet, consectetur adipiscing elit. Etiam eu turpis molestie, dictum est a, mattis tellus. Sed dignissim, metus nec fringilla accumsan, risus sem sollicitudin lacus, ut interdum tellus elit sed risus. Maecenas eget condimentum velit, sit amet feugiat lectus. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos. Praesent auctor purus luctus enim egestas, ac scelerisque ante pulvinar. Donec ut rhoncus ex. Suspendisse ac rhoncus nisl, eu tempor urna. Curabitur vel bibendum lorem. Morbi convallis convallis diam sit amet lacinia. Aliquam in elementum tellus.",
+    ],
+
     otherImages: [],
   },
   {
@@ -267,13 +1451,107 @@ export const collections: ShoppingItem[] = [
     price: 260,
     discount: 20,
     type: "hoodie",
-    sizes: [],
+
+    reviews: [
+      {
+        id: "knekfn",
+        reviewer: "Samantha D.",
+        comment:
+          "I absolutely love this t-shirt! The design is unique and the fabric feels so comfortable. As a fellow designer, I appreciate the attention to detail. It's become my favorite go-to shirt.",
+        dateCreated: new Date("August 14, 2023").toDateString(),
+        stars: 4,
+      },
+      {
+        id: "spkajfpwk",
+        reviewer: "Alex M.",
+        comment:
+          "The t-shirt exceeded my expectations! The colors are vibrant and the print quality is top-notch. Being a UI/UX designer myself, I'm quite picky about aesthetics, and this t-shirt definitely gets a thumbs up from me.",
+        dateCreated: new Date("March 2, 2024").toDateString(),
+        stars: 5,
+      },
+      {
+        id: "ljmkqowdn",
+        reviewer: "Alex M.",
+        comment:
+          "The t-shirt exceeded my expectations! The colors are vibrant and the print quality is top-notch. Being a UI/UX designer myself, I'm quite picky about aesthetics, and this t-shirt definitely gets a thumbs up from me.",
+        dateCreated: new Date("June 19, 2024").toDateString(),
+        stars: 3,
+      },
+      {
+        id: "lqodnd",
+        reviewer: "Ethan R.",
+        comment:
+          "This t-shirt is a must-have for anyone who appreciates good design. The minimalistic yet stylish pattern caught my eye, and the fit is perfect. I can see the designer's touch in every aspect of this shirt.",
+        dateCreated: new Date("September 1, 2024").toDateString(),
+        stars: 4,
+      },
+      {
+        id: "lmsodnwo",
+        reviewer: "Olivia P.",
+        comment:
+          "As a UI/UX enthusiast, I value simplicity and functionality. This t-shirt not only represents those principles but also feels great to wear. It's evident that the designer poured their creativity into making this t-shirt stand out.",
+        dateCreated: new Date("December 22, 2024").toDateString(),
+        stars: 2,
+      },
+      {
+        id: "smdkcdo",
+        reviewer: "Liam K.",
+        comment:
+          "This t-shirt is a fusion of comfort and creativity. The fabric is soft, and the design speaks volumes about the designer's skill. It's like wearing a piece of art that reflects my passion for both design and fashion.",
+        dateCreated: new Date("January 14, 2025").toDateString(),
+        stars: 5,
+      },
+    ],
+    sizes: [
+      {
+        size: "xx-small",
+        colors: [
+          {
+            color: "blue",
+            quantity: 7,
+          },
+          {
+            color: "green",
+            quantity: 7,
+          },
+        ],
+      },
+      {
+        size: "medium",
+        colors: [
+          {
+            color: "blue",
+            quantity: 7,
+          },
+          {
+            color: "green",
+            quantity: 7,
+          },
+        ],
+      },
+      {
+        size: "large",
+        colors: [
+          {
+            color: "purple",
+            quantity: 7,
+          },
+          {
+            color: "grey",
+            quantity: 7,
+          },
+        ],
+      },
+    ],
     soldOut: false,
-    material: "",
-    brand: "",
+    material: "cotton",
+    brand: "nike",
     shortDescription: "",
-    longDescription: [],
-    colors: [],
+    longDescription: [
+      "Korem ipsum dolor sit amet, consectetur adipiscing elit. Etiam eu turpis molestie, dictum est a, mattis tellus. Sed dignissim, metus nec fringilla accumsan, risus sem sollicitudin lacus, ut interdum tellus elit sed risus. Maecenas eget condimentum velit, sit amet feugiat lectus. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos. Praesent auctor purus luctus enim egestas, ac scelerisque ante pulvinar. Donec ut rhoncus ex. Suspendisse ac rhoncus nisl, eu tempor urna. Curabitur vel bibendum lorem. Morbi convallis convallis diam sit amet lacinia. Aliquam in elementum tellus.",
+      "Korem ipsum dolor sit amet, consectetur adipiscing elit. Etiam eu turpis molestie, dictum est a, mattis tellus. Sed dignissim, metus nec fringilla accumsan, risus sem sollicitudin lacus, ut interdum tellus elit sed risus. Maecenas eget condimentum velit, sit amet feugiat lectus. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos. Praesent auctor purus luctus enim egestas, ac scelerisque ante pulvinar. Donec ut rhoncus ex. Suspendisse ac rhoncus nisl, eu tempor urna. Curabitur vel bibendum lorem. Morbi convallis convallis diam sit amet lacinia. Aliquam in elementum tellus.",
+    ],
+
     otherImages: [],
   },
   {
@@ -284,12 +1562,106 @@ export const collections: ShoppingItem[] = [
     discount: 0,
     soldOut: true,
     type: "hoodie",
-    sizes: [],
-    material: "",
-    brand: "",
+
+    reviews: [
+      {
+        id: "knekfn",
+        reviewer: "Samantha D.",
+        comment:
+          "I absolutely love this t-shirt! The design is unique and the fabric feels so comfortable. As a fellow designer, I appreciate the attention to detail. It's become my favorite go-to shirt.",
+        dateCreated: new Date("August 14, 2023").toDateString(),
+        stars: 4,
+      },
+      {
+        id: "spkajfpwk",
+        reviewer: "Alex M.",
+        comment:
+          "The t-shirt exceeded my expectations! The colors are vibrant and the print quality is top-notch. Being a UI/UX designer myself, I'm quite picky about aesthetics, and this t-shirt definitely gets a thumbs up from me.",
+        dateCreated: new Date("March 2, 2024").toDateString(),
+        stars: 5,
+      },
+      {
+        id: "ljmkqowdn",
+        reviewer: "Alex M.",
+        comment:
+          "The t-shirt exceeded my expectations! The colors are vibrant and the print quality is top-notch. Being a UI/UX designer myself, I'm quite picky about aesthetics, and this t-shirt definitely gets a thumbs up from me.",
+        dateCreated: new Date("June 19, 2024").toDateString(),
+        stars: 3,
+      },
+      {
+        id: "lqodnd",
+        reviewer: "Ethan R.",
+        comment:
+          "This t-shirt is a must-have for anyone who appreciates good design. The minimalistic yet stylish pattern caught my eye, and the fit is perfect. I can see the designer's touch in every aspect of this shirt.",
+        dateCreated: new Date("September 1, 2024").toDateString(),
+        stars: 4,
+      },
+      {
+        id: "lmsodnwo",
+        reviewer: "Olivia P.",
+        comment:
+          "As a UI/UX enthusiast, I value simplicity and functionality. This t-shirt not only represents those principles but also feels great to wear. It's evident that the designer poured their creativity into making this t-shirt stand out.",
+        dateCreated: new Date("December 22, 2024").toDateString(),
+        stars: 2,
+      },
+      {
+        id: "smdkcdo",
+        reviewer: "Liam K.",
+        comment:
+          "This t-shirt is a fusion of comfort and creativity. The fabric is soft, and the design speaks volumes about the designer's skill. It's like wearing a piece of art that reflects my passion for both design and fashion.",
+        dateCreated: new Date("January 14, 2025").toDateString(),
+        stars: 5,
+      },
+    ],
+    sizes: [
+      {
+        size: "xx-small",
+        colors: [
+          {
+            color: "blue",
+            quantity: 7,
+          },
+          {
+            color: "green",
+            quantity: 7,
+          },
+        ],
+      },
+      {
+        size: "medium",
+        colors: [
+          {
+            color: "blue",
+            quantity: 7,
+          },
+          {
+            color: "green",
+            quantity: 7,
+          },
+        ],
+      },
+      {
+        size: "large",
+        colors: [
+          {
+            color: "purple",
+            quantity: 7,
+          },
+          {
+            color: "grey",
+            quantity: 7,
+          },
+        ],
+      },
+    ],
+    material: "cotton",
+    brand: "nike",
     shortDescription: "",
-    longDescription: [],
-    colors: [],
+    longDescription: [
+      "Korem ipsum dolor sit amet, consectetur adipiscing elit. Etiam eu turpis molestie, dictum est a, mattis tellus. Sed dignissim, metus nec fringilla accumsan, risus sem sollicitudin lacus, ut interdum tellus elit sed risus. Maecenas eget condimentum velit, sit amet feugiat lectus. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos. Praesent auctor purus luctus enim egestas, ac scelerisque ante pulvinar. Donec ut rhoncus ex. Suspendisse ac rhoncus nisl, eu tempor urna. Curabitur vel bibendum lorem. Morbi convallis convallis diam sit amet lacinia. Aliquam in elementum tellus.",
+      "Korem ipsum dolor sit amet, consectetur adipiscing elit. Etiam eu turpis molestie, dictum est a, mattis tellus. Sed dignissim, metus nec fringilla accumsan, risus sem sollicitudin lacus, ut interdum tellus elit sed risus. Maecenas eget condimentum velit, sit amet feugiat lectus. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos. Praesent auctor purus luctus enim egestas, ac scelerisque ante pulvinar. Donec ut rhoncus ex. Suspendisse ac rhoncus nisl, eu tempor urna. Curabitur vel bibendum lorem. Morbi convallis convallis diam sit amet lacinia. Aliquam in elementum tellus.",
+    ],
+
     otherImages: [],
   },
   {
@@ -299,13 +1671,107 @@ export const collections: ShoppingItem[] = [
     price: 380,
     discount: 40,
     type: "jeans",
-    sizes: [],
+
+    reviews: [
+      {
+        id: "knekfn",
+        reviewer: "Samantha D.",
+        comment:
+          "I absolutely love this t-shirt! The design is unique and the fabric feels so comfortable. As a fellow designer, I appreciate the attention to detail. It's become my favorite go-to shirt.",
+        dateCreated: new Date("August 14, 2023").toDateString(),
+        stars: 4,
+      },
+      {
+        id: "spkajfpwk",
+        reviewer: "Alex M.",
+        comment:
+          "The t-shirt exceeded my expectations! The colors are vibrant and the print quality is top-notch. Being a UI/UX designer myself, I'm quite picky about aesthetics, and this t-shirt definitely gets a thumbs up from me.",
+        dateCreated: new Date("March 2, 2024").toDateString(),
+        stars: 5,
+      },
+      {
+        id: "ljmkqowdn",
+        reviewer: "Alex M.",
+        comment:
+          "The t-shirt exceeded my expectations! The colors are vibrant and the print quality is top-notch. Being a UI/UX designer myself, I'm quite picky about aesthetics, and this t-shirt definitely gets a thumbs up from me.",
+        dateCreated: new Date("June 19, 2024").toDateString(),
+        stars: 3,
+      },
+      {
+        id: "lqodnd",
+        reviewer: "Ethan R.",
+        comment:
+          "This t-shirt is a must-have for anyone who appreciates good design. The minimalistic yet stylish pattern caught my eye, and the fit is perfect. I can see the designer's touch in every aspect of this shirt.",
+        dateCreated: new Date("September 1, 2024").toDateString(),
+        stars: 4,
+      },
+      {
+        id: "lmsodnwo",
+        reviewer: "Olivia P.",
+        comment:
+          "As a UI/UX enthusiast, I value simplicity and functionality. This t-shirt not only represents those principles but also feels great to wear. It's evident that the designer poured their creativity into making this t-shirt stand out.",
+        dateCreated: new Date("December 22, 2024").toDateString(),
+        stars: 2,
+      },
+      {
+        id: "smdkcdo",
+        reviewer: "Liam K.",
+        comment:
+          "This t-shirt is a fusion of comfort and creativity. The fabric is soft, and the design speaks volumes about the designer's skill. It's like wearing a piece of art that reflects my passion for both design and fashion.",
+        dateCreated: new Date("January 14, 2025").toDateString(),
+        stars: 5,
+      },
+    ],
+    sizes: [
+      {
+        size: "xx-small",
+        colors: [
+          {
+            color: "blue",
+            quantity: 7,
+          },
+          {
+            color: "green",
+            quantity: 7,
+          },
+        ],
+      },
+      {
+        size: "medium",
+        colors: [
+          {
+            color: "blue",
+            quantity: 7,
+          },
+          {
+            color: "green",
+            quantity: 7,
+          },
+        ],
+      },
+      {
+        size: "large",
+        colors: [
+          {
+            color: "purple",
+            quantity: 7,
+          },
+          {
+            color: "grey",
+            quantity: 7,
+          },
+        ],
+      },
+    ],
     soldOut: false,
-    material: "",
-    brand: "",
+    material: "cotton",
+    brand: "klaire",
     shortDescription: "",
-    longDescription: [],
-    colors: [],
+    longDescription: [
+      "Korem ipsum dolor sit amet, consectetur adipiscing elit. Etiam eu turpis molestie, dictum est a, mattis tellus. Sed dignissim, metus nec fringilla accumsan, risus sem sollicitudin lacus, ut interdum tellus elit sed risus. Maecenas eget condimentum velit, sit amet feugiat lectus. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos. Praesent auctor purus luctus enim egestas, ac scelerisque ante pulvinar. Donec ut rhoncus ex. Suspendisse ac rhoncus nisl, eu tempor urna. Curabitur vel bibendum lorem. Morbi convallis convallis diam sit amet lacinia. Aliquam in elementum tellus.",
+      "Korem ipsum dolor sit amet, consectetur adipiscing elit. Etiam eu turpis molestie, dictum est a, mattis tellus. Sed dignissim, metus nec fringilla accumsan, risus sem sollicitudin lacus, ut interdum tellus elit sed risus. Maecenas eget condimentum velit, sit amet feugiat lectus. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos. Praesent auctor purus luctus enim egestas, ac scelerisque ante pulvinar. Donec ut rhoncus ex. Suspendisse ac rhoncus nisl, eu tempor urna. Curabitur vel bibendum lorem. Morbi convallis convallis diam sit amet lacinia. Aliquam in elementum tellus.",
+    ],
+
     otherImages: [],
   },
   {
@@ -316,12 +1782,105 @@ export const collections: ShoppingItem[] = [
     discount: 0,
     soldOut: true,
     type: "t-shirt",
-    sizes: [],
-    material: "",
-    brand: "",
+    reviews: [
+      {
+        id: "knekfn",
+        reviewer: "Samantha D.",
+        comment:
+          "I absolutely love this t-shirt! The design is unique and the fabric feels so comfortable. As a fellow designer, I appreciate the attention to detail. It's become my favorite go-to shirt.",
+        dateCreated: new Date("August 14, 2023").toDateString(),
+        stars: 4,
+      },
+      {
+        id: "spkajfpwk",
+        reviewer: "Alex M.",
+        comment:
+          "The t-shirt exceeded my expectations! The colors are vibrant and the print quality is top-notch. Being a UI/UX designer myself, I'm quite picky about aesthetics, and this t-shirt definitely gets a thumbs up from me.",
+        dateCreated: new Date("March 2, 2024").toDateString(),
+        stars: 5,
+      },
+      {
+        id: "ljmkqowdn",
+        reviewer: "Alex M.",
+        comment:
+          "The t-shirt exceeded my expectations! The colors are vibrant and the print quality is top-notch. Being a UI/UX designer myself, I'm quite picky about aesthetics, and this t-shirt definitely gets a thumbs up from me.",
+        dateCreated: new Date("June 19, 2024").toDateString(),
+        stars: 3,
+      },
+      {
+        id: "lqodnd",
+        reviewer: "Ethan R.",
+        comment:
+          "This t-shirt is a must-have for anyone who appreciates good design. The minimalistic yet stylish pattern caught my eye, and the fit is perfect. I can see the designer's touch in every aspect of this shirt.",
+        dateCreated: new Date("September 1, 2024").toDateString(),
+        stars: 4,
+      },
+      {
+        id: "lmsodnwo",
+        reviewer: "Olivia P.",
+        comment:
+          "As a UI/UX enthusiast, I value simplicity and functionality. This t-shirt not only represents those principles but also feels great to wear. It's evident that the designer poured their creativity into making this t-shirt stand out.",
+        dateCreated: new Date("December 22, 2024").toDateString(),
+        stars: 2,
+      },
+      {
+        id: "smdkcdo",
+        reviewer: "Liam K.",
+        comment:
+          "This t-shirt is a fusion of comfort and creativity. The fabric is soft, and the design speaks volumes about the designer's skill. It's like wearing a piece of art that reflects my passion for both design and fashion.",
+        dateCreated: new Date("January 14, 2025").toDateString(),
+        stars: 5,
+      },
+    ],
+    sizes: [
+      {
+        size: "xx-small",
+        colors: [
+          {
+            color: "blue",
+            quantity: 7,
+          },
+          {
+            color: "green",
+            quantity: 7,
+          },
+        ],
+      },
+      {
+        size: "medium",
+        colors: [
+          {
+            color: "blue",
+            quantity: 7,
+          },
+          {
+            color: "green",
+            quantity: 7,
+          },
+        ],
+      },
+      {
+        size: "large",
+        colors: [
+          {
+            color: "purple",
+            quantity: 7,
+          },
+          {
+            color: "grey",
+            quantity: 7,
+          },
+        ],
+      },
+    ],
+    material: "cotton",
+    brand: "klaire",
     shortDescription: "",
-    longDescription: [],
-    colors: [],
+    longDescription: [
+      "Korem ipsum dolor sit amet, consectetur adipiscing elit. Etiam eu turpis molestie, dictum est a, mattis tellus. Sed dignissim, metus nec fringilla accumsan, risus sem sollicitudin lacus, ut interdum tellus elit sed risus. Maecenas eget condimentum velit, sit amet feugiat lectus. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos. Praesent auctor purus luctus enim egestas, ac scelerisque ante pulvinar. Donec ut rhoncus ex. Suspendisse ac rhoncus nisl, eu tempor urna. Curabitur vel bibendum lorem. Morbi convallis convallis diam sit amet lacinia. Aliquam in elementum tellus.",
+      "Korem ipsum dolor sit amet, consectetur adipiscing elit. Etiam eu turpis molestie, dictum est a, mattis tellus. Sed dignissim, metus nec fringilla accumsan, risus sem sollicitudin lacus, ut interdum tellus elit sed risus. Maecenas eget condimentum velit, sit amet feugiat lectus. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos. Praesent auctor purus luctus enim egestas, ac scelerisque ante pulvinar. Donec ut rhoncus ex. Suspendisse ac rhoncus nisl, eu tempor urna. Curabitur vel bibendum lorem. Morbi convallis convallis diam sit amet lacinia. Aliquam in elementum tellus.",
+    ],
+
     otherImages: [],
   },
   {
@@ -331,13 +1890,106 @@ export const collections: ShoppingItem[] = [
     price: 260,
     discount: 20,
     type: "t-shirt",
-    sizes: [],
+    reviews: [
+      {
+        id: "knekfn",
+        reviewer: "Samantha D.",
+        comment:
+          "I absolutely love this t-shirt! The design is unique and the fabric feels so comfortable. As a fellow designer, I appreciate the attention to detail. It's become my favorite go-to shirt.",
+        dateCreated: new Date("August 14, 2023").toDateString(),
+        stars: 4,
+      },
+      {
+        id: "spkajfpwk",
+        reviewer: "Alex M.",
+        comment:
+          "The t-shirt exceeded my expectations! The colors are vibrant and the print quality is top-notch. Being a UI/UX designer myself, I'm quite picky about aesthetics, and this t-shirt definitely gets a thumbs up from me.",
+        dateCreated: new Date("March 2, 2024").toDateString(),
+        stars: 5,
+      },
+      {
+        id: "ljmkqowdn",
+        reviewer: "Alex M.",
+        comment:
+          "The t-shirt exceeded my expectations! The colors are vibrant and the print quality is top-notch. Being a UI/UX designer myself, I'm quite picky about aesthetics, and this t-shirt definitely gets a thumbs up from me.",
+        dateCreated: new Date("June 19, 2024").toDateString(),
+        stars: 3,
+      },
+      {
+        id: "lqodnd",
+        reviewer: "Ethan R.",
+        comment:
+          "This t-shirt is a must-have for anyone who appreciates good design. The minimalistic yet stylish pattern caught my eye, and the fit is perfect. I can see the designer's touch in every aspect of this shirt.",
+        dateCreated: new Date("September 1, 2024").toDateString(),
+        stars: 4,
+      },
+      {
+        id: "lmsodnwo",
+        reviewer: "Olivia P.",
+        comment:
+          "As a UI/UX enthusiast, I value simplicity and functionality. This t-shirt not only represents those principles but also feels great to wear. It's evident that the designer poured their creativity into making this t-shirt stand out.",
+        dateCreated: new Date("December 22, 2024").toDateString(),
+        stars: 2,
+      },
+      {
+        id: "smdkcdo",
+        reviewer: "Liam K.",
+        comment:
+          "This t-shirt is a fusion of comfort and creativity. The fabric is soft, and the design speaks volumes about the designer's skill. It's like wearing a piece of art that reflects my passion for both design and fashion.",
+        dateCreated: new Date("January 14, 2025").toDateString(),
+        stars: 5,
+      },
+    ],
+    sizes: [
+      {
+        size: "xx-small",
+        colors: [
+          {
+            color: "blue",
+            quantity: 7,
+          },
+          {
+            color: "green",
+            quantity: 7,
+          },
+        ],
+      },
+      {
+        size: "medium",
+        colors: [
+          {
+            color: "blue",
+            quantity: 7,
+          },
+          {
+            color: "green",
+            quantity: 7,
+          },
+        ],
+      },
+      {
+        size: "large",
+        colors: [
+          {
+            color: "purple",
+            quantity: 7,
+          },
+          {
+            color: "grey",
+            quantity: 7,
+          },
+        ],
+      },
+    ],
     soldOut: false,
-    material: "",
-    brand: "",
+    material: "cotton",
+    brand: "klaire",
     shortDescription: "",
-    longDescription: [],
-    colors: [],
+    longDescription: [
+      "Korem ipsum dolor sit amet, consectetur adipiscing elit. Etiam eu turpis molestie, dictum est a, mattis tellus. Sed dignissim, metus nec fringilla accumsan, risus sem sollicitudin lacus, ut interdum tellus elit sed risus. Maecenas eget condimentum velit, sit amet feugiat lectus. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos. Praesent auctor purus luctus enim egestas, ac scelerisque ante pulvinar. Donec ut rhoncus ex. Suspendisse ac rhoncus nisl, eu tempor urna. Curabitur vel bibendum lorem. Morbi convallis convallis diam sit amet lacinia. Aliquam in elementum tellus.",
+      "Korem ipsum dolor sit amet, consectetur adipiscing elit. Etiam eu turpis molestie, dictum est a, mattis tellus. Sed dignissim, metus nec fringilla accumsan, risus sem sollicitudin lacus, ut interdum tellus elit sed risus. Maecenas eget condimentum velit, sit amet feugiat lectus. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos. Praesent auctor purus luctus enim egestas, ac scelerisque ante pulvinar. Donec ut rhoncus ex. Suspendisse ac rhoncus nisl, eu tempor urna. Curabitur vel bibendum lorem. Morbi convallis convallis diam sit amet lacinia. Aliquam in elementum tellus.",
+    ],
+
     otherImages: [],
   },
   {
@@ -348,12 +2000,106 @@ export const collections: ShoppingItem[] = [
     discount: 0,
     soldOut: true,
     type: "shorts",
-    sizes: [],
-    material: "",
-    brand: "",
+
+    reviews: [
+      {
+        id: "knekfn",
+        reviewer: "Samantha D.",
+        comment:
+          "I absolutely love this t-shirt! The design is unique and the fabric feels so comfortable. As a fellow designer, I appreciate the attention to detail. It's become my favorite go-to shirt.",
+        dateCreated: new Date("August 14, 2023").toDateString(),
+        stars: 4,
+      },
+      {
+        id: "spkajfpwk",
+        reviewer: "Alex M.",
+        comment:
+          "The t-shirt exceeded my expectations! The colors are vibrant and the print quality is top-notch. Being a UI/UX designer myself, I'm quite picky about aesthetics, and this t-shirt definitely gets a thumbs up from me.",
+        dateCreated: new Date("March 2, 2024").toDateString(),
+        stars: 5,
+      },
+      {
+        id: "ljmkqowdn",
+        reviewer: "Alex M.",
+        comment:
+          "The t-shirt exceeded my expectations! The colors are vibrant and the print quality is top-notch. Being a UI/UX designer myself, I'm quite picky about aesthetics, and this t-shirt definitely gets a thumbs up from me.",
+        dateCreated: new Date("June 19, 2024").toDateString(),
+        stars: 3,
+      },
+      {
+        id: "lqodnd",
+        reviewer: "Ethan R.",
+        comment:
+          "This t-shirt is a must-have for anyone who appreciates good design. The minimalistic yet stylish pattern caught my eye, and the fit is perfect. I can see the designer's touch in every aspect of this shirt.",
+        dateCreated: new Date("September 1, 2024").toDateString(),
+        stars: 4,
+      },
+      {
+        id: "lmsodnwo",
+        reviewer: "Olivia P.",
+        comment:
+          "As a UI/UX enthusiast, I value simplicity and functionality. This t-shirt not only represents those principles but also feels great to wear. It's evident that the designer poured their creativity into making this t-shirt stand out.",
+        dateCreated: new Date("December 22, 2024").toDateString(),
+        stars: 2,
+      },
+      {
+        id: "smdkcdo",
+        reviewer: "Liam K.",
+        comment:
+          "This t-shirt is a fusion of comfort and creativity. The fabric is soft, and the design speaks volumes about the designer's skill. It's like wearing a piece of art that reflects my passion for both design and fashion.",
+        dateCreated: new Date("January 14, 2025").toDateString(),
+        stars: 5,
+      },
+    ],
+    sizes: [
+      {
+        size: "xx-small",
+        colors: [
+          {
+            color: "blue",
+            quantity: 7,
+          },
+          {
+            color: "green",
+            quantity: 7,
+          },
+        ],
+      },
+      {
+        size: "medium",
+        colors: [
+          {
+            color: "blue",
+            quantity: 7,
+          },
+          {
+            color: "green",
+            quantity: 7,
+          },
+        ],
+      },
+      {
+        size: "large",
+        colors: [
+          {
+            color: "purple",
+            quantity: 7,
+          },
+          {
+            color: "grey",
+            quantity: 7,
+          },
+        ],
+      },
+    ],
+    material: "cotton",
+    brand: "klaire",
     shortDescription: "",
-    longDescription: [],
-    colors: [],
+    longDescription: [
+      "Korem ipsum dolor sit amet, consectetur adipiscing elit. Etiam eu turpis molestie, dictum est a, mattis tellus. Sed dignissim, metus nec fringilla accumsan, risus sem sollicitudin lacus, ut interdum tellus elit sed risus. Maecenas eget condimentum velit, sit amet feugiat lectus. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos. Praesent auctor purus luctus enim egestas, ac scelerisque ante pulvinar. Donec ut rhoncus ex. Suspendisse ac rhoncus nisl, eu tempor urna. Curabitur vel bibendum lorem. Morbi convallis convallis diam sit amet lacinia. Aliquam in elementum tellus.",
+      "Korem ipsum dolor sit amet, consectetur adipiscing elit. Etiam eu turpis molestie, dictum est a, mattis tellus. Sed dignissim, metus nec fringilla accumsan, risus sem sollicitudin lacus, ut interdum tellus elit sed risus. Maecenas eget condimentum velit, sit amet feugiat lectus. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos. Praesent auctor purus luctus enim egestas, ac scelerisque ante pulvinar. Donec ut rhoncus ex. Suspendisse ac rhoncus nisl, eu tempor urna. Curabitur vel bibendum lorem. Morbi convallis convallis diam sit amet lacinia. Aliquam in elementum tellus.",
+    ],
+
     otherImages: [],
   },
   {
@@ -363,13 +2109,107 @@ export const collections: ShoppingItem[] = [
     price: 160,
     discount: 30,
     type: "shirts",
-    sizes: [],
+
+    reviews: [
+      {
+        id: "knekfn",
+        reviewer: "Samantha D.",
+        comment:
+          "I absolutely love this t-shirt! The design is unique and the fabric feels so comfortable. As a fellow designer, I appreciate the attention to detail. It's become my favorite go-to shirt.",
+        dateCreated: new Date("August 14, 2023").toDateString(),
+        stars: 4,
+      },
+      {
+        id: "spkajfpwk",
+        reviewer: "Alex M.",
+        comment:
+          "The t-shirt exceeded my expectations! The colors are vibrant and the print quality is top-notch. Being a UI/UX designer myself, I'm quite picky about aesthetics, and this t-shirt definitely gets a thumbs up from me.",
+        dateCreated: new Date("March 2, 2024").toDateString(),
+        stars: 5,
+      },
+      {
+        id: "ljmkqowdn",
+        reviewer: "Alex M.",
+        comment:
+          "The t-shirt exceeded my expectations! The colors are vibrant and the print quality is top-notch. Being a UI/UX designer myself, I'm quite picky about aesthetics, and this t-shirt definitely gets a thumbs up from me.",
+        dateCreated: new Date("June 19, 2024").toDateString(),
+        stars: 3,
+      },
+      {
+        id: "lqodnd",
+        reviewer: "Ethan R.",
+        comment:
+          "This t-shirt is a must-have for anyone who appreciates good design. The minimalistic yet stylish pattern caught my eye, and the fit is perfect. I can see the designer's touch in every aspect of this shirt.",
+        dateCreated: new Date("September 1, 2024").toDateString(),
+        stars: 4,
+      },
+      {
+        id: "lmsodnwo",
+        reviewer: "Olivia P.",
+        comment:
+          "As a UI/UX enthusiast, I value simplicity and functionality. This t-shirt not only represents those principles but also feels great to wear. It's evident that the designer poured their creativity into making this t-shirt stand out.",
+        dateCreated: new Date("December 22, 2024").toDateString(),
+        stars: 2,
+      },
+      {
+        id: "smdkcdo",
+        reviewer: "Liam K.",
+        comment:
+          "This t-shirt is a fusion of comfort and creativity. The fabric is soft, and the design speaks volumes about the designer's skill. It's like wearing a piece of art that reflects my passion for both design and fashion.",
+        dateCreated: new Date("January 14, 2025").toDateString(),
+        stars: 5,
+      },
+    ],
+    sizes: [
+      {
+        size: "xx-small",
+        colors: [
+          {
+            color: "blue",
+            quantity: 7,
+          },
+          {
+            color: "green",
+            quantity: 7,
+          },
+        ],
+      },
+      {
+        size: "medium",
+        colors: [
+          {
+            color: "blue",
+            quantity: 7,
+          },
+          {
+            color: "green",
+            quantity: 7,
+          },
+        ],
+      },
+      {
+        size: "large",
+        colors: [
+          {
+            color: "purple",
+            quantity: 7,
+          },
+          {
+            color: "grey",
+            quantity: 7,
+          },
+        ],
+      },
+    ],
     soldOut: false,
-    material: "",
-    brand: "",
+    material: "cotton",
+    brand: "klaire",
     shortDescription: "",
-    longDescription: [],
-    colors: [],
+    longDescription: [
+      "Korem ipsum dolor sit amet, consectetur adipiscing elit. Etiam eu turpis molestie, dictum est a, mattis tellus. Sed dignissim, metus nec fringilla accumsan, risus sem sollicitudin lacus, ut interdum tellus elit sed risus. Maecenas eget condimentum velit, sit amet feugiat lectus. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos. Praesent auctor purus luctus enim egestas, ac scelerisque ante pulvinar. Donec ut rhoncus ex. Suspendisse ac rhoncus nisl, eu tempor urna. Curabitur vel bibendum lorem. Morbi convallis convallis diam sit amet lacinia. Aliquam in elementum tellus.",
+      "Korem ipsum dolor sit amet, consectetur adipiscing elit. Etiam eu turpis molestie, dictum est a, mattis tellus. Sed dignissim, metus nec fringilla accumsan, risus sem sollicitudin lacus, ut interdum tellus elit sed risus. Maecenas eget condimentum velit, sit amet feugiat lectus. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos. Praesent auctor purus luctus enim egestas, ac scelerisque ante pulvinar. Donec ut rhoncus ex. Suspendisse ac rhoncus nisl, eu tempor urna. Curabitur vel bibendum lorem. Morbi convallis convallis diam sit amet lacinia. Aliquam in elementum tellus.",
+    ],
+
     otherImages: [],
   },
   {
@@ -379,13 +2219,107 @@ export const collections: ShoppingItem[] = [
     price: 120,
     discount: 0,
     type: "jeans",
-    sizes: [],
+
+    reviews: [
+      {
+        id: "knekfn",
+        reviewer: "Samantha D.",
+        comment:
+          "I absolutely love this t-shirt! The design is unique and the fabric feels so comfortable. As a fellow designer, I appreciate the attention to detail. It's become my favorite go-to shirt.",
+        dateCreated: new Date("August 14, 2023").toDateString(),
+        stars: 4,
+      },
+      {
+        id: "spkajfpwk",
+        reviewer: "Alex M.",
+        comment:
+          "The t-shirt exceeded my expectations! The colors are vibrant and the print quality is top-notch. Being a UI/UX designer myself, I'm quite picky about aesthetics, and this t-shirt definitely gets a thumbs up from me.",
+        dateCreated: new Date("March 2, 2024").toDateString(),
+        stars: 5,
+      },
+      {
+        id: "ljmkqowdn",
+        reviewer: "Alex M.",
+        comment:
+          "The t-shirt exceeded my expectations! The colors are vibrant and the print quality is top-notch. Being a UI/UX designer myself, I'm quite picky about aesthetics, and this t-shirt definitely gets a thumbs up from me.",
+        dateCreated: new Date("June 19, 2024").toDateString(),
+        stars: 3,
+      },
+      {
+        id: "lqodnd",
+        reviewer: "Ethan R.",
+        comment:
+          "This t-shirt is a must-have for anyone who appreciates good design. The minimalistic yet stylish pattern caught my eye, and the fit is perfect. I can see the designer's touch in every aspect of this shirt.",
+        dateCreated: new Date("September 1, 2024").toDateString(),
+        stars: 4,
+      },
+      {
+        id: "lmsodnwo",
+        reviewer: "Olivia P.",
+        comment:
+          "As a UI/UX enthusiast, I value simplicity and functionality. This t-shirt not only represents those principles but also feels great to wear. It's evident that the designer poured their creativity into making this t-shirt stand out.",
+        dateCreated: new Date("December 22, 2024").toDateString(),
+        stars: 2,
+      },
+      {
+        id: "smdkcdo",
+        reviewer: "Liam K.",
+        comment:
+          "This t-shirt is a fusion of comfort and creativity. The fabric is soft, and the design speaks volumes about the designer's skill. It's like wearing a piece of art that reflects my passion for both design and fashion.",
+        dateCreated: new Date("January 14, 2025").toDateString(),
+        stars: 5,
+      },
+    ],
+    sizes: [
+      {
+        size: "xx-small",
+        colors: [
+          {
+            color: "blue",
+            quantity: 7,
+          },
+          {
+            color: "green",
+            quantity: 7,
+          },
+        ],
+      },
+      {
+        size: "medium",
+        colors: [
+          {
+            color: "blue",
+            quantity: 7,
+          },
+          {
+            color: "green",
+            quantity: 7,
+          },
+        ],
+      },
+      {
+        size: "large",
+        colors: [
+          {
+            color: "purple",
+            quantity: 7,
+          },
+          {
+            color: "grey",
+            quantity: 7,
+          },
+        ],
+      },
+    ],
     soldOut: false,
-    material: "",
-    brand: "",
+    material: "cotton",
+    brand: "kiara",
     shortDescription: "",
-    longDescription: [],
-    colors: [],
+    longDescription: [
+      "Korem ipsum dolor sit amet, consectetur adipiscing elit. Etiam eu turpis molestie, dictum est a, mattis tellus. Sed dignissim, metus nec fringilla accumsan, risus sem sollicitudin lacus, ut interdum tellus elit sed risus. Maecenas eget condimentum velit, sit amet feugiat lectus. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos. Praesent auctor purus luctus enim egestas, ac scelerisque ante pulvinar. Donec ut rhoncus ex. Suspendisse ac rhoncus nisl, eu tempor urna. Curabitur vel bibendum lorem. Morbi convallis convallis diam sit amet lacinia. Aliquam in elementum tellus.",
+      "Korem ipsum dolor sit amet, consectetur adipiscing elit. Etiam eu turpis molestie, dictum est a, mattis tellus. Sed dignissim, metus nec fringilla accumsan, risus sem sollicitudin lacus, ut interdum tellus elit sed risus. Maecenas eget condimentum velit, sit amet feugiat lectus. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos. Praesent auctor purus luctus enim egestas, ac scelerisque ante pulvinar. Donec ut rhoncus ex. Suspendisse ac rhoncus nisl, eu tempor urna. Curabitur vel bibendum lorem. Morbi convallis convallis diam sit amet lacinia. Aliquam in elementum tellus.",
+    ],
+
     otherImages: [],
   },
   {
@@ -395,13 +2329,107 @@ export const collections: ShoppingItem[] = [
     price: 260,
     discount: 20,
     type: "hoodie",
-    sizes: [],
+
+    reviews: [
+      {
+        id: "knekfn",
+        reviewer: "Samantha D.",
+        comment:
+          "I absolutely love this t-shirt! The design is unique and the fabric feels so comfortable. As a fellow designer, I appreciate the attention to detail. It's become my favorite go-to shirt.",
+        dateCreated: new Date("August 14, 2023").toDateString(),
+        stars: 4,
+      },
+      {
+        id: "spkajfpwk",
+        reviewer: "Alex M.",
+        comment:
+          "The t-shirt exceeded my expectations! The colors are vibrant and the print quality is top-notch. Being a UI/UX designer myself, I'm quite picky about aesthetics, and this t-shirt definitely gets a thumbs up from me.",
+        dateCreated: new Date("March 2, 2024").toDateString(),
+        stars: 5,
+      },
+      {
+        id: "ljmkqowdn",
+        reviewer: "Alex M.",
+        comment:
+          "The t-shirt exceeded my expectations! The colors are vibrant and the print quality is top-notch. Being a UI/UX designer myself, I'm quite picky about aesthetics, and this t-shirt definitely gets a thumbs up from me.",
+        dateCreated: new Date("June 19, 2024").toDateString(),
+        stars: 3,
+      },
+      {
+        id: "lqodnd",
+        reviewer: "Ethan R.",
+        comment:
+          "This t-shirt is a must-have for anyone who appreciates good design. The minimalistic yet stylish pattern caught my eye, and the fit is perfect. I can see the designer's touch in every aspect of this shirt.",
+        dateCreated: new Date("September 1, 2024").toDateString(),
+        stars: 4,
+      },
+      {
+        id: "lmsodnwo",
+        reviewer: "Olivia P.",
+        comment:
+          "As a UI/UX enthusiast, I value simplicity and functionality. This t-shirt not only represents those principles but also feels great to wear. It's evident that the designer poured their creativity into making this t-shirt stand out.",
+        dateCreated: new Date("December 22, 2024").toDateString(),
+        stars: 2,
+      },
+      {
+        id: "smdkcdo",
+        reviewer: "Liam K.",
+        comment:
+          "This t-shirt is a fusion of comfort and creativity. The fabric is soft, and the design speaks volumes about the designer's skill. It's like wearing a piece of art that reflects my passion for both design and fashion.",
+        dateCreated: new Date("January 14, 2025").toDateString(),
+        stars: 5,
+      },
+    ],
+    sizes: [
+      {
+        size: "xx-small",
+        colors: [
+          {
+            color: "blue",
+            quantity: 7,
+          },
+          {
+            color: "green",
+            quantity: 7,
+          },
+        ],
+      },
+      {
+        size: "medium",
+        colors: [
+          {
+            color: "blue",
+            quantity: 7,
+          },
+          {
+            color: "green",
+            quantity: 7,
+          },
+        ],
+      },
+      {
+        size: "large",
+        colors: [
+          {
+            color: "purple",
+            quantity: 7,
+          },
+          {
+            color: "grey",
+            quantity: 7,
+          },
+        ],
+      },
+    ],
     soldOut: false,
-    material: "",
-    brand: "",
+    material: "cotton",
+    brand: "kiara",
     shortDescription: "",
-    longDescription: [],
-    colors: [],
+    longDescription: [
+      "Korem ipsum dolor sit amet, consectetur adipiscing elit. Etiam eu turpis molestie, dictum est a, mattis tellus. Sed dignissim, metus nec fringilla accumsan, risus sem sollicitudin lacus, ut interdum tellus elit sed risus. Maecenas eget condimentum velit, sit amet feugiat lectus. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos. Praesent auctor purus luctus enim egestas, ac scelerisque ante pulvinar. Donec ut rhoncus ex. Suspendisse ac rhoncus nisl, eu tempor urna. Curabitur vel bibendum lorem. Morbi convallis convallis diam sit amet lacinia. Aliquam in elementum tellus.",
+      "Korem ipsum dolor sit amet, consectetur adipiscing elit. Etiam eu turpis molestie, dictum est a, mattis tellus. Sed dignissim, metus nec fringilla accumsan, risus sem sollicitudin lacus, ut interdum tellus elit sed risus. Maecenas eget condimentum velit, sit amet feugiat lectus. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos. Praesent auctor purus luctus enim egestas, ac scelerisque ante pulvinar. Donec ut rhoncus ex. Suspendisse ac rhoncus nisl, eu tempor urna. Curabitur vel bibendum lorem. Morbi convallis convallis diam sit amet lacinia. Aliquam in elementum tellus.",
+    ],
+
     otherImages: [],
   },
   {
@@ -412,12 +2440,106 @@ export const collections: ShoppingItem[] = [
     discount: 0,
     soldOut: true,
     type: "hoodie",
-    sizes: [],
-    material: "",
-    brand: "",
+
+    reviews: [
+      {
+        id: "knekfn",
+        reviewer: "Samantha D.",
+        comment:
+          "I absolutely love this t-shirt! The design is unique and the fabric feels so comfortable. As a fellow designer, I appreciate the attention to detail. It's become my favorite go-to shirt.",
+        dateCreated: new Date("August 14, 2023").toDateString(),
+        stars: 4,
+      },
+      {
+        id: "spkajfpwk",
+        reviewer: "Alex M.",
+        comment:
+          "The t-shirt exceeded my expectations! The colors are vibrant and the print quality is top-notch. Being a UI/UX designer myself, I'm quite picky about aesthetics, and this t-shirt definitely gets a thumbs up from me.",
+        dateCreated: new Date("March 2, 2024").toDateString(),
+        stars: 5,
+      },
+      {
+        id: "ljmkqowdn",
+        reviewer: "Alex M.",
+        comment:
+          "The t-shirt exceeded my expectations! The colors are vibrant and the print quality is top-notch. Being a UI/UX designer myself, I'm quite picky about aesthetics, and this t-shirt definitely gets a thumbs up from me.",
+        dateCreated: new Date("June 19, 2024").toDateString(),
+        stars: 3,
+      },
+      {
+        id: "lqodnd",
+        reviewer: "Ethan R.",
+        comment:
+          "This t-shirt is a must-have for anyone who appreciates good design. The minimalistic yet stylish pattern caught my eye, and the fit is perfect. I can see the designer's touch in every aspect of this shirt.",
+        dateCreated: new Date("September 1, 2024").toDateString(),
+        stars: 4,
+      },
+      {
+        id: "lmsodnwo",
+        reviewer: "Olivia P.",
+        comment:
+          "As a UI/UX enthusiast, I value simplicity and functionality. This t-shirt not only represents those principles but also feels great to wear. It's evident that the designer poured their creativity into making this t-shirt stand out.",
+        dateCreated: new Date("December 22, 2024").toDateString(),
+        stars: 2,
+      },
+      {
+        id: "smdkcdo",
+        reviewer: "Liam K.",
+        comment:
+          "This t-shirt is a fusion of comfort and creativity. The fabric is soft, and the design speaks volumes about the designer's skill. It's like wearing a piece of art that reflects my passion for both design and fashion.",
+        dateCreated: new Date("January 14, 2025").toDateString(),
+        stars: 5,
+      },
+    ],
+    sizes: [
+      {
+        size: "xx-small",
+        colors: [
+          {
+            color: "blue",
+            quantity: 7,
+          },
+          {
+            color: "green",
+            quantity: 7,
+          },
+        ],
+      },
+      {
+        size: "medium",
+        colors: [
+          {
+            color: "blue",
+            quantity: 7,
+          },
+          {
+            color: "green",
+            quantity: 7,
+          },
+        ],
+      },
+      {
+        size: "large",
+        colors: [
+          {
+            color: "purple",
+            quantity: 7,
+          },
+          {
+            color: "grey",
+            quantity: 7,
+          },
+        ],
+      },
+    ],
+    material: "cotton",
+    brand: "kiara",
     shortDescription: "",
-    longDescription: [],
-    colors: [],
+    longDescription: [
+      "Korem ipsum dolor sit amet, consectetur adipiscing elit. Etiam eu turpis molestie, dictum est a, mattis tellus. Sed dignissim, metus nec fringilla accumsan, risus sem sollicitudin lacus, ut interdum tellus elit sed risus. Maecenas eget condimentum velit, sit amet feugiat lectus. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos. Praesent auctor purus luctus enim egestas, ac scelerisque ante pulvinar. Donec ut rhoncus ex. Suspendisse ac rhoncus nisl, eu tempor urna. Curabitur vel bibendum lorem. Morbi convallis convallis diam sit amet lacinia. Aliquam in elementum tellus.",
+      "Korem ipsum dolor sit amet, consectetur adipiscing elit. Etiam eu turpis molestie, dictum est a, mattis tellus. Sed dignissim, metus nec fringilla accumsan, risus sem sollicitudin lacus, ut interdum tellus elit sed risus. Maecenas eget condimentum velit, sit amet feugiat lectus. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos. Praesent auctor purus luctus enim egestas, ac scelerisque ante pulvinar. Donec ut rhoncus ex. Suspendisse ac rhoncus nisl, eu tempor urna. Curabitur vel bibendum lorem. Morbi convallis convallis diam sit amet lacinia. Aliquam in elementum tellus.",
+    ],
+
     otherImages: [],
   },
   {
@@ -427,13 +2549,107 @@ export const collections: ShoppingItem[] = [
     price: 380,
     discount: 40,
     type: "jeans",
-    sizes: [],
+
+    reviews: [
+      {
+        id: "knekfn",
+        reviewer: "Samantha D.",
+        comment:
+          "I absolutely love this t-shirt! The design is unique and the fabric feels so comfortable. As a fellow designer, I appreciate the attention to detail. It's become my favorite go-to shirt.",
+        dateCreated: new Date("August 14, 2023").toDateString(),
+        stars: 4,
+      },
+      {
+        id: "spkajfpwk",
+        reviewer: "Alex M.",
+        comment:
+          "The t-shirt exceeded my expectations! The colors are vibrant and the print quality is top-notch. Being a UI/UX designer myself, I'm quite picky about aesthetics, and this t-shirt definitely gets a thumbs up from me.",
+        dateCreated: new Date("March 2, 2024").toDateString(),
+        stars: 5,
+      },
+      {
+        id: "ljmkqowdn",
+        reviewer: "Alex M.",
+        comment:
+          "The t-shirt exceeded my expectations! The colors are vibrant and the print quality is top-notch. Being a UI/UX designer myself, I'm quite picky about aesthetics, and this t-shirt definitely gets a thumbs up from me.",
+        dateCreated: new Date("June 19, 2024").toDateString(),
+        stars: 3,
+      },
+      {
+        id: "lqodnd",
+        reviewer: "Ethan R.",
+        comment:
+          "This t-shirt is a must-have for anyone who appreciates good design. The minimalistic yet stylish pattern caught my eye, and the fit is perfect. I can see the designer's touch in every aspect of this shirt.",
+        dateCreated: new Date("September 1, 2024").toDateString(),
+        stars: 4,
+      },
+      {
+        id: "lmsodnwo",
+        reviewer: "Olivia P.",
+        comment:
+          "As a UI/UX enthusiast, I value simplicity and functionality. This t-shirt not only represents those principles but also feels great to wear. It's evident that the designer poured their creativity into making this t-shirt stand out.",
+        dateCreated: new Date("December 22, 2024").toDateString(),
+        stars: 2,
+      },
+      {
+        id: "smdkcdo",
+        reviewer: "Liam K.",
+        comment:
+          "This t-shirt is a fusion of comfort and creativity. The fabric is soft, and the design speaks volumes about the designer's skill. It's like wearing a piece of art that reflects my passion for both design and fashion.",
+        dateCreated: new Date("January 14, 2025").toDateString(),
+        stars: 5,
+      },
+    ],
+    sizes: [
+      {
+        size: "xx-small",
+        colors: [
+          {
+            color: "blue",
+            quantity: 7,
+          },
+          {
+            color: "green",
+            quantity: 7,
+          },
+        ],
+      },
+      {
+        size: "medium",
+        colors: [
+          {
+            color: "blue",
+            quantity: 7,
+          },
+          {
+            color: "green",
+            quantity: 7,
+          },
+        ],
+      },
+      {
+        size: "large",
+        colors: [
+          {
+            color: "purple",
+            quantity: 7,
+          },
+          {
+            color: "grey",
+            quantity: 7,
+          },
+        ],
+      },
+    ],
     soldOut: false,
-    material: "",
-    brand: "",
+    material: "cotton",
+    brand: "kiara",
     shortDescription: "",
-    longDescription: [],
-    colors: [],
+    longDescription: [
+      "Korem ipsum dolor sit amet, consectetur adipiscing elit. Etiam eu turpis molestie, dictum est a, mattis tellus. Sed dignissim, metus nec fringilla accumsan, risus sem sollicitudin lacus, ut interdum tellus elit sed risus. Maecenas eget condimentum velit, sit amet feugiat lectus. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos. Praesent auctor purus luctus enim egestas, ac scelerisque ante pulvinar. Donec ut rhoncus ex. Suspendisse ac rhoncus nisl, eu tempor urna. Curabitur vel bibendum lorem. Morbi convallis convallis diam sit amet lacinia. Aliquam in elementum tellus.",
+      "Korem ipsum dolor sit amet, consectetur adipiscing elit. Etiam eu turpis molestie, dictum est a, mattis tellus. Sed dignissim, metus nec fringilla accumsan, risus sem sollicitudin lacus, ut interdum tellus elit sed risus. Maecenas eget condimentum velit, sit amet feugiat lectus. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos. Praesent auctor purus luctus enim egestas, ac scelerisque ante pulvinar. Donec ut rhoncus ex. Suspendisse ac rhoncus nisl, eu tempor urna. Curabitur vel bibendum lorem. Morbi convallis convallis diam sit amet lacinia. Aliquam in elementum tellus.",
+    ],
+
     otherImages: [],
   },
 ];
