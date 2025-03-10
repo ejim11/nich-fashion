@@ -62,7 +62,7 @@ const Header = () => {
   }, [dispatch]);
 
   return (
-    <div className="w-full flex flex-col fixed top-0 left-0 right-0 z-50">
+    <div className="w-full flex flex-col fixed top-0 left-0 right-0 z-50 bg-white">
       {details && !details.email && (
         <div className="flex w-full h-[3.8rem] items-center bg-black text-color-white justify-center font-satoshi text-[1.4rem] leading-[1.8rem]">
           <p>Sign up and get 20% off to your first order. </p>
