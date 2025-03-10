@@ -1,20 +1,20 @@
 import { StaticImageData } from "next/image";
 
-type Color = {
+export type Color = {
   color: string;
   quantity: number;
 };
 
-type Size = {
-  quantity: number;
+export type Size = {
   size: string;
+  colors: Color[];
 };
 
 export type Review = {
   id: string;
   reviewer: string;
   comment: string;
-  dateCreated: Date;
+  dateCreated: string;
   stars: number;
 };
 
@@ -31,7 +31,6 @@ export type ShoppingItem = {
   sizes: Size[];
   shortDescription: string;
   longDescription: string[];
-  colors: Color[];
   otherImages: StaticImageData[];
   reviews?: Review[];
 };
