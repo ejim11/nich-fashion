@@ -11,6 +11,8 @@ import Reviews from "./Reviews";
 import SubscribeToNewsLetter from "@/components/Home/SubscribeToNewsLetter";
 import ShortShoppingItemList from "@/components/ShortShoppingItemList";
 import { newArrivals } from "@/data/newArrivals";
+import ShoppingItemImages from "./ShoppingItemImages";
+import ItemDetailsAndQuantityPicker from "./ItemDetailsAndQuantityPicker";
 
 const ShoppingItemDetail: React.FC<{ itemId: string }> = ({ itemId }) => {
   const detailsNav: { text: string; slug: string }[] = [
@@ -28,9 +30,9 @@ const ShoppingItemDetail: React.FC<{ itemId: string }> = ({ itemId }) => {
     },
   ];
 
-  const shoppingItem: ShoppingItem | undefined = collections.find(
+  const shoppingItem: ShoppingItem | undefined = collections.filter(
     (item: ShoppingItem) => item.id === itemId
-  );
+  )[0];
 
   const searchParams = useSearchParams();
 
@@ -60,8 +62,8 @@ const ShoppingItemDetail: React.FC<{ itemId: string }> = ({ itemId }) => {
   };
 
   return (
-    <div>
-      <div>
+    <div className="w-full flex flex-col overflow-hidden">
+      <div className="w-full flex flex-col">
         <div className="flex items-center font-satoshi text-[1.8rem] text-black font-medium">
           <Link href="/">Home</Link>
           <FiChevronRight className=" mr-[1.6rem]" />
@@ -69,10 +71,20 @@ const ShoppingItemDetail: React.FC<{ itemId: string }> = ({ itemId }) => {
           <FiChevronRight className=" mr-[1.6rem]" />
           <p className="text-[#ADADAD]">{shoppingItem?.name}</p>
         </div>
-        <div>
+        <div className="my-[6rem] flex justify-between max-w-full">
           {/* first */}
+          <ShoppingItemImages
+            imgs={shoppingItem?.otherImages}
+            itemName={shoppingItem?.name}
+          />
           {/* second */}
-          {/* third */}
+          <ItemDetailsAndQuantityPicker
+            name={shoppingItem.name}
+            price={shoppingItem.price}
+            discount={shoppingItem.discount}
+            sizes={shoppingItem.sizes}
+            shortDescription={shoppingItem.shortDescription}
+          />
         </div>
       </div>
       <div className="mt-[4rem]">
