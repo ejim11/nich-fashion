@@ -25,7 +25,6 @@ const FAQITem = ({
 
   return (
     <div
-      key={index}
       className={`w-full  mb-[3rem] border rounded-[1.8rem]  transition-all duration-300 ease-in ${
         isOpen
           ? "bg-[#F5F7F9] border-black shadow-custom-3  "
