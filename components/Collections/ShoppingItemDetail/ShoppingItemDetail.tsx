@@ -12,7 +12,7 @@ import SubscribeToNewsLetter from "@/components/Home/SubscribeToNewsLetter";
 import ShortShoppingItemList from "@/components/ShortShoppingItemList";
 import { newArrivals } from "@/data/newArrivals";
 import ShoppingItemImages from "./ShoppingItemImages";
-import ItemDetailsAndQuantityPicker from "./ItemDetailsAndQuantityPicker";
+import ItemDetails from "./ItemDetails";
 
 const ShoppingItemDetail: React.FC<{ itemId: string }> = ({ itemId }) => {
   const detailsNav: { text: string; slug: string }[] = [
@@ -78,7 +78,7 @@ const ShoppingItemDetail: React.FC<{ itemId: string }> = ({ itemId }) => {
             itemName={shoppingItem?.name}
           />
           {/* second */}
-          <ItemDetailsAndQuantityPicker
+          <ItemDetails
             name={shoppingItem.name}
             price={shoppingItem.price}
             discount={shoppingItem.discount}
