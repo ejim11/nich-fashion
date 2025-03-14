@@ -7,7 +7,7 @@ Default styles
 */
 *::before,
 *::after,
-*::before {
+* {
   box-sizing: inherit;
   padding: 0;
   margin: 0;
@@ -126,5 +126,29 @@ input[type="number"] {
 
 /* Handle on hover */
 .scrollbar-hide::-webkit-scrollbar-thumb:hover {
+  background: #000000;
+}
+
+/* Add this to your global CSS file */
+
+.sizes-container::-webkit-scrollbar {
+  width: 0.5rem;
+  /* @media all and (max-width: 700px) {
+  width: 5rem;
+} */
+}
+
+/* Track */
+.sizes-container::-webkit-scrollbar-track {
+  background: #e5e5e5;
+}
+
+/* Handle */
+.sizes-container::-webkit-scrollbar-thumb {
+  background: #000000;
+}
+
+/* Handle on hover */
+.sizes-container::-webkit-scrollbar-thumb:hover {
   background: #000000;
 }
