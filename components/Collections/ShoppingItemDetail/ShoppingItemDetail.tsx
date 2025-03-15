@@ -10,11 +10,14 @@ import Reviews from "./Reviews";
 import SubscribeToNewsLetter from "@/components/Home/SubscribeToNewsLetter";
 import ShortShoppingItemList from "@/components/ShortShoppingItemList";
 import { newArrivals } from "@/data/newArrivals";
-import ShoppingItemImages from "./ShoppingItemImages";
-import ItemDetails from "./ItemDetails";
+// import ShoppingItemImages from "./ShoppingItemImages";
+// import ItemDetails from "./ItemDetails";
+import ItemColorPicker from "./ItemColorPicker";
 
 const ShoppingItemDetail: React.FC<{ itemId: string }> = ({ itemId }) => {
   const [detailsType, setDetailsType] = useState<string>("description");
+
+  const [selectedColor, setSelectedColor] = useState<string>("");
 
   const detailsNav: { text: string; slug: string }[] = [
     {
@@ -72,20 +75,25 @@ const ShoppingItemDetail: React.FC<{ itemId: string }> = ({ itemId }) => {
           <FiChevronRight className=" mr-[1.6rem]" />
           <p className="text-[#ADADAD]">{shoppingItem?.name}</p>
         </div>
-        <div className="my-[6rem] flex justify-between max-w-full">
+        <div className="my-[6rem] flex justify-between w-full">
           {/* first */}
-          <ShoppingItemImages
+          <ItemColorPicker
+            colors={shoppingItem.colors}
+            selectedColor={selectedColor}
+            onSelectColor={setSelectedColor}
+          />
+          {/* <ShoppingItemImages
             imgs={shoppingItem?.otherImages}
             itemName={shoppingItem?.name}
-          />
+          /> */}
           {/* second */}
-          <ItemDetails
+          {/* <ItemDetails
             name={shoppingItem.name}
             price={shoppingItem.price}
             discount={shoppingItem.discount}
             sizes={shoppingItem.sizes}
             shortDescription={shoppingItem.shortDescription}
-          />
+          /> */}
         </div>
       </div>
       <div className="mt-[4rem]">
