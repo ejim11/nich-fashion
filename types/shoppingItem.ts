@@ -2,12 +2,13 @@ import { StaticImageData } from "next/image";
 
 export type Color = {
   color: string;
-  quantity: number;
+  images: StaticImageData[];
+  sizes: Size[];
 };
 
 export type Size = {
   size: string;
-  colors: Color[];
+  quantity: number;
 };
 
 export type Review = {
@@ -25,12 +26,13 @@ export type ShoppingItem = {
   price: number;
   discount: number;
   soldOut: boolean;
-  type: string;
+  category: string;
+  dressStyle: string;
+  clothType: string;
   material: string;
   brand: string;
-  sizes: Size[];
+  colors: Color[];
   shortDescription: string;
   longDescription: string[];
-  otherImages: StaticImageData[];
   reviews?: Review[];
 };
