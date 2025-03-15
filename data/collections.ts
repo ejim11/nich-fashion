@@ -90,9 +90,9 @@ export const collections: ShoppingItem[] = [
         color: "blue",
         images: [
           topSellingImg1,
-          topSellingImg2,
           topSellingImg3,
-          topSellingImg4,
+          topSellingImg5,
+          topSellingImg6,
         ],
         sizes: [
           {
@@ -132,10 +132,10 @@ export const collections: ShoppingItem[] = [
       {
         color: "purple",
         images: [
+          topSellingImg8,
+          topSellingImg3,
           topSellingImg1,
           topSellingImg2,
-          topSellingImg3,
-          topSellingImg4,
         ],
         sizes: [
           {
@@ -224,9 +224,9 @@ export const collections: ShoppingItem[] = [
       {
         color: "blue",
         images: [
-          topSellingImg1,
-          topSellingImg2,
           topSellingImg3,
+          topSellingImg2,
+          topSellingImg5,
           topSellingImg4,
         ],
         sizes: [
@@ -248,9 +248,9 @@ export const collections: ShoppingItem[] = [
         color: "red",
         images: [
           topSellingImg1,
+          topSellingImg8,
+          topSellingImg6,
           topSellingImg2,
-          topSellingImg3,
-          topSellingImg4,
         ],
         sizes: [
           {
@@ -267,10 +267,10 @@ export const collections: ShoppingItem[] = [
       {
         color: "purple",
         images: [
+          topSellingImg3,
+          topSellingImg8,
           topSellingImg1,
           topSellingImg2,
-          topSellingImg3,
-          topSellingImg4,
         ],
         sizes: [
           {
@@ -359,9 +359,9 @@ export const collections: ShoppingItem[] = [
       {
         color: "yellow",
         images: [
-          topSellingImg1,
-          topSellingImg2,
           topSellingImg3,
+          topSellingImg8,
+          topSellingImg7,
           topSellingImg4,
         ],
         sizes: [
@@ -379,9 +379,9 @@ export const collections: ShoppingItem[] = [
         color: "green",
         images: [
           topSellingImg1,
-          topSellingImg2,
-          topSellingImg3,
           topSellingImg4,
+          topSellingImg3,
+          topSellingImg5,
         ],
         sizes: [
           {
@@ -398,9 +398,9 @@ export const collections: ShoppingItem[] = [
       {
         color: "purple",
         images: [
-          topSellingImg1,
-          topSellingImg2,
           topSellingImg3,
+          topSellingImg5,
+          topSellingImg7,
           topSellingImg4,
         ],
         sizes: [
@@ -491,10 +491,10 @@ export const collections: ShoppingItem[] = [
       {
         color: "pink",
         images: [
-          topSellingImg1,
           topSellingImg2,
-          topSellingImg3,
-          topSellingImg4,
+          topSellingImg5,
+          topSellingImg7,
+          topSellingImg8,
         ],
         sizes: [
           {
@@ -510,10 +510,10 @@ export const collections: ShoppingItem[] = [
       {
         color: "gray",
         images: [
-          topSellingImg1,
-          topSellingImg2,
           topSellingImg3,
-          topSellingImg4,
+          topSellingImg6,
+          topSellingImg2,
+          topSellingImg1,
         ],
         sizes: [
           {
@@ -530,10 +530,10 @@ export const collections: ShoppingItem[] = [
       {
         color: "black",
         images: [
-          topSellingImg1,
-          topSellingImg2,
+          topSellingImg6,
           topSellingImg3,
-          topSellingImg4,
+          topSellingImg7,
+          topSellingImg2,
         ],
         sizes: [
           {
@@ -624,9 +624,9 @@ export const collections: ShoppingItem[] = [
       {
         color: "blue",
         images: [
-          topSellingImg1,
           topSellingImg2,
-          topSellingImg3,
+          topSellingImg7,
+          topSellingImg6,
           topSellingImg4,
         ],
         sizes: [
@@ -647,10 +647,10 @@ export const collections: ShoppingItem[] = [
       {
         color: "red",
         images: [
-          topSellingImg1,
-          topSellingImg2,
+          topSellingImg5,
           topSellingImg3,
-          topSellingImg4,
+          topSellingImg1,
+          topSellingImg6,
         ],
         sizes: [
           {
@@ -667,10 +667,10 @@ export const collections: ShoppingItem[] = [
       {
         color: "purple",
         images: [
-          topSellingImg1,
+          topSellingImg6,
           topSellingImg2,
+          topSellingImg1,
           topSellingImg3,
-          topSellingImg4,
         ],
         sizes: [
           {
@@ -762,9 +762,9 @@ export const collections: ShoppingItem[] = [
         color: "pink",
         images: [
           topSellingImg1,
+          topSellingImg6,
           topSellingImg2,
           topSellingImg3,
-          topSellingImg4,
         ],
         sizes: [
           {
@@ -780,10 +780,10 @@ export const collections: ShoppingItem[] = [
       {
         color: "gray",
         images: [
-          topSellingImg1,
-          topSellingImg2,
+          topSellingImg6,
           topSellingImg3,
-          topSellingImg4,
+          topSellingImg7,
+          topSellingImg8,
         ],
         sizes: [
           {
@@ -800,10 +800,10 @@ export const collections: ShoppingItem[] = [
       {
         color: "black",
         images: [
-          topSellingImg1,
-          topSellingImg2,
           topSellingImg3,
-          topSellingImg4,
+          topSellingImg5,
+          topSellingImg6,
+          topSellingImg2,
         ],
         sizes: [
           {
@@ -895,8 +895,8 @@ export const collections: ShoppingItem[] = [
         color: "yellow",
         images: [
           topSellingImg1,
+          topSellingImg5,
           topSellingImg2,
-          topSellingImg3,
           topSellingImg4,
         ],
         sizes: [
@@ -913,9 +913,9 @@ export const collections: ShoppingItem[] = [
       {
         color: "green",
         images: [
-          topSellingImg1,
+          topSellingImg6,
           topSellingImg2,
-          topSellingImg3,
+          topSellingImg7,
           topSellingImg4,
         ],
         sizes: [
@@ -933,10 +933,10 @@ export const collections: ShoppingItem[] = [
       {
         color: "purple",
         images: [
-          topSellingImg1,
-          topSellingImg2,
           topSellingImg3,
-          topSellingImg4,
+          topSellingImg6,
+          topSellingImg7,
+          topSellingImg8,
         ],
         sizes: [
           {
@@ -1027,10 +1027,10 @@ export const collections: ShoppingItem[] = [
       {
         color: "blue",
         images: [
-          topSellingImg1,
           topSellingImg2,
-          topSellingImg3,
+          topSellingImg8,
           topSellingImg4,
+          topSellingImg3,
         ],
         sizes: [
           {
@@ -1050,10 +1050,10 @@ export const collections: ShoppingItem[] = [
       {
         color: "red",
         images: [
-          topSellingImg1,
           topSellingImg2,
-          topSellingImg3,
-          topSellingImg4,
+          topSellingImg6,
+          topSellingImg7,
+          topSellingImg1,
         ],
         sizes: [
           {
@@ -1070,8 +1070,8 @@ export const collections: ShoppingItem[] = [
       {
         color: "purple",
         images: [
-          topSellingImg1,
-          topSellingImg2,
+          topSellingImg6,
+          topSellingImg5,
           topSellingImg3,
           topSellingImg4,
         ],
@@ -1163,9 +1163,9 @@ export const collections: ShoppingItem[] = [
       {
         color: "blue",
         images: [
-          topSellingImg1,
+          topSellingImg8,
+          topSellingImg5,
           topSellingImg2,
-          topSellingImg3,
           topSellingImg4,
         ],
         sizes: [
@@ -1206,10 +1206,10 @@ export const collections: ShoppingItem[] = [
       {
         color: "purple",
         images: [
-          topSellingImg1,
-          topSellingImg2,
-          topSellingImg3,
           topSellingImg4,
+          topSellingImg3,
+          topSellingImg7,
+          topSellingImg2,
         ],
         sizes: [
           {
@@ -1299,10 +1299,10 @@ export const collections: ShoppingItem[] = [
       {
         color: "blue",
         images: [
-          topSellingImg1,
-          topSellingImg2,
+          topSellingImg8,
+          topSellingImg5,
           topSellingImg3,
-          topSellingImg4,
+          topSellingImg6,
         ],
         sizes: [
           {
@@ -1322,10 +1322,10 @@ export const collections: ShoppingItem[] = [
       {
         color: "red",
         images: [
-          topSellingImg1,
           topSellingImg2,
+          topSellingImg7,
           topSellingImg3,
-          topSellingImg4,
+          topSellingImg1,
         ],
         sizes: [
           {
@@ -1436,10 +1436,10 @@ export const collections: ShoppingItem[] = [
       {
         color: "blue",
         images: [
-          topSellingImg1,
-          topSellingImg2,
+          topSellingImg7,
           topSellingImg3,
-          topSellingImg4,
+          topSellingImg2,
+          topSellingImg6,
         ],
         sizes: [
           {
@@ -1460,9 +1460,9 @@ export const collections: ShoppingItem[] = [
         color: "red",
         images: [
           topSellingImg1,
-          topSellingImg2,
-          topSellingImg3,
-          topSellingImg4,
+          topSellingImg7,
+          topSellingImg5,
+          topSellingImg8,
         ],
         sizes: [
           {
@@ -1479,10 +1479,10 @@ export const collections: ShoppingItem[] = [
       {
         color: "purple",
         images: [
-          topSellingImg1,
-          topSellingImg2,
           topSellingImg3,
           topSellingImg4,
+          topSellingImg7,
+          topSellingImg6,
         ],
         sizes: [
           {
@@ -1573,9 +1573,9 @@ export const collections: ShoppingItem[] = [
       {
         color: "blue",
         images: [
-          topSellingImg1,
-          topSellingImg2,
           topSellingImg3,
+          topSellingImg6,
+          topSellingImg5,
           topSellingImg4,
         ],
         sizes: [
@@ -1596,10 +1596,10 @@ export const collections: ShoppingItem[] = [
       {
         color: "red",
         images: [
-          topSellingImg1,
-          topSellingImg2,
+          topSellingImg7,
+          topSellingImg8,
+          topSellingImg5,
           topSellingImg3,
-          topSellingImg4,
         ],
         sizes: [
           {
@@ -1616,10 +1616,10 @@ export const collections: ShoppingItem[] = [
       {
         color: "purple",
         images: [
-          topSellingImg1,
           topSellingImg2,
+          topSellingImg6,
           topSellingImg3,
-          topSellingImg4,
+          topSellingImg1,
         ],
         sizes: [
           {
@@ -1733,10 +1733,10 @@ export const collections: ShoppingItem[] = [
       {
         color: "red",
         images: [
-          topSellingImg1,
-          topSellingImg2,
-          topSellingImg3,
           topSellingImg4,
+          topSellingImg2,
+          topSellingImg7,
+          topSellingImg5,
         ],
         sizes: [
           {
@@ -1753,10 +1753,10 @@ export const collections: ShoppingItem[] = [
       {
         color: "purple",
         images: [
+          topSellingImg6,
+          topSellingImg3,
           topSellingImg1,
           topSellingImg2,
-          topSellingImg3,
-          topSellingImg4,
         ],
         sizes: [
           {
