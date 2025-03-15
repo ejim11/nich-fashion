@@ -2,8 +2,7 @@
 import { collections } from "@/data/collections";
 import { ShoppingItem } from "@/types/shoppingItem";
 import Link from "next/link";
-import { useSearchParams } from "next/navigation";
-import React, { ReactNode, useMemo } from "react";
+import React, { ReactNode, useState } from "react";
 import { FiChevronRight } from "react-icons/fi";
 import ItemDescription from "./ItemDescription";
 import AdditionalInfo from "./Additional-Info";
@@ -15,6 +14,8 @@ import ShoppingItemImages from "./ShoppingItemImages";
 import ItemDetails from "./ItemDetails";
 
 const ShoppingItemDetail: React.FC<{ itemId: string }> = ({ itemId }) => {
+  const [detailsType, setDetailsType] = useState<string>("description");
+
   const detailsNav: { text: string; slug: string }[] = [
     {
       text: "description",
@@ -34,18 +35,18 @@ const ShoppingItemDetail: React.FC<{ itemId: string }> = ({ itemId }) => {
     (item: ShoppingItem) => item.id === itemId
   )[0];
 
-  const searchParams = useSearchParams();
+  // const searchParams = useSearchParams();
 
-  // Convert searchParams to an object if needed
-  const { type } = useMemo(
-    () => ({
-      type: searchParams.get("type") || undefined,
-    }),
-    [searchParams]
-  );
+  // // Convert searchParams to an object if needed
+  // const { type } = useMemo(
+  //   () => ({
+  //     type: searchParams.get("type") || undefined,
+  //   }),
+  //   [searchParams]
+  // );
 
-  const componentViewed = (type: string): ReactNode => {
-    switch (type) {
+  const componentViewed = (): ReactNode => {
+    switch (detailsType) {
       case "description":
         return (
           <ItemDescription texts={shoppingItem?.longDescription || [""]} />
@@ -91,23 +92,25 @@ const ShoppingItemDetail: React.FC<{ itemId: string }> = ({ itemId }) => {
         {/* other infos */}
         <div className=" w-full flex justify-evenly relative">
           {detailsNav.map((item: { text: string; slug: string }) => (
-            <Link
+            <button
               key={item.slug}
               className={`capitalize flex text-[2.4rem] font-bold font-satoshi py-[1.6rem] border-b-[0.6rem] relative z-[20] transition-all duration-150 ease-in ${
-                type === item.slug
+                detailsType === item.slug
                   ? "text-black border-black"
                   : "border-transparent text-[#757575]"
               }`}
-              href={`/collections/${itemId}?type=${item.slug}`}
+              onClick={() => {
+                setDetailsType(item.slug);
+              }}
             >
               {item.text}
-            </Link>
+            </button>
           ))}
           <div className="h-[0.6rem] bg-[#E5E2E2] absolute bottom-0 left-0 right-0 z-10 w-full"></div>
         </div>
         <div>
           {/* {switch} */}
-          {componentViewed(type || "")}
+          {componentViewed()}
         </div>
       </div>
       <ShortShoppingItemList title={"You may also like"} data={newArrivals} />
