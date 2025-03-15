@@ -29,7 +29,7 @@ const CollectionItem = ({ collection }: { collection: ShoppingItem }) => {
 
   return (
     <Link
-      href={`/collections/${collection.id}?type=description`}
+      href={`/collections/${collection.id}`}
       className="relative flex flex-col"
     >
       <div className="bg-color-grey-4 rounded-[2rem] px-[5rem] py-[1.8rem]">
