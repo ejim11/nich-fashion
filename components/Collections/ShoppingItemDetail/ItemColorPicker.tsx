@@ -8,25 +8,32 @@ const ItemColorPicker = ({
   colors,
   selectedColor,
   onSelectColor,
+  onSelectColorImgs,
+  onSelectImgIndex,
 }: {
   colors: Color[];
   selectedColor: string;
   onSelectColor: Dispatch<SetStateAction<string>>;
+  onSelectColorImgs: (index: number) => void;
+  onSelectImgIndex: Dispatch<SetStateAction<number>>;
 }) => {
   return (
-    <div className="flex flex-col font-satoshi">
+    <div className="flex flex-col font-satoshi w-[23rem]">
       <p className="text-[rgba(0,0,0,0.6)] mb-[1rem]">Select color</p>
       <div>
-        {colors.map((color: Color) => (
+        {colors.map((color: Color, index: number) => (
           <div
             key={color.color}
             className="flex items-center cursor-pointer mb-[1.6rem] last:mb-0"
             onClick={() => {
               if (color.color === selectedColor) {
                 onSelectColor("");
+                onSelectColorImgs(0);
                 return;
               }
               onSelectColor(color.color);
+              onSelectColorImgs(index);
+              onSelectImgIndex(0);
             }}
           >
             <div
