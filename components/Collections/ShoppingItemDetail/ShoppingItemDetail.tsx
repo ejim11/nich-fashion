@@ -10,43 +10,43 @@ import Reviews from "./Reviews";
 import SubscribeToNewsLetter from "@/components/Home/SubscribeToNewsLetter";
 import ShortShoppingItemList from "@/components/ShortShoppingItemList";
 import { newArrivals } from "@/data/newArrivals";
-// import ShoppingItemImages from "./ShoppingItemImages";
+import ShoppingItemImages from "./ShoppingItemImages";
 // import ItemDetails from "./ItemDetails";
 import ItemColorPicker from "./ItemColorPicker";
 
+const detailsNav: { text: string; slug: string }[] = [
+  {
+    text: "description",
+    slug: "description",
+  },
+  {
+    text: "additional information",
+    slug: "additional-info",
+  },
+  {
+    text: "reviews",
+    slug: "review",
+  },
+];
+
 const ShoppingItemDetail: React.FC<{ itemId: string }> = ({ itemId }) => {
-  const [detailsType, setDetailsType] = useState<string>("description");
-
-  const [selectedColor, setSelectedColor] = useState<string>("");
-
-  const detailsNav: { text: string; slug: string }[] = [
-    {
-      text: "description",
-      slug: "description",
-    },
-    {
-      text: "additional information",
-      slug: "additional-info",
-    },
-    {
-      text: "reviews",
-      slug: "review",
-    },
-  ];
-
   const shoppingItem: ShoppingItem | undefined = collections.filter(
     (item: ShoppingItem) => item.id === itemId
   )[0];
 
-  // const searchParams = useSearchParams();
+  const [detailsType, setDetailsType] = useState<string>("description");
 
-  // // Convert searchParams to an object if needed
-  // const { type } = useMemo(
-  //   () => ({
-  //     type: searchParams.get("type") || undefined,
-  //   }),
-  //   [searchParams]
-  // );
+  const [itemColorImgs, setItemColorImgs] = useState(
+    shoppingItem.colors[0].images
+  );
+
+  const [choosenImgIndex, setChoosenImgIndex] = useState<number>(0);
+
+  const [selectedColor, setSelectedColor] = useState<string>("");
+
+  const onSelectColorImgs = (index: number) => {
+    setItemColorImgs(shoppingItem.colors[index].images);
+  };
 
   const componentViewed = (): ReactNode => {
     switch (detailsType) {
@@ -75,17 +75,21 @@ const ShoppingItemDetail: React.FC<{ itemId: string }> = ({ itemId }) => {
           <FiChevronRight className=" mr-[1.6rem]" />
           <p className="text-[#ADADAD]">{shoppingItem?.name}</p>
         </div>
-        <div className="my-[6rem] flex justify-between w-full">
+        <div className="my-[6rem] flex  w-full">
           {/* first */}
           <ItemColorPicker
             colors={shoppingItem.colors}
             selectedColor={selectedColor}
             onSelectColor={setSelectedColor}
+            onSelectColorImgs={onSelectColorImgs}
+            onSelectImgIndex={setChoosenImgIndex}
           />
-          {/* <ShoppingItemImages
-            imgs={shoppingItem?.otherImages}
+          <ShoppingItemImages
+            imgs={itemColorImgs}
             itemName={shoppingItem?.name}
-          /> */}
+            chosenImgIndex={choosenImgIndex}
+            onSelectImgIndex={setChoosenImgIndex}
+          />
           {/* second */}
           {/* <ItemDetails
             name={shoppingItem.name}
