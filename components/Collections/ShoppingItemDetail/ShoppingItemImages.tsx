@@ -15,7 +15,7 @@ const ShoppingItemImages = ({
   onSelectImgIndex: Dispatch<SetStateAction<number>>;
 }) => {
   return (
-    <div className="ml-[2rem] flex flex-col overflow-hidden">
+    <div className="ml-[2rem] w-[60rem] flex flex-col overflow-hidden">
       <div className="w-full h-[50rem] bg-[rgba(240,238,237,1)] flex justify-center items-center rounded-[2.4rem]">
         <div className="w-[38rem] h-[43rem]">
           {imgs[chosenImgIndex] && (
