@@ -1,5 +1,5 @@
 "use client";
-import React, { ReactNode, useState } from "react";
+import React, { ReactNode, useEffect, useState } from "react";
 import { CollectionCategory } from "./enum/collectionCategory.enum";
 import MainContainer from "../MainContainer";
 import FiltersComp from "./FiltersComp";
@@ -27,6 +27,10 @@ const CollectionsNav: React.FC<{ children: ReactNode }> = ({ children }) => {
   const onChooseCategoryHandler = (cat: CollectionCategory): void => {
     setCategory(cat);
   };
+
+  useEffect(() => {
+    window.scrollTo({ top: -80, behavior: "smooth" });
+  }, []);
 
   return (
     <MainContainer customPadding={` px-[8rem] py-[7rem]`}>
