@@ -2,34 +2,34 @@
 import { ShoppingItem } from "@/types/shoppingItem";
 import React from "react";
 import Image from "next/image";
-import { PiShoppingCartSimpleBold } from "react-icons/pi";
-import { PiShoppingCartSimpleFill } from "react-icons/pi";
-import { useAppDispatch, useAppSelector } from "@/hooks/stateHooks";
-import { checkoutActions } from "@/slices/checkoutSlice";
+// import { PiShoppingCartSimpleBold } from "react-icons/pi";
+// import { PiShoppingCartSimpleFill } from "react-icons/pi";
+// import { useAppDispatch, useAppSelector } from "@/hooks/stateHooks";
+// import { checkoutActions } from "@/slices/checkoutSlice";
 import Link from "next/link";
 
 const CollectionItem = ({ collection }: { collection: ShoppingItem }) => {
-  const dispatch = useAppDispatch();
+  // const dispatch = useAppDispatch();
 
-  const iconClassname: string = "w-[2.4rem] h-[2.4rem] text-color-current";
+  // const iconClassname: string = "w-[2.4rem] h-[2.4rem] text-color-current";
 
-  const toggleCheckoutHandler = () => {
-    dispatch(checkoutActions.toggleItemCheckout(collection));
-  };
+  // const toggleCheckoutHandler = () => {
+  //   dispatch(checkoutActions.toggleItemCheckout(collection));
+  // };
 
-  const { checkout } = useAppSelector((state) => state.checkout);
+  // const { checkout } = useAppSelector((state) => state.checkout);
 
-  const isChecked = (item: ShoppingItem): boolean => {
-    const itemIsChecked: ShoppingItem | undefined = checkout.find(
-      (it: ShoppingItem) => it.id === item.id
-    );
+  // const isChecked = (item: ShoppingItem): boolean => {
+  //   const itemIsChecked: ShoppingItem | undefined = checkout.find(
+  //     (it: ShoppingItem) => it.id === item.id
+  //   );
 
-    return !!itemIsChecked;
-  };
+  //   return !!itemIsChecked;
+  // };
 
   return (
     <Link
-      href={`/collections/${collection.id}?type=description`}
+      href={`/collections/${collection.id}`}
       className="relative flex flex-col"
     >
       <div className="bg-color-grey-4 rounded-[2rem] px-[5rem] py-[1.8rem]">
@@ -46,7 +46,7 @@ const CollectionItem = ({ collection }: { collection: ShoppingItem }) => {
         <p className=" text-[1.8rem] font-bold font-satoshi mr-[1rem]">
           {collection.name}
         </p>
-        <button
+        {/* <button
           type="button"
           onClick={toggleCheckoutHandler}
           className={`${
@@ -58,7 +58,7 @@ const CollectionItem = ({ collection }: { collection: ShoppingItem }) => {
           ) : (
             <PiShoppingCartSimpleBold className={iconClassname} />
           )}
-        </button>
+        </button> */}
       </div>
       <div className="text-[1.8rem] leading-[3.1rem] font-bold flex items-center">
         <p className="font-satoshi text-color-black   mr-[1rem]">

@@ -1,15 +1,21 @@
 import { Color, ShoppingItem, Size } from "@/types/shoppingItem";
 import React from "react";
 
-const AdditionalInfo = ({ shoppingItem }: { shoppingItem?: ShoppingItem }) => {
+const AdditionalInfo = ({ shoppingItem }: { shoppingItem: ShoppingItem }) => {
   const tableHeaders: string[] = ["feature", "description"];
 
-  const sizes = shoppingItem?.sizes.map((item: Size) => item.size);
+  const colors = shoppingItem.colors.map((color: Color) => color.color);
 
-  const colors = shoppingItem?.sizes
-    .map((item: Size) => item.colors)
-    .flat()
-    .map((color: Color) => color.color);
+  const sizes = [
+    ...new Set(
+      shoppingItem.colors
+        .map((color: Color) => color.sizes)
+        .flat()
+        .map((size: Size) => size.size)
+    ),
+  ];
+
+  console.log(sizes[0]);
 
   const info = [
     {
@@ -30,6 +36,8 @@ const AdditionalInfo = ({ shoppingItem }: { shoppingItem?: ShoppingItem }) => {
     },
   ];
 
+  console.log(typeof info[2].value === "string");
+
   return (
     <div className="mt-[4rem] w-full leading-[2.6rem]">
       <table className="w-full font-satoshi capitalize">
@@ -49,7 +57,7 @@ const AdditionalInfo = ({ shoppingItem }: { shoppingItem?: ShoppingItem }) => {
           {info.map((item) => (
             <tr key={item.title} className="border-b border-[#E5E2E2]">
               <td className="py-[2rem] pl-[4.5rem] ">{item.title}</td>
-              <td className="py-[2rem]">
+              <td className="py-[2rem] ">
                 {typeof item.value === "string"
                   ? item.value
                   : item?.value?.map((val: string, i) => (
