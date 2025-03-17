@@ -1,9 +1,13 @@
 "use client";
 
-import { Color, Size } from "@/types/shoppingItem";
-import React, { useEffect, useMemo, useState } from "react";
+import { Color, ShoppingItem, Size } from "@/types/shoppingItem";
+import React, { useMemo, useState } from "react";
 import { StaticImageData } from "next/image";
 import QuantityCalculator, { SizeCopy } from "./QuantityCalculator";
+import { useAppDispatch } from "@/hooks/stateHooks";
+import { CartItem } from "@/types/cartItem";
+import { cartActions } from "@/slices/cartSlice";
+import { useRouter } from "next/navigation";
 
 export type ColorCopy = {
   color: string;
@@ -21,6 +25,7 @@ const ItemDetails = ({
   colors,
   shortDescription,
   colorIndex,
+  shoppingItem,
 }: {
   name: string;
   price: number;
@@ -28,7 +33,12 @@ const ItemDetails = ({
   shortDescription: string;
   colors: Color[];
   colorIndex: number;
+  shoppingItem: ShoppingItem;
 }) => {
+  const dispatchFn = useAppDispatch();
+
+  const router = useRouter();
+
   const colorsCopy: ColorCopy[] = useMemo(() => {
     return colors.map((color: Color) => ({
       color: color.color,
@@ -100,9 +110,58 @@ const ItemDetails = ({
     }
   };
 
-  useEffect(() => {
-    setColorsCopyState(colorsCopy);
-  }, [colorsCopy]);
+  const onAddItemToCartHandler = (): void => {
+    // 1. get the colors with the sizes and quantities
+    const newColors = colorsCopyState
+      .filter((color: ColorCopy) =>
+        color.sizes.some((size: SizeCopy) => size.chosenQuantity > 0)
+      )
+      .map((color: ColorCopy) => {
+        const chosenSizes = color.sizes.filter(
+          (size: SizeCopy) => size.chosenQuantity > 0
+        );
+
+        return {
+          color: color.color,
+          sizes: chosenSizes,
+        };
+      });
+
+    // if the newColors array is empty, return because user has not chosen any size in a color
+    if (newColors.length <= 0) {
+      return;
+    }
+
+    // 2. get the shopping item - a prop
+    //3. substitute the colors in the shopping item for the one you got at 1
+    const newShoppingItem: CartItem = { ...shoppingItem, colors: newColors };
+
+    // 4 .add the item to the cart slice
+    dispatchFn(cartActions.addItemToCart(newShoppingItem));
+
+    // 5 .revert the changes in the colorCopyState
+    const defaultColorsCopy = shoppingItem.colors
+      .slice()
+      .map((color: Color) => ({
+        color: color.color,
+        images: color.images,
+        sizes: color.sizes.map((size: Size) => ({
+          size: size.size,
+          quantity: size.quantity,
+          chosenQuantity: 0,
+        })),
+      }));
+
+    setColorsCopyState(defaultColorsCopy);
+  };
+
+  const orderItemsHandler = () => {
+    // add items to the cart
+    onAddItemToCartHandler();
+
+    // nav to the cart page
+    router.push("/cart");
+  };
 
   return (
     <div className="ml-[2rem] flex-1 font-satoshi flex flex-col">
@@ -164,12 +223,14 @@ const ItemDetails = ({
       </div>
       <div className="flex w-full justify-between mt-auto font-satoshi font-medium text-center">
         <button
+          onClick={orderItemsHandler}
           type="button"
           className="w-[48%] bg-black text-white py-[1.5rem] rounded-[6.2rem] border border-black "
         >
           Order now
         </button>
         <button
+          onClick={onAddItemToCartHandler}
           type="button"
           className="w-[48%] bg-white text-black border border-black py-[1.5rem] rounded-[6.2rem] "
         >
