@@ -16,7 +16,7 @@ import { userActions } from "@/slices/userSlice";
 const Header = () => {
   const dispatch = useAppDispatch();
 
-  const { checkout } = useAppSelector((state) => state.checkout);
+  const { cart } = useAppSelector((state) => state.cart);
 
   const { details } = useAppSelector((state) => state.user);
 
@@ -51,7 +51,7 @@ const Header = () => {
       clearTimeout(timer);
       setScaleUp(false);
     };
-  }, [checkout]);
+  }, [cart]);
 
   useEffect(() => {
     if (typeof window !== "undefined") {
@@ -100,11 +100,11 @@ const Header = () => {
           <button className="relative ml-[1.4rem] mr-[2rem]">
             <LuShoppingCart className="w-[2.4rem] h-[2.4rem] text-color-current " />
             <span
-              className={`${checkout.length > 0 ? "flex " : "hidden"} ${
+              className={`${cart.length > 0 ? "flex " : "hidden"} ${
                 scaleUp ? "scale-125" : "scale-100"
               } text-white -top-[1rem] -right-[0.5rem] bg-red-600 w-[2rem] h-[2rem] text-[1.2rem] rounded-full absolute items-center justify-center transition-all ease-in duration-200`}
             >
-              {checkout.length}
+              {cart.length}
             </span>
           </button>
           {details && details.email ? (
