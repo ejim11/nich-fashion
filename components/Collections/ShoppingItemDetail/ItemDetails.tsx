@@ -29,8 +29,6 @@ const ItemDetails = ({
   colors: Color[];
   colorIndex: number;
 }) => {
-  // const [expanded, setExpanded] = useState<false | number>(false);
-
   const colorsCopy: ColorCopy[] = useMemo(() => {
     return colors.map((color: Color) => ({
       color: color.color,
@@ -46,48 +44,21 @@ const ItemDetails = ({
   const [colorsCopyState, setColorsCopyState] =
     useState<ColorCopy[]>(colorsCopy);
 
-  console.log(colorsCopy);
-
-  const chosenColorsAndQuantity = colorsCopyState.filter((color: ColorCopy) =>
-    color.sizes.some((size: SizeCopy) => size.chosenQuantity > 0)
-  );
-
   const totalSizesPickedInAColor = colorsCopyState
     .filter((color: ColorCopy) =>
       color.sizes.some((size: SizeCopy) => size.chosenQuantity > 0)
     )
-    .map((color: ColorCopy) => color.sizes)
-    .flat()
-    .filter((size: SizeCopy) => size.chosenQuantity > 0);
-  // .map((size:SizeCopy) =>)
-  // .map((size: SizeCopy) => )
-  // .reduce((acc, cur) => acc + cur, 0);
+    .map((color: ColorCopy) => {
+      const totalChosenQuantity = color.sizes
+        .filter((size: SizeCopy) => size.chosenQuantity > 0)
+        .map((size: SizeCopy) => size.chosenQuantity)
+        .reduce((acc, cur) => acc + cur, 0);
 
-  console.log(totalSizesPickedInAColor);
-
-  console.log(chosenColorsAndQuantity);
-
-  // console.log(chosenColorsAndQuantity);
-
-  // const combinedByColor = Object.values(
-  //   chosenColorsAndQuantity.reduce(
-  //     (
-  //       acc: { [x: string]: any },
-  //       item: { color: string | number; chosenQuantity: any }
-  //     ) => {
-  //       // If this color already exists in our accumulator
-  //       if (acc[item.color]) {
-  //         // Add the chosenQuantity to the existing entry
-  //         acc[item.color].chosenQuantity += item.chosenQuantity;
-  //       } else {
-  //         // Create a new entry for this color
-  //         acc[item.color] = { ...item };
-  //       }
-  //       return acc;
-  //     },
-  //     {}
-  //   )
-  // );
+      return {
+        color: color.color,
+        totalQuantityChosen: totalChosenQuantity,
+      };
+    });
 
   const onSetChosenColorSizeQuantityHandler = (
     size: SizeCopy,
@@ -153,16 +124,21 @@ const ItemDetails = ({
         {shortDescription}
       </p>
       <div className="flex items-center py-[2.4rem] border-t border-b border-[rgba(0,0,0,0.1)] my-[2.4rem]">
-        {chosenColorsAndQuantity.length > 0 ? (
-          chosenColorsAndQuantity.map((clr: ColorCopy, i) => (
-            <div key={i} className="flex items-center mr-[1rem] last:mr-0">
-              <div
-                style={{ backgroundColor: clr.color }}
-                className="w-[3.7rem] h-[3.7rem] rounded-full  mr-[1rem]"
-              ></div>
-              {/* <p>{clr.chosenQuantity} units</p> */}
-            </div>
-          ))
+        {totalSizesPickedInAColor.length > 0 ? (
+          totalSizesPickedInAColor.map(
+            (
+              clr: { color: string; totalQuantityChosen: number },
+              i: number
+            ) => (
+              <div key={i} className="flex items-center mr-[1rem] last:mr-0">
+                <div
+                  style={{ backgroundColor: clr.color }}
+                  className="w-[3.7rem] h-[3.7rem] rounded-full  mr-[1rem]"
+                ></div>
+                <p>{clr.totalQuantityChosen} units</p>
+              </div>
+            )
+          )
         ) : (
           <p>No Units Chosen</p>
         )}
