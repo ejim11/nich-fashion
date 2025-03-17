@@ -217,6 +217,12 @@ const ItemDetails = ({
                   onSetChosenColorSizeQuantityHandler
                 }
               />
+              <div className="flex items-center ml-auto">
+                <div className="w-[1.3rem] h-[1.3rem] bg-[rgba(0,128,0,1)] rounded-full mr-[1rem]"></div>
+                <p className="font-satoshi text-[1.8rem] text-black">
+                  In Stock
+                </p>
+              </div>
             </div>
           ))}
         </div>
