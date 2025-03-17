@@ -1,14 +1,19 @@
 import { Review } from "@/types/shoppingItem";
-import React from "react";
+import React, { useState } from "react";
 import { FiSliders } from "react-icons/fi";
 import { FiChevronDown } from "react-icons/fi";
 import { FaStar } from "react-icons/fa";
 import { BsThreeDots } from "react-icons/bs";
 import formatDate from "@/utils/formatDate";
+import AddReviewForm from "./AddReviewForm";
+import { AnimatePresence } from "framer-motion";
 
 const Reviews = ({ reviews }: { reviews?: Review[] }) => {
+  const [isAddReviewModalVisible, setIsAddReviewModalVisible] =
+    useState<boolean>(false);
+
   return (
-    <section className="mt-[4rem] flex flex-col">
+    <section className="mt-[4rem] flex flex-col relative">
       <p className="text-[2rem] font-satoshi font-medium leading-[2.2rem] mb-[3rem] text-black">
         Rating & Reviews
       </p>
@@ -31,6 +36,9 @@ const Reviews = ({ reviews }: { reviews?: Review[] }) => {
             <FiChevronDown className="w-[1.6rem] h-[1.6rem]" />
           </button>
           <button
+            onClick={() => {
+              setIsAddReviewModalVisible(true);
+            }}
             type="button"
             className="bg-black text-white rounded-[6.2rem] py-[1.6rem] px-[2rem] font-medium font-satoshi"
           >
@@ -81,6 +89,13 @@ const Reviews = ({ reviews }: { reviews?: Review[] }) => {
       >
         Load More Reviews
       </button>
+      <AnimatePresence>
+        {isAddReviewModalVisible && (
+          <AddReviewForm
+            setIsAddReviewModalVisible={setIsAddReviewModalVisible}
+          />
+        )}
+      </AnimatePresence>
     </section>
   );
 };
