@@ -96,7 +96,6 @@ const ShoppingItemDetail: React.FC<{ itemId: string }> = ({ itemId }) => {
             chosenImgIndex={choosenImgIndex}
             onSelectImgIndex={setChoosenImgIndex}
           />
-
           <ItemDetails
             name={shoppingItem.name}
             price={shoppingItem.price}
@@ -104,6 +103,7 @@ const ShoppingItemDetail: React.FC<{ itemId: string }> = ({ itemId }) => {
             shortDescription={shoppingItem.shortDescription}
             colors={shoppingItem.colors}
             colorIndex={colorIndex}
+            shoppingItem={shoppingItem}
           />
         </div>
       </div>
