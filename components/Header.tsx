@@ -97,7 +97,7 @@ const Header = () => {
           <button>
             <LuSearch className="w-[2.4rem] h-[2.4rem] text-color-current" />
           </button>
-          <button className="relative ml-[1.4rem] mr-[2rem]">
+          <Link href={"/cart"} className="relative ml-[1.4rem] mr-[2rem] flex">
             <LuShoppingCart className="w-[2.4rem] h-[2.4rem] text-color-current " />
             <span
               className={`${cart.length > 0 ? "flex " : "hidden"} ${
@@ -106,7 +106,7 @@ const Header = () => {
             >
               {cart.length}
             </span>
-          </button>
+          </Link>
           {details && details.email ? (
             <div className="flex items-center">
               <button className="flex items-center ">
