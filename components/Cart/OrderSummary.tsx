@@ -45,10 +45,10 @@ const OrderSummary = ({ cart }: { cart: CartItem[] }) => {
       title: "Discount (-20%)",
       amount: discount,
     },
-    {
-      title: "Delivery fee",
-      amount: 5000,
-    },
+    // {
+    //   title: "Delivery fee",
+    //   amount: 5000,
+    // },
   ];
 
   const OnPromoCodeChangeHandler = (e: React.ChangeEvent<HTMLInputElement>) => {
@@ -84,7 +84,7 @@ const OrderSummary = ({ cart }: { cart: CartItem[] }) => {
       <div className="py-[2rem] w-full flex justify-between items-center text-[2rem] text-black">
         <p>Total</p>
         <p className="text-[2.4rem] font-bold">
-          N{formatAmount(String(totalPrice - discount + 5000))}
+          N{formatAmount(String(totalPrice - discount))}
         </p>
       </div>
       <div className="flex font-satoshi">
