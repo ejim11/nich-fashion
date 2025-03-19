@@ -1,4 +1,5 @@
 import { CartItem } from "@/types/cartItem";
+import { updateItemIfExists } from "@/utils/addItemToCart";
 import { createSlice } from "@reduxjs/toolkit";
 
 const cartSlice = createSlice({
@@ -11,7 +12,19 @@ const cartSlice = createSlice({
       state: { cart: CartItem[] },
       action: { payload: CartItem }
     ) => {
-      state.cart = [...state.cart, action.payload];
+      const newCart = updateItemIfExists(state.cart, action.payload);
+
+      state.cart = newCart;
+    },
+    removeItemFromCart: (
+      state: { cart: CartItem[] },
+      action: { payload: string }
+    ) => {
+      const filteredCart = state.cart
+        .slice()
+        .filter((item: CartItem) => item.id !== action.payload);
+
+      state.cart = filteredCart;
     },
   },
 });
