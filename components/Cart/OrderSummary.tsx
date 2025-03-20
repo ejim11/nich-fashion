@@ -1,5 +1,7 @@
 import { CartItem } from "@/types/cartItem";
 import formatAmount from "@/utils/formatAmount";
+import { getTotalPriceOfCartItems } from "@/utils/getTotalPriceInCart";
+import Link from "next/link";
 import React, { useState } from "react";
 import { FiTag } from "react-icons/fi";
 import { MdArrowForward } from "react-icons/md";
@@ -7,32 +9,7 @@ import { MdArrowForward } from "react-icons/md";
 const OrderSummary = ({ cart }: { cart: CartItem[] }) => {
   const [promoCode, setPromoCode] = useState<string>("");
 
-  const totalPrice = cart
-    .map((cartItem: CartItem) => {
-      return (
-        cartItem.colors
-          .map(
-            (color: {
-              color: string;
-              sizes: {
-                size: string;
-                quantity: number;
-                chosenQuantity: number;
-              }[];
-            }) => color.sizes
-          )
-          .flat()
-          .map(
-            (size: {
-              size: string;
-              quantity: number;
-              chosenQuantity: number;
-            }) => size.chosenQuantity
-          )
-          .reduce((acc, cur) => acc + cur, 0) * cartItem.price
-      );
-    })
-    .reduce((acc, cur) => cur + acc, 0);
+  const totalPrice = getTotalPriceOfCartItems(cart);
 
   const discount = 0.2 * totalPrice;
 
@@ -45,10 +22,6 @@ const OrderSummary = ({ cart }: { cart: CartItem[] }) => {
       title: "Discount (-20%)",
       amount: discount,
     },
-    // {
-    //   title: "Delivery fee",
-    //   amount: 5000,
-    // },
   ];
 
   const OnPromoCodeChangeHandler = (e: React.ChangeEvent<HTMLInputElement>) => {
@@ -107,13 +80,13 @@ const OrderSummary = ({ cart }: { cart: CartItem[] }) => {
           apply
         </button>
       </div>
-      <button
-        type="button"
+      <Link
+        href={"/payment-checkout"}
         className="flex py-[1.9rem] w-full bg-black text-white items-center justify-center font-satoshi font-medium rounded-[6.2rem] mt-[2.4rem]"
       >
         <span>Go to Checkout</span>
         <MdArrowForward className="w-[2.4rem] h-[2.4rem] ml-[1.2rem]" />
-      </button>
+      </Link>
     </div>
   );
 };
