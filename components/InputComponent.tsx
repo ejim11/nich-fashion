@@ -63,7 +63,7 @@ const InputComponent: React.FC<InputProps> = (props) => {
       props.error[props.name].message ? (
       <small
         className={`text-color-red-1 ${
-          props.name === "columnName" ? "" : "pt-1"
+          props.name === "columnName" ? "" : "pt-[0.5rem]"
         }`}
       >
         {props.error[props.name].message}
@@ -80,7 +80,7 @@ const InputComponent: React.FC<InputProps> = (props) => {
       {props.label && (
         <label
           htmlFor={props.name}
-          className={`capitalize  mb-[.5rem] ${
+          className={`capitalize   mb-[.5rem] ${
             props.labelTextColor ? props.labelTextColor : "text-color-black"
           }`}
         >
@@ -102,7 +102,7 @@ const InputComponent: React.FC<InputProps> = (props) => {
           {...props.register(props.name, props.validation)}
           className={`${
             props.border ? props.border : "border"
-          } py-[1rem] relative ${props.pl ? props.pl : "pl-[4rem]"} pr-3 ${
+          } py-[1rem] relative ${props.pl ? props.pl : "pl-[4rem]"} pr-[1rem] ${
             props.width ? props.width : "w-full"
           } ${props.height && props.height} ${
             props.shadow && props.shadow
