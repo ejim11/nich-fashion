@@ -90,7 +90,7 @@ const RegisterForm = () => {
         label="Fullname"
         labelTextColor="text-[2rem] font-satoshi"
         name={"name"}
-        validation={registrationOption.name}
+        validation={registrationOption.fullname}
         icon={
           <FaRegCircleUser className="absolute w-[2.2rem] h-[2.2rem] top-[1.2rem] left-[1rem] text-color-primary-1" />
         }
