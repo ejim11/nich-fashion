@@ -13,6 +13,7 @@ import {
 } from "@/utils/getTotalPriceInCart";
 import formatAmount from "@/utils/formatAmount";
 import { MdArrowForward } from "react-icons/md";
+import { useRouter } from "next/navigation";
 // import { toastError, toastSuccess } from "@/utils/toastFuncs";
 
 type FormData = {
@@ -31,6 +32,8 @@ type FormData = {
 };
 
 const PaymentCheckoutComp = () => {
+  const router = useRouter();
+
   const { cart } = useAppSelector((state) => state.cart);
 
   const [billingAddressType, setBillingAddressType] = useState<string>("same");
@@ -109,6 +112,7 @@ const PaymentCheckoutComp = () => {
 
   const submitPaymentCheckout: SubmitHandler<FormData> = (data) => {
     console.log(data);
+    router.push("/payment-method");
   };
 
   return (
@@ -121,7 +125,7 @@ const PaymentCheckoutComp = () => {
         <p className="text-[#ADADAD]">Payment Checkout</p>
       </div>
       <form
-        className="flex relative"
+        className="flex relative mt-[5rem]"
         noValidate
         onSubmit={handleSubmit(submitPaymentCheckout)}
       >
