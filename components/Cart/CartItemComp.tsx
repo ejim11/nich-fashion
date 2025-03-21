@@ -3,6 +3,8 @@ import React from "react";
 import { RiDeleteBin5Fill } from "react-icons/ri";
 import Image from "next/image";
 import formatAmount from "@/utils/formatAmount";
+import { useAppDispatch } from "@/hooks/stateHooks";
+import { cartActions } from "@/slices/cartSlice";
 
 const CartItemComp = ({
   image,
@@ -13,6 +15,7 @@ const CartItemComp = ({
   price,
   index,
   cartLength,
+  id,
 }: {
   image: StaticImageData;
   name: string;
@@ -22,7 +25,14 @@ const CartItemComp = ({
   price: number;
   index: number;
   cartLength: number;
+  id: string;
 }) => {
+  const dispatch = useAppDispatch();
+
+  const removeItemFromCartHandler = () => {
+    dispatch(cartActions.removeItemFromCart(id));
+  };
+
   return (
     <div
       className={`flex py-[2.7rem] ${
@@ -62,7 +72,11 @@ const CartItemComp = ({
           N{formatAmount(String(price * totalQuantity))}
         </p>
       </div>
-      <button type="button" className="ml-auto self-start">
+      <button
+        type="button"
+        className="ml-auto self-start"
+        onClick={removeItemFromCartHandler}
+      >
         <RiDeleteBin5Fill className="text-[rgba(255,51,51,1)] w-[2.4rem] h-[2.4rem]" />
       </button>
     </div>

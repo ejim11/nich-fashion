@@ -4,7 +4,7 @@ import { CartItem } from "@/types/cartItem";
 
 const CartList = ({ cart }: { cart: CartItem[] }) => {
   return (
-    <div className="flex-1 mr-[2.4rem] rounded-[2rem]  flex flex-col border-[0.1rem] border-[rgba(0,0,0,0.1)] py-[2rem] px-[2.4rem]">
+    <div className="flex-1 mr-[2.4rem] rounded-[2rem]  flex flex-col border-[0.1rem] border-[rgba(0,0,0,0.1)]  px-[2.4rem]">
       {cart.map((cartItem: CartItem, index: number) => {
         const colors = cartItem.colors.map(
           (color: {
@@ -73,6 +73,7 @@ const CartList = ({ cart }: { cart: CartItem[] }) => {
             price={cartItem.price}
             index={index}
             cartLength={cart.length}
+            id={cartItem.id}
           />
         );
       })}

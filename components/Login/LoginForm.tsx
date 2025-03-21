@@ -4,7 +4,6 @@ import { SubmitHandler, useForm } from "react-hook-form";
 import { registrationOption } from "@/utils/inputValidator";
 import InputComponent from "../InputComponent";
 import { AiOutlineMail } from "react-icons/ai";
-// import { IoMdLock } from "react-icons/io";
 import { useAppDispatch } from "@/hooks/stateHooks";
 import { toastError, toastSuccess } from "@/utils/toastFuncs";
 import { FaRegCircleCheck } from "react-icons/fa6";
@@ -66,7 +65,7 @@ const LoginForm = () => {
   return (
     <form onSubmit={handleSubmit(onSubmit)} noValidate>
       <InputComponent
-        placeholder={"Enter you mail address"}
+        placeholder={"Enter your mail address"}
         type={"email"}
         register={register}
         error={errors}
