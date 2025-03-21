@@ -93,7 +93,7 @@ const ContactUsForm = () => {
           label="Name"
           pl="pl-[1rem]"
           containerWidth="w-full"
-          validation={registrationOption.name}
+          validation={registrationOption.fullname}
         />
         <InputComponent
           placeholder={"Enter your email"}
