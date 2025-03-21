@@ -25,7 +25,7 @@ export const registrationOption = {
       message: "Name cannot be greater than 98 characters",
     },
     pattern: {
-      value: /^[A-Z][a-z]+\s[A-Z][a-z]+$/i,
+      value: /^[A-Z][a-z]/i,
       message: "First name is required",
     },
   },
@@ -40,7 +40,7 @@ export const registrationOption = {
       message: "Last cannot be greater than 98 characters",
     },
     pattern: {
-      value: /^[A-Z][a-z]+\s[A-Z][a-z]+$/i,
+      value: /^[A-Z][a-z]/i,
       message: "Last name is required",
     },
   },
