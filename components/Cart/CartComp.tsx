@@ -25,9 +25,9 @@ const CartComp = () => {
             <FiChevronRight className=" mr-[1.6rem]" />
             <p className="text-[#ADADAD]">Cart</p>
           </div>
-          <p className="font-extrabold text-[4.8rem] font-monserrat uppercase my-[4.8rem]">
+          <h3 className="font-extrabold text-[4.8rem] font-monserrat uppercase my-[4.8rem]">
             your cart
-          </p>
+          </h3>
           <div className="flex ">
             <CartList cart={cart} />
             <OrderSummary cart={cart} />
