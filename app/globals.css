@@ -189,3 +189,27 @@ input[type="number"]::-webkit-outer-spin-button {
 input[type="number"] {
   -moz-appearance: textfield;
 }
+
+/* Add this to your global CSS file */
+
+.order-states::-webkit-scrollbar {
+  height: 0;
+  /* @media all and (max-width: 700px) {
+  width: 5rem;
+} */
+}
+
+/* Track */
+.order-states::-webkit-scrollbar-track {
+  background: #e5e5e5;
+}
+
+/* Handle */
+.order-states::-webkit-scrollbar-thumb {
+  background: #000000;
+}
+
+/* Handle on hover */
+.order-states::-webkit-scrollbar-thumb:hover {
+  background: #000000;
+}

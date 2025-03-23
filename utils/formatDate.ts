@@ -1,18 +1,26 @@
-const days = ["Sun", "Mon", "Tue", "Wed", "Thu", "Fri", "Sat"];
+const days = [
+  "Sunday",
+  "Monday",
+  "Tuesday",
+  "Wednesday",
+  "Thursday",
+  "Friday",
+  "Saturday",
+];
 
 const months = [
-  "Jan",
-  "Feb",
-  "Mar",
-  "Apr",
+  "January",
+  "February",
+  "March",
+  "April",
   "May",
-  "Jun",
-  "Jul",
-  "Aug",
-  "Sep",
-  "Oct",
-  "Nov",
-  "Dec",
+  "June",
+  "July",
+  "August",
+  "September",
+  "October",
+  "November",
+  "December",
 ];
 
 function formatDate(date: string) {
@@ -20,10 +28,7 @@ function formatDate(date: string) {
     return;
   }
   const currentDate = new Date(date);
-  const dateInNumber = new Date(currentDate.setDate(currentDate.getDate()))
-    .getDate()
-    .toString()
-    .padStart(2, "0");
+  const dateInNumber = String(currentDate.getDate()).padStart(2, "0");
   const day = days[currentDate.getDay()];
   const month = months[currentDate.getMonth()];
   const year = currentDate.getFullYear();

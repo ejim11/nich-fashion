@@ -12,6 +12,8 @@ import HeaderNavigationLink from "./HeaderLinkSubComponents/HeaderNavLink";
 import Link from "next/link";
 import { useAppDispatch, useAppSelector } from "@/hooks/stateHooks";
 import { userActions } from "@/slices/userSlice";
+import { userLogout } from "@/actions/authActions";
+import { AnimatePresence, motion } from "framer-motion";
 
 const Header = () => {
   const dispatch = useAppDispatch();
@@ -21,6 +23,9 @@ const Header = () => {
   const { details } = useAppSelector((state) => state.user);
 
   const [scaleUp, setScaleUp] = useState<boolean>(false);
+
+  const [profileModalIsVisible, setProfileModalIsVisible] =
+    useState<boolean>(false);
 
   const headerNavLinks: HeaderNavLink[] = [
     {
@@ -40,6 +45,23 @@ const Header = () => {
       link: "/faqs",
     },
   ];
+
+  const logoutHandler = () => {
+    setProfileModalIsVisible(false);
+
+    dispatch(
+      userActions.setUserDetails({
+        id: "",
+        email: "",
+        role: "",
+      })
+    );
+    dispatch(userLogout());
+  };
+
+  const toggleProfileModalVisibility = () => {
+    setProfileModalIsVisible((prevState) => !prevState);
+  };
 
   useEffect(() => {
     setScaleUp(true);
@@ -109,13 +131,47 @@ const Header = () => {
           </Link>
           {details && details.email ? (
             <div className="flex items-center">
-              <button className="flex items-center ">
+              <button
+                className="flex items-center "
+                onClick={toggleProfileModalVisibility}
+              >
                 <FaRegUserCircle className="w-[2.4rem] h-[2.4rem] text-color-current mr-[0.3rem]" />
-                <FiChevronDown className="w-[1.6rem] h-[1.6rem] text-color-current" />
+                <FiChevronDown
+                  className={`w-[1.6rem] h-[1.6rem] text-color-current ${
+                    !profileModalIsVisible ? "rotate-0" : "rotate-180"
+                  }`}
+                />
               </button>
               <p className="font-satoshi ml-[1.5rem] uppercase">
                 {details.email.slice(0, 2)}
               </p>
+              <AnimatePresence>
+                {profileModalIsVisible && (
+                  <motion.div
+                    initial={{ opacity: 0, y: 30 }}
+                    animate={{ opacity: 1, y: 0 }}
+                    exit={{ opacity: 0, y: 30 }}
+                    onClick={() => {
+                      setProfileModalIsVisible(false);
+                    }}
+                    className="absolute top-[8rem] right-[10rem] bg-white flex flex-col shadow-lg rounded-[0.6rem] border border-gray-300"
+                  >
+                    <Link
+                      href={"/orders"}
+                      className="px-[3rem] py-[1rem] flex border-b border-b-gray-300 hover:bg-gray-100 text-black transition-all duration-150 ease-in"
+                    >
+                      Orders
+                    </Link>
+                    <button
+                      onClick={logoutHandler}
+                      type="button"
+                      className="px-[3rem] py-[1rem] hover:bg-gray-100 text-black transition-all duration-150 ease-in"
+                    >
+                      Logout
+                    </button>
+                  </motion.div>
+                )}
+              </AnimatePresence>
             </div>
           ) : (
             <Link
