@@ -9,7 +9,7 @@ export const orders: OrderItem[] = [
     carrier: "Guo ltd logistics",
     carrierPhoneNumber: "07023287382892",
     shippingAddress: "12 Coker, Lagos",
-    orderState: OrderState.PLACED,
+    orderState: OrderState.OUTFORDELIVERY,
   },
   {
     id: "FW-28382901",
@@ -18,6 +18,6 @@ export const orders: OrderItem[] = [
     carrier: "abc logistic",
     carrierPhoneNumber: "0902428292192",
     shippingAddress: "12 Okey Amazi , Idumota, Lagos",
-    orderState: OrderState.PLACED,
+    orderState: OrderState.DELIVERED,
   },
 ];
