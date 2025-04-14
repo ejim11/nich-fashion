@@ -14,7 +14,7 @@ export type CartItem = {
   material: string;
   brand: string;
   shortDescription: string;
-  longDescription: string[];
+  longDescription: string;
   reviews?: Review[];
   colors: {
     color: string;
