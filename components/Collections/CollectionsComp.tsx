@@ -6,11 +6,12 @@ import React, { useEffect, useRef, useState } from "react";
 import CollectionItem from "./CollectionItem";
 import { MdKeyboardArrowLeft, MdKeyboardArrowRight } from "react-icons/md";
 import ReactPaginate from "react-paginate";
+import ShoppingItemSkeleton from "../skeletons/ShoppingItemSkeleton";
 
 const CollectionsComp = () => {
   const sectionRef: any = useRef(null);
 
-  const { items } = useAppSelector((state) => state.collections);
+  const { items, isLoading } = useAppSelector((state) => state.collections);
 
   const [itemOffset, setItemOffset] = useState(0);
   const itemsPerPage = 10;
@@ -40,47 +41,68 @@ const CollectionsComp = () => {
     window.scrollTo({ top: 0, behavior: "smooth" });
   }, []);
 
+  console.log(currentItems.length);
+
   return (
-    <div>
-      <div
-        ref={sectionRef}
-        className="grid grid-cols-3 gap-x-[2rem] gap-y-[3rem]"
-      >
-        {currentItems.map((collection: ShoppingItem) => (
-          <CollectionItem collection={collection} key={collection.id} />
-        ))}
-      </div>
-      <div className="flex mt-[2rem] w-max ml-auto pt-[2rem] pb-[3rem] ">
-        <ReactPaginate
-          breakLabel="..."
-          nextLabel={
-            <p className="flex items-center ">
-              <span>next</span>
-              <MdKeyboardArrowRight className="text-color-current ml-[0.5rem] w-[2.2rem] h-[2.2rem]" />
-            </p>
-          }
-          onPageChange={handlePageClick}
-          pageRangeDisplayed={3}
-          pageCount={pageCount}
-          previousLabel={
-            <p className="flex items-center bg-white ">
-              <MdKeyboardArrowLeft className="text-color-current mr-[0.5rem] w-[2.2rem] h-[2.2rem]" />
-              <span>previous</span>
-            </p>
-          }
-          renderOnZeroPageCount={null}
-          containerClassName="flex items-center ml-auto sm:ml-0 sm:mr-auto"
-          previousClassName="mr-[1rem]"
-          nextClassName="ml-[1rem]"
-          previousLinkClassName={paginateNavStyle}
-          nextLinkClassName={paginateNavStyle}
-          pageLinkClassName="paginate-page-link"
-          activeLinkClassName="paginate-active-page-link"
-          onClick={() => {
-            scrollToSection();
-          }}
-        />
-      </div>
+    <div className="">
+      {isLoading ? (
+        <div className="grid grid-cols-3  gap-x-[2rem] gap-y-[8rem]">
+          <ShoppingItemSkeleton />
+          <ShoppingItemSkeleton />
+          <ShoppingItemSkeleton />
+          <ShoppingItemSkeleton />
+          <ShoppingItemSkeleton />
+          <ShoppingItemSkeleton />
+        </div>
+      ) : !isLoading && currentItems.length <= 0 ? (
+        <div className="w-full pt-[3rem]">
+          <p className="text-center text-[3rem] text-color-black">
+            No Products Available
+          </p>
+        </div>
+      ) : (
+        <div className="flex flex-col">
+          <div
+            ref={sectionRef}
+            className="grid grid-cols-3 gap-x-[2rem] gap-y-[3rem]"
+          >
+            {currentItems.map((collection: ShoppingItem) => (
+              <CollectionItem collection={collection} key={collection.id} />
+            ))}
+          </div>
+          <div className="flex mt-[2rem] w-max ml-auto pt-[2rem] pb-[3rem] ">
+            <ReactPaginate
+              breakLabel="..."
+              nextLabel={
+                <p className="flex items-center ">
+                  <span>next</span>
+                  <MdKeyboardArrowRight className="text-color-current ml-[0.5rem] w-[2.2rem] h-[2.2rem]" />
+                </p>
+              }
+              onPageChange={handlePageClick}
+              pageRangeDisplayed={3}
+              pageCount={pageCount}
+              previousLabel={
+                <p className="flex items-center bg-white ">
+                  <MdKeyboardArrowLeft className="text-color-current mr-[0.5rem] w-[2.2rem] h-[2.2rem]" />
+                  <span>previous</span>
+                </p>
+              }
+              renderOnZeroPageCount={null}
+              containerClassName="flex items-center ml-auto sm:ml-0 sm:mr-auto"
+              previousClassName="mr-[1rem]"
+              nextClassName="ml-[1rem]"
+              previousLinkClassName={paginateNavStyle}
+              nextLinkClassName={paginateNavStyle}
+              pageLinkClassName="paginate-page-link"
+              activeLinkClassName="paginate-active-page-link"
+              onClick={() => {
+                scrollToSection();
+              }}
+            />
+          </div>
+        </div>
+      )}
     </div>
   );
 };
