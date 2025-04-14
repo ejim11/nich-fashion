@@ -1,5 +1,4 @@
 "use client";
-import { collections } from "@/data/collections";
 import { ShoppingItem } from "@/types/shoppingItem";
 import Link from "next/link";
 import React, { ReactNode, useEffect, useState } from "react";
@@ -9,10 +8,11 @@ import AdditionalInfo from "./Additional-Info";
 import Reviews from "./Reviews";
 import SubscribeToNewsLetter from "@/components/Home/SubscribeToNewsLetter";
 import ShortShoppingItemList from "@/components/ShortShoppingItemList";
-import { newArrivals } from "@/data/newArrivals";
 import ShoppingItemImages from "./ShoppingItemImages";
 import ItemDetails from "./ItemDetails";
 import ItemColorPicker from "./ItemColorPicker";
+import { useAppDispatch, useAppSelector } from "@/hooks/stateHooks";
+import { getNewArrivalsDispatch } from "@/actions/productsActions";
 
 const detailsNav: { text: string; slug: string }[] = [
   {
@@ -29,10 +29,16 @@ const detailsNav: { text: string; slug: string }[] = [
   },
 ];
 
-const ShoppingItemDetail: React.FC<{ itemId: string }> = ({ itemId }) => {
-  const shoppingItem: ShoppingItem | undefined = collections.filter(
-    (item: ShoppingItem) => item.id === itemId
-  )[0];
+const ShoppingItemDetail: React.FC<{ item: ShoppingItem }> = ({
+  item: shoppingItem,
+}) => {
+  const dispatch = useAppDispatch();
+
+  const { isLoading, items } = useAppSelector((state) => state.newArrivals);
+
+  // const shoppingItem: ShoppingItem | undefined = collections.filter(
+  //   (item: ShoppingItem) => item.id === itemId
+  // )[0];
 
   const [detailsType, setDetailsType] = useState<string>("description");
 
@@ -56,17 +62,19 @@ const ShoppingItemDetail: React.FC<{ itemId: string }> = ({ itemId }) => {
   const componentViewed = (): ReactNode => {
     switch (detailsType) {
       case "description":
-        return <ItemDescription texts={shoppingItem.longDescription || [""]} />;
+        return <ItemDescription texts={shoppingItem.longDescription || ""} />;
       case "additional-info":
         return <AdditionalInfo shoppingItem={shoppingItem} />;
       case "review":
         return <Reviews reviews={shoppingItem?.reviews} />;
       default:
-        return (
-          <ItemDescription texts={shoppingItem?.longDescription || [""]} />
-        );
+        return <ItemDescription texts={shoppingItem?.longDescription || ""} />;
     }
   };
+
+  useEffect(() => {
+    dispatch(getNewArrivalsDispatch());
+  }, [dispatch]);
 
   useEffect(() => {
     window.scrollTo({ top: -80, behavior: "smooth" });
@@ -132,7 +140,11 @@ const ShoppingItemDetail: React.FC<{ itemId: string }> = ({ itemId }) => {
           {componentViewed()}
         </div>
       </div>
-      <ShortShoppingItemList title={"You may also like"} data={newArrivals} />
+      <ShortShoppingItemList
+        title={"You may also like"}
+        data={items}
+        isLoading={isLoading}
+      />
       <SubscribeToNewsLetter />
     </div>
   );
