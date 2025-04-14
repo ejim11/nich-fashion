@@ -33,8 +33,8 @@ export function convertToShoppingItem(jsonData: any): ShoppingItem {
   // Convert colorMap to array of Colors
   const colors = Object.values(colorMap);
 
-  // Determine if any variant is sold out to set the soldOut flag for the item
-  const soldOut = jsonData.variants.all((v: any) => v.soldOut);
+  // Determine if all variant is sold out to set the soldOut flag for the item
+  const soldOut = jsonData.variants.every((v: any) => v.soldOut);
 
   // Use the first image from the first variant as the main image
   const mainImage =
