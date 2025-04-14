@@ -1,5 +1,6 @@
 import CollectionsNav from "@/components/Collections/CollectionsNav";
 import type { Metadata } from "next";
+import { Suspense } from "react";
 
 export const metadata: Metadata = {
   title: "Nich Fashion | Collections",
@@ -13,7 +14,9 @@ export default function RootLayout({
 }>) {
   return (
     <div>
-      <CollectionsNav>{children}</CollectionsNav>
+      <Suspense>
+        <CollectionsNav>{children}</CollectionsNav>
+      </Suspense>
     </div>
   );
 }

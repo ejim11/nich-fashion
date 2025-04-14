@@ -60,7 +60,7 @@ const ItemColorPicker = ({
               }}
               className={`capitalize text-[1.8rem] ${
                 color.color === selectedColor
-                  ? "text-white px-[3rem] py-[1rem] rounded-[2.7rem]"
+                  ? "text-gray-200 px-[3rem] py-[1rem] rounded-[2.7rem]"
                   : " text-black"
               }`}
             >

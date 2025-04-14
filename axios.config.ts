@@ -20,3 +20,7 @@ export const subscriber = axios.create({
 export const paystack = axios.create({
   baseURL: `${base}/paystack`,
 });
+
+export const products = axios.create({
+  baseURL: `${base}/products`,
+});

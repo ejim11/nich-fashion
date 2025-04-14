@@ -33,6 +33,6 @@ export type ShoppingItem = {
   brand: string;
   colors: Color[];
   shortDescription: string;
-  longDescription: string[];
+  longDescription: string;
   reviews?: Review[];
 };

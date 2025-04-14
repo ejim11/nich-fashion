@@ -1,3 +1,4 @@
+import { useAppSelector } from "@/hooks/stateHooks";
 import { CartItem } from "@/types/cartItem";
 import formatAmount from "@/utils/formatAmount";
 import { getTotalPriceOfCartItems } from "@/utils/getTotalPriceInCart";
@@ -7,11 +8,14 @@ import { FiTag } from "react-icons/fi";
 import { MdArrowForward } from "react-icons/md";
 
 const OrderSummary = ({ cart }: { cart: CartItem[] }) => {
+  const { token } = useAppSelector((state) => state.auth);
+
   const [promoCode, setPromoCode] = useState<string>("");
 
-  const totalPrice = getTotalPriceOfCartItems(cart);
+  // eslint-disable-next-line @typescript-eslint/no-unused-vars
+  const [discount, setDiscount] = useState<number>(0);
 
-  const discount = 0.2 * totalPrice;
+  const totalPrice = getTotalPriceOfCartItems(cart);
 
   const orderSummary = [
     {
@@ -19,7 +23,7 @@ const OrderSummary = ({ cart }: { cart: CartItem[] }) => {
       amount: totalPrice,
     },
     {
-      title: "Discount (-20%)",
+      title: `Discount (${discount}%)`,
       amount: discount,
     },
   ];
@@ -60,26 +64,30 @@ const OrderSummary = ({ cart }: { cart: CartItem[] }) => {
           N{formatAmount(String(totalPrice - discount))}
         </p>
       </div>
-      <div className="flex font-satoshi">
-        <div className="flex-1 mr-[1.5rem] relative">
-          <FiTag className="absolute top-[1.4rem] left-[1.8rem] text-[rgba(0,0,0,0.4)] w-[2.4rem] h-[2.4rem]" />
-          <input
-            type="text"
-            name="promo"
-            id="promo"
-            value={promoCode}
-            onChange={OnPromoCodeChangeHandler}
-            placeholder="Add promo code"
-            className="w-full ring-0 outline-none focus:ring-0 focus:outline-none py-[1.2rem] pl-[5.2rem] pr-[2rem] placeholder:text-[rgba(0,0,0,0.4)] bg-[rgba(240,240,240,1)] rounded-[6.2rem]"
-          />
+      {token ? (
+        <div className="flex font-satoshi">
+          <div className="flex-1 mr-[1.5rem] relative">
+            <FiTag className="absolute top-[1.4rem] left-[1.8rem] text-[rgba(0,0,0,0.4)] w-[2.4rem] h-[2.4rem]" />
+            <input
+              type="text"
+              name="promo"
+              id="promo"
+              value={promoCode}
+              onChange={OnPromoCodeChangeHandler}
+              placeholder="Add promo code"
+              className="w-full ring-0 outline-none focus:ring-0 focus:outline-none py-[1.2rem] pl-[5.2rem] pr-[2rem] placeholder:text-[rgba(0,0,0,0.4)] bg-[rgba(240,240,240,1)] rounded-[6.2rem]"
+            />
+          </div>
+          <button
+            type="button"
+            className="px-[3.8rem] py-[1.3rem] bg-black text-white rounded-[6.2rem] capitalize font-medium "
+          >
+            apply
+          </button>
         </div>
-        <button
-          type="button"
-          className="px-[3.8rem] py-[1.3rem] bg-black text-white rounded-[6.2rem] capitalize font-medium "
-        >
-          apply
-        </button>
-      </div>
+      ) : (
+        <p className="font-satoshi ">Please login to use the promo code.</p>
+      )}
       <Link
         href={"/payment-checkout"}
         className="flex py-[1.9rem] w-full bg-black text-white items-center justify-center font-satoshi font-medium rounded-[6.2rem] mt-[2.4rem]"

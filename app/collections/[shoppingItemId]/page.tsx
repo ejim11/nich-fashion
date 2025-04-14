@@ -1,18 +1,20 @@
 import ShoppingItemDetail from "@/components/Collections/ShoppingItemDetail/ShoppingItemDetail";
-import { collections } from "@/data/collections";
-import { ShoppingItem } from "@/types/shoppingItem";
+// import { collections } from "@/data/collections";
+import { getShoppingItem } from "@/services/productsService";
+import { convertToShoppingItem } from "@/utils/convertJsonProductToShoppingItem";
+// import { ShoppingItem } from "@/types/shoppingItem";
 import { Metadata } from "next";
+import { Suspense } from "react";
 
 type Params = Promise<{ shoppingItemId: string }>;
 
 // Utility function to fetch product data
 async function fetchProduct(shoppingItemId: string) {
-  const item = collections.find(
-    (shoppingItem: ShoppingItem) => shoppingItem.id === shoppingItemId
-  );
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
+  const res: any = await getShoppingItem(shoppingItemId);
   return {
-    name: item?.name,
-    shortDescription: item?.shortDescription,
+    name: res.data.data.name,
+    shortDescription: res.data.data.shortDescription,
   };
 }
 
@@ -38,5 +40,14 @@ export default async function ShoppingItemDetails({
   params: Params;
 }) {
   const { shoppingItemId } = await params;
-  return <ShoppingItemDetail itemId={shoppingItemId} />;
+
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
+  const res: any = await getShoppingItem(shoppingItemId);
+
+  const item = convertToShoppingItem(res.data.data);
+  return (
+    <Suspense fallback={<div>Loading...</div>}>
+      <ShoppingItemDetail item={item} />
+    </Suspense>
+  );
 }

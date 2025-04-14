@@ -1,12 +1,19 @@
-import { collections } from "@/data/collections";
 import { createSlice } from "@reduxjs/toolkit";
 
 const collectionsSlice = createSlice({
   name: "collections",
   initialState: {
-    items: collections,
+    isLoading: true,
+    items: [],
   },
-  reducers: {},
+  reducers: {
+    setIsLoading(state, action: {payload: boolean}) {
+      state.isLoading = action.payload;
+    },
+    setCollections(state, action) {
+      state.items = action.payload;
+    },
+  },
 });
 
 export const collectionsActions = collectionsSlice.actions;

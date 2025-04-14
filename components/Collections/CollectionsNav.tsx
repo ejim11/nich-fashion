@@ -1,5 +1,5 @@
 "use client";
-import React, { ReactNode, useEffect, useState } from "react";
+import React, { ReactNode, useEffect, useMemo } from "react";
 import { CollectionCategory } from "./enum/collectionCategory.enum";
 import MainContainer from "../MainContainer";
 import FiltersComp from "./FiltersComp";
@@ -7,14 +7,18 @@ import PriceRangeComp from "./PriceRangeComp";
 import ColorsComp from "./ColorsComp";
 import Sizes from "./Sizes";
 import DressStyle from "./DressStyle";
-import { usePathname } from "next/navigation";
+import { usePathname, useRouter, useSearchParams } from "next/navigation";
+import { useAppDispatch } from "@/hooks/stateHooks";
+import { getAllShoppingItemsDispatch } from "@/actions/productsActions";
 
 const CollectionsNav: React.FC<{ children: ReactNode }> = ({ children }) => {
-  const pathname: string = usePathname().slice(13);
+  const dispatch = useAppDispatch();
 
-  const [category, setCategory] = useState<CollectionCategory>(
-    CollectionCategory.Voltex
-  );
+  const router = useRouter();
+
+  const searchParams = useSearchParams();
+
+  const pathname: string = usePathname().slice(13);
 
   const collectionCategories = [
     CollectionCategory.Voltex,
@@ -24,9 +28,59 @@ const CollectionsNav: React.FC<{ children: ReactNode }> = ({ children }) => {
     CollectionCategory.Echo,
   ];
 
+  // Convert searchParams to an object if needed
+  const searchParamsObject = useMemo(
+    () => ({
+      name: searchParams.get("name") || undefined,
+      category: searchParams.get("category") || undefined,
+      clothType: searchParams.get("clothType") || undefined,
+      price: searchParams.get("price") || undefined,
+      dressStyle: searchParams.get("dressStyle") || undefined,
+      sort: searchParams.get("sort") || undefined,
+      colors: searchParams.get("colors") || undefined,
+      sizes: searchParams.get("sizes") || undefined,
+      limit: searchParams.get("limit") || undefined,
+    }),
+    [searchParams]
+  );
+
   const onChooseCategoryHandler = (cat: CollectionCategory): void => {
-    setCategory(cat);
+    const { sort } = searchParamsObject;
+
+    router.replace(
+      `${
+        sort ? `?category=${cat}&sort=${sort}&limit=${10}` : `?category=${cat}`
+      }`
+    );
   };
+
+  useEffect(() => {
+    const {
+      name,
+      category,
+      clothType,
+      dressStyle,
+      price,
+      sort,
+      colors,
+      sizes,
+      limit,
+    } = searchParamsObject;
+
+    dispatch(
+      getAllShoppingItemsDispatch(
+        name,
+        category,
+        clothType,
+        dressStyle,
+        price,
+        sort,
+        colors,
+        sizes,
+        limit
+      )
+    );
+  }, [dispatch, pathname, searchParamsObject]);
 
   useEffect(() => {
     window.scrollTo({ top: -80, behavior: "smooth" });
@@ -42,7 +96,7 @@ const CollectionsNav: React.FC<{ children: ReactNode }> = ({ children }) => {
             }}
             key={cat}
             className={`${
-              category === cat
+              searchParamsObject.category === cat
                 ? "bg-black text-white"
                 : "bg-[rgba(244,244,244,1)] text-black"
             } capitalize py-[1.4rem] px-[5.4rem] rounded-[6rem] mr-[1.6rem] last:mr-0 transition-all duration-300 ease-in`}
