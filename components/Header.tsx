@@ -34,7 +34,7 @@ const Header = () => {
     },
     {
       title: "collections",
-      link: "/collections",
+      link: "/collections?category=voltex",
     },
     {
       title: "contact",

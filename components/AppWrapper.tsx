@@ -1,11 +1,14 @@
 "use client";
+
+
+
 // import { useAppDispatch, useAppSelector } from "@/hooks/stateHooks";
 // import { useRouter } from "next/navigation";
 
 // import React, { useCallback, useEffect } from "react";
 
 const AppWrapper: React.FC<{ children: React.ReactNode }> = ({ children }) => {
-  //   const dispatchFn = useAppDispatch();
+  // const dispatchFn = useAppDispatch();
   //   const router = useRouter();
 
   //   const { remainingTime, refreshToken } = useAppSelector((state) => state.auth);
@@ -23,6 +26,8 @@ const AppWrapper: React.FC<{ children: React.ReactNode }> = ({ children }) => {
   //   useEffect(() => {
   //     autoLogoutHandler();
   //   }, [autoLogoutHandler, dispatchFn]);
+
+
 
   return <div className="mt-[7.5rem]">{children}</div>;
 };
