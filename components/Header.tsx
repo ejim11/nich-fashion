@@ -14,9 +14,15 @@ import { useAppDispatch, useAppSelector } from "@/hooks/stateHooks";
 import { userActions } from "@/slices/userSlice";
 import { userLogout } from "@/actions/authActions";
 import { AnimatePresence, motion } from "framer-motion";
+import SearchModal from "./SearchModal";
+import { searchAndFilterActions } from "@/slices/searchAndFilterSlice";
 
 const Header = () => {
   const dispatch = useAppDispatch();
+
+  const { searchModalIsVisible } = useAppSelector(
+    (state) => state.searchAndFilter
+  );
 
   const { cart } = useAppSelector((state) => state.cart);
 
@@ -61,6 +67,10 @@ const Header = () => {
 
   const toggleProfileModalVisibility = () => {
     setProfileModalIsVisible((prevState) => !prevState);
+  };
+
+  const openSearchModal = () => {
+    dispatch(searchAndFilterActions.toggleSearchModal(true));
   };
 
   useEffect(() => {
@@ -116,7 +126,7 @@ const Header = () => {
           </nav>
         </div>
         <div className="flex items-center text-color-black">
-          <button>
+          <button onClick={openSearchModal}>
             <LuSearch className="w-[2.4rem] h-[2.4rem] text-color-current" />
           </button>
           <Link href={"/cart"} className="relative ml-[1.4rem] mr-[2rem] flex">
@@ -183,6 +193,9 @@ const Header = () => {
           )}
           {/* <div className="fixed top-[8rem] right-[5rem] w-[20rem] h-[20rem] shadow-lg bg-white"></div> */}
         </div>
+        <AnimatePresence>
+          {searchModalIsVisible && <SearchModal />}
+        </AnimatePresence>
       </header>
     </div>
   );
