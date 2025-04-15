@@ -4,6 +4,7 @@ import cartSlice from "./slices/cartSlice";
 import userSlice from "./slices/userSlice";
 import authSlice from "./slices/authSlice";
 import newArrivalsSlice from "./slices/newArrivalsSlice";
+import searchAndFilterSlice from "./slices/searchAndFilterSlice";
 
 const store = configureStore({
   reducer: {
@@ -12,6 +13,7 @@ const store = configureStore({
     user: userSlice.reducer,
     auth: authSlice.reducer,
     newArrivals: newArrivalsSlice.reducer,
+    searchAndFilter: searchAndFilterSlice.reducer,
   },
 });
 
