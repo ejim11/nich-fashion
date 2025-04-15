@@ -1,16 +1,28 @@
 "use client";
+import { subscribeToNewsletterDispatch } from "@/actions/subscribersAction";
+import { useAppDispatch } from "@/hooks/stateHooks";
+import { toastError, toastSuccess } from "@/utils/toastFuncs";
 /* eslint-disable @typescript-eslint/no-explicit-any */
 import React, { useState } from "react";
 import { AiOutlineMail } from "react-icons/ai";
+import { FaRegCircleCheck } from "react-icons/fa6";
+import { LuBadgeAlert } from "react-icons/lu";
 import { FallingLines } from "react-loader-spinner";
 
 const SubscribeForm = () => {
+  const dispatch = useAppDispatch();
+
   const [email, setEmail] = useState("");
   const [error, setError] = useState("");
   const [isLoading, setIsLoading] = useState(false);
 
   const handleInputChange = (e: any) => {
     setEmail(e.target.value);
+  };
+
+  const clearInputAndError = () => {
+    setError("");
+    setEmail("");
   };
 
   const handleSubscribeSubmit = async (e: any) => {
@@ -20,22 +32,20 @@ const SubscribeForm = () => {
       setError("Please enter a valid email");
       return;
     }
-    setIsLoading(true);
 
-    try {
-      //   await addSubscriberEmail(email);
-      setIsLoading(false);
-    } catch (e: any) {
-      setIsLoading(false);
-      // eslint-disable-next-line @typescript-eslint/no-unsafe-assignment, @typescript-eslint/no-unused-vars
-      const errMsg: string = e.response?.data?.message.includes("duplicate")
-        ? "You have already subscribed."
-        : e.message;
-    }
-
-    setError("");
-    setEmail("");
+    dispatch(
+      subscribeToNewsletterDispatch(
+        email,
+        setIsLoading,
+        clearInputAndError,
+        toastSuccess,
+        toastError,
+        <FaRegCircleCheck className="w-[2.3rem] h-[2.3rem] text-color-primary-1" />,
+        <LuBadgeAlert className="w-[2.3rem] h-[2.3rem] red" />
+      )
+    );
   };
+
   return (
     <div className="">
       <form
