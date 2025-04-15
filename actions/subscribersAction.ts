@@ -2,6 +2,17 @@ import { subscriberToNewsletter } from "@/services/subscribersService";
 import { Dispatch, SetStateAction } from "react";
 import { ToastIcon } from "react-toastify";
 
+/**
+ *
+ * @param email
+ * @param setIsLoading
+ * @param clearInput
+ * @param toastSuccess
+ * @param toastError
+ * @param successIcon
+ * @param errorIcon
+ * @returns
+ */
 export const subscribeToNewsletterDispatch =
   (
     email: string,
