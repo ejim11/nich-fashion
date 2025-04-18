@@ -5,13 +5,17 @@ const collectionsSlice = createSlice({
   initialState: {
     isLoading: true,
     items: [],
+    navItems: [],
   },
   reducers: {
-    setIsLoading(state, action: {payload: boolean}) {
+    setIsLoading(state, action: { payload: boolean }) {
       state.isLoading = action.payload;
     },
     setCollections(state, action) {
       state.items = action.payload;
+    },
+    setNavItems(state, action) {
+      state.navItems = action.payload;
     },
   },
 });
