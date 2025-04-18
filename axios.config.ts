@@ -28,3 +28,7 @@ export const products = axios.create({
 export const subscribers = axios.create({
   baseURL: `${base}/subscribers`,
 });
+
+export const contactUs = axios.create({
+  baseURL: `${base}/contact-us`,
+});
