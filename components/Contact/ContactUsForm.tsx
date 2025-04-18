@@ -7,15 +7,17 @@ import { FallingLines } from "react-loader-spinner";
 import { toastError, toastSuccess } from "@/utils/toastFuncs";
 import { FaRegCircleCheck } from "react-icons/fa6";
 import { LuBadgeAlert } from "react-icons/lu";
+import { useAppDispatch } from "@/hooks/stateHooks";
+import { contactUsDispatch } from "@/actions/contactUsActions";
 
 type FormData = {
   fullName: string;
   email: string;
-  phoneNumber: string;
-  message: string;
 };
 
 const ContactUsForm = () => {
+  const dispatch = useAppDispatch();
+
   const [message, setMessage] = useState<string>("");
   const [msgError, setMsgError] = useState<string>("");
   const [loading, setIsLoading] = useState<boolean>(false);
@@ -29,13 +31,18 @@ const ContactUsForm = () => {
     defaultValues: {
       fullName: "",
       email: "",
-      phoneNumber: "",
-      message: "",
     },
   });
 
+  const resetForm = () => {
+    reset({
+      fullName: "",
+      email: "",
+    });
+    setMessage("");
+  };
+
   const onSubmit: SubmitHandler<FormData> = async (data: FormData) => {
-    console.log(data);
     if (!message) {
       setMsgError("Please enter some message");
       return;
@@ -45,36 +52,19 @@ const ContactUsForm = () => {
       return;
     }
 
-    // const modifiedData = {
-    //   name: data.fullName,
-    //   email: data.email,
-    //   number: data.phoneNumber,
-    //   message,
-    // };
-
-    setIsLoading(true);
-
-    try {
-      //   await sendMessageToMe(modifiedData);
-      reset({
-        fullName: "",
-        email: "",
-        phoneNumber: "",
-      });
-      setMessage("");
-      setIsLoading(false);
-      toastSuccess(
-        "Message sent successfully!",
-        <FaRegCircleCheck className="text-[rgba(30,129,176)] w-[2.2rem] h-[2.2rem]" />
-      );
-    } catch (err) {
-      console.log(err);
-      setIsLoading(false);
-      toastError(
-        "Something went wrong, Please try again!",
-        <LuBadgeAlert className="text-color-red w-[2.2rem] h-[2.2rem]" />
-      );
-    }
+    dispatch(
+      contactUsDispatch(
+        setIsLoading,
+        data.fullName,
+        data.email,
+        message,
+        toastSuccess,
+        toastError,
+        <FaRegCircleCheck className="w-[2.3rem] h-[2.3rem] text-color-primary-1" />,
+        <LuBadgeAlert className="w-[2.3rem] h-[2.3rem] red" />,
+        resetForm
+      )
+    );
   };
 
   return (
