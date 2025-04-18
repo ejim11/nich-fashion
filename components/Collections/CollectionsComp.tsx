@@ -41,8 +41,6 @@ const CollectionsComp = () => {
     window.scrollTo({ top: 0, behavior: "smooth" });
   }, []);
 
-  console.log(currentItems.length);
-
   return (
     <div className="">
       {isLoading ? (
