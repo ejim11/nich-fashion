@@ -1,6 +1,5 @@
 "use client";
-import { useAppSelector } from "@/hooks/stateHooks";
-import { getTotalPriceOfCartItems } from "@/utils/getTotalPriceInCart";
+import { useAppDispatch, useAppSelector } from "@/hooks/stateHooks";
 import React, { useState } from "react";
 import Image from "next/image";
 import {
@@ -10,31 +9,42 @@ import {
 import { AiOutlineCloudUpload } from "react-icons/ai";
 import { LuBadgeAlert } from "react-icons/lu";
 import MainContainer from "../MainContainer";
+import formatAmount from "@/utils/formatAmount";
+import { FallingLines } from "react-loader-spinner";
+import { saveBankTransferDetailsDispatch } from "@/actions/bankTransferActions";
+import { toastError, toastSuccess } from "@/utils/toastFuncs";
+import { FaRegCircleCheck } from "react-icons/fa6";
+import { useRouter } from "next/navigation";
+
+const paymentDetails = [
+  {
+    title: "Account Name",
+    value: "ADION ELEVATION",
+  },
+  {
+    title: "Account Number",
+    value: "ADION ELEVATION",
+  },
+  {
+    title: "Bank Name",
+    value: "Access Bank (Diamond)",
+  },
+];
 
 const BankTransferComp = () => {
-  const { cart } = useAppSelector((state) => state.cart);
+  const dispatch = useAppDispatch();
 
-  // eslint-disable-next-line @typescript-eslint/no-unused-vars
+  const router = useRouter();
+
+  const { paymentInfo } = useAppSelector((state) => state.payment);
+
+  const { token } = useAppSelector((state) => state.auth);
+
+  const [isLoading, setIsLoading] = useState<boolean>(false);
+
   const [imageObj, setImageObj] = useState();
   // eslint-disable-next-line @typescript-eslint/no-explicit-any
   const [image, setImage] = useState<any>();
-
-  const totalPrice = getTotalPriceOfCartItems(cart);
-
-  const paymentDetails = [
-    {
-      title: "Account Name",
-      value: "ADION ELEVATION",
-    },
-    {
-      title: "Account Number",
-      value: "ADION ELEVATION",
-    },
-    {
-      title: "Bank Name",
-      value: "Access Bank (Diamond)",
-    },
-  ];
 
   // eslint-disable-next-line @typescript-eslint/no-explicit-any
   const setImg = (file: any) => {
@@ -55,6 +65,30 @@ const BankTransferComp = () => {
     }
   };
 
+  const paymentHandler = () => {
+    const trfDetails = {
+      ...paymentInfo,
+      file: imageObj,
+    };
+
+    const navFunc = () => {
+      router.push("/orders?success=yes");
+    };
+
+    dispatch(
+      saveBankTransferDetailsDispatch(
+        trfDetails,
+        token,
+        setIsLoading,
+        toastSuccess,
+        toastError,
+        <FaRegCircleCheck className="w-[2.3rem] h-[2.3rem] text-color-primary-1" />,
+        <LuBadgeAlert className="w-[2.3rem] h-[2.3rem] red" />,
+        navFunc
+      )
+    );
+  };
+
   return (
     <MainContainer>
       <div className="p-[3rem] border-b-[0.1rem] border-b-[rgba(175,175,175,1)] ">
@@ -62,7 +96,7 @@ const BankTransferComp = () => {
           Amount to pay
         </p>
         <p className="text-[3.2rem] font-[900] leading-[2.9rem]">
-          NGN {totalPrice}
+          NGN {formatAmount(String(paymentInfo.totalAmount))}
         </p>
       </div>
       <div className="p-[3rem] font-satoshi">
@@ -132,11 +166,20 @@ const BankTransferComp = () => {
           onChange={onChangeImageHandler}
         />
         <button
-          // onClick={paymentHandler}
+          onClick={paymentHandler}
           type="submit"
           className="flex py-[1.9rem] w-full px-[5rem] bg-black text-white items-center justify-center font-satoshi font-medium rounded-[6.0.8rem] mt-[2.4rem]"
         >
-          I have made payment
+          {isLoading ? (
+            <FallingLines
+              height="25"
+              width="25"
+              color={"white"}
+              visible={true}
+            />
+          ) : (
+            "I have made payment"
+          )}
         </button>
       </div>
     </MainContainer>
