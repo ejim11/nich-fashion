@@ -34,7 +34,6 @@ const ShoppingItemDetail: React.FC<{ item: ShoppingItem }> = ({
 }) => {
   const dispatch = useAppDispatch();
 
-  console.log(shoppingItem);
   const { isLoading, items } = useAppSelector((state) => state.newArrivals);
 
   // const shoppingItem: ShoppingItem | undefined = collections.filter(
