@@ -41,7 +41,7 @@ const Footer = () => {
   ];
 
   return (
-    <footer className="bg-[#FFFBFB]   flex flex-col font-satoshi ">
+    <footer className="bg-[#FFFBFB]   flex flex-col font-satoshi  mt-auto">
       <div className="flex w-full px-[8rem] py-[7rem] ">
         <div className="w-[25rem] mr-[10rem]">
           <div className="w-[9.3rem] h-[4.3rem]">
