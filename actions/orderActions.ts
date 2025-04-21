@@ -21,7 +21,6 @@ export const getUserOrdersDispatch =
   async (dispatch: any) => {
     try {
       const res = await getUserOrdersService(userId, token);
-      console.log(res);
       dispatch(orderActions.setOrders(res.data.data.data));
       setIsLoading(false);
     } catch (error) {
@@ -44,7 +43,6 @@ export const getOrderByIdDispatch =
   async (dispatch: any) => {
     try {
       const res = await getOrderByIdService(orderId, token);
-      console.log(res);
       setOrder(res.data.data);
       setIsLoading(false);
     } catch (error) {
