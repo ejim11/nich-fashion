@@ -32,3 +32,23 @@ export const subscribers = axios.create({
 export const contactUs = axios.create({
   baseURL: `${base}/contact-us`,
 });
+
+export const discounts = axios.create({
+  baseURL: `${base}/discounts`,
+});
+
+export const deliveryStates = axios.create({
+  baseURL: `${base}/delivery-states`,
+});
+
+export const orders = axios.create({
+  baseURL: `${base}/orders`,
+});
+
+export const productVariants = axios.create({
+  baseURL: `${base}/product-variants`,
+});
+
+export const bankTransfer = axios.create({
+  baseURL: `${base}/bank-transfers`,
+});
