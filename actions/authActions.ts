@@ -66,12 +66,38 @@ export const loginWithOtpDispatch =
 
       const { accessToken, refreshToken } = res.data.data;
 
-      const { id, email, role } = res.data.data.user;
+      const {
+        id,
+        email,
+        role,
+        city,
+        country,
+        firstName,
+        lastName,
+        phoneNumber,
+        state,
+        streetAddress,
+        zipCode,
+      } = res.data.data.user;
 
-      dispatch(userActions.setUserDetails({ id, email, role }));
+      dispatch(
+        userActions.setUserDetails({
+          id,
+          email,
+          role,
+          city,
+          country,
+          firstName,
+          lastName,
+          phoneNumber,
+          state,
+          streetAddress,
+          zipCode,
+        })
+      );
 
       // login expires an hour
-      const expirationTime = new Date(new Date().getTime() + 3600 * 1000);
+      const expirationTime = new Date(new Date().getTime() + 30 * 1000);
 
       // calculating the remaining time
       const remainingTime = calculateExpirationTime(
@@ -81,6 +107,13 @@ export const loginWithOtpDispatch =
       // setting a logout timer as soon as one logs in
       logoutTimer = setTimeout(async () => {
         dispatch(authActions.autoLogoutHandler());
+        dispatch(
+          userActions.setUserDetails({
+            id: "",
+            email: "",
+            role: "",
+          })
+        );
         resetFunc();
       }, remainingTime);
 
@@ -123,17 +156,34 @@ export const autoLogout = (tokenDuration: any, navToHome: () => void) => {
 };
 
 export const autoLogin =
-  (tokenDuration: any, refreshToken: string) =>
-  async (
-    dispatch: (arg0: { payload: any; type: "auth/setUserTokens" }) => void
-  ) => {
+  (tokenDuration: any, refreshToken: string, navFunc: () => void) =>
+  async (dispatch: any) => {
     if (tokenDuration > 6000 && tokenDuration <= 60000) {
-      const expirationTime = new Date(new Date().getTime() + 3600 * 1000);
+      clearTimeout(logoutTimer);
+      const expirationTime = new Date(new Date().getTime() + 30 * 1000);
       // User is still active
       const res = await sendRefreshToken(refreshToken);
 
       const { accessToken: newToken, refreshToken: newRefreshToken } =
         res.data.data;
+
+      // calculating the remaining time
+      const remainingTime = calculateExpirationTime(
+        expirationTime.toISOString()
+      );
+
+      // setting a logout timer as soon as one logs in
+      logoutTimer = setTimeout(async () => {
+        dispatch(authActions.autoLogoutHandler());
+        dispatch(
+          userActions.setUserDetails({
+            id: "",
+            email: "",
+            role: "",
+          })
+        );
+        navFunc();
+      }, remainingTime);
 
       dispatch(
         authActions.setUserTokens({
