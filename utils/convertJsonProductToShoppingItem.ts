@@ -10,6 +10,7 @@ export function convertToShoppingItem(jsonData: any): ShoppingItem {
     const color = variant.color;
     if (!colorMap[color]) {
       colorMap[color] = {
+        id: variant.id,
         color,
         images: [],
         sizes: [],
@@ -61,7 +62,7 @@ export function convertToShoppingItem(jsonData: any): ShoppingItem {
         ? jsonData.reviews.map((review: any) => ({
             id: review.id,
             reviewer: review.reviewer,
-            comment: review.comment,
+            comment: review.review,
             dateCreated: review.dateCreated,
             stars: review.stars,
           }))
