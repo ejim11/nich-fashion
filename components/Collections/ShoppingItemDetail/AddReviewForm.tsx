@@ -33,9 +33,6 @@ const AddReviewForm = ({
   const [review, setReview] = useState<string>("");
 
   const isFormFilled = !!reviewer && !!review && chosenStars;
-
-  console.log(isFormFilled);
-
   const onReviewChangeHandler = (e: { target: { value: string } }): void => {
     setReview(e.target.value);
   };
