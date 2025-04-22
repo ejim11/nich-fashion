@@ -3,7 +3,7 @@ import React, { useState } from "react";
 import { FiSliders } from "react-icons/fi";
 import { FiChevronDown } from "react-icons/fi";
 import { FaStar } from "react-icons/fa";
-import { BsThreeDots } from "react-icons/bs";
+// import { BsThreeDots } from "react-icons/bs";
 import formatDate from "@/utils/formatDate";
 import AddReviewForm from "./AddReviewForm";
 import { AnimatePresence } from "framer-motion";
@@ -11,6 +11,8 @@ import { AnimatePresence } from "framer-motion";
 const Reviews = ({ reviews }: { reviews?: Review[] }) => {
   const [isAddReviewModalVisible, setIsAddReviewModalVisible] =
     useState<boolean>(false);
+
+  console.log("reviews:", reviews);
 
   return (
     <section className="mt-[4rem] flex flex-col relative">
@@ -67,9 +69,9 @@ const Reviews = ({ reviews }: { reviews?: Review[] }) => {
                     />
                   ))}
                 </div>
-                <button>
+                {/* <button>
                   <BsThreeDots className="text-[rgba(0,0,0,0.4)] w-[2rem] h-[2rem]" />
-                </button>
+                </button> */}
               </div>
               <p className="font-bold font-satoshi text-[2rem] leading-[2.2rem] my-[1.5rem]">
                 {review.reviewer}
