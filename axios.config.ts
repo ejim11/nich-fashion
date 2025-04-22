@@ -52,3 +52,7 @@ export const productVariants = axios.create({
 export const bankTransfer = axios.create({
   baseURL: `${base}/bank-transfers`,
 });
+
+export const reviews = axios.create({
+  baseURL: `${base}/reviews`,
+});
