@@ -12,8 +12,6 @@ const Reviews = ({ reviews }: { reviews?: Review[] }) => {
   const [isAddReviewModalVisible, setIsAddReviewModalVisible] =
     useState<boolean>(false);
 
-  console.log("reviews:", reviews);
-
   return (
     <section className="mt-[4rem] flex flex-col relative">
       <p className="text-[2rem] font-satoshi font-medium leading-[2.2rem] mb-[3rem] text-black">
