@@ -1,4 +1,9 @@
-import { getNewArrivals, getShoppingItems } from "@/services/productsService";
+/* eslint-disable @typescript-eslint/no-explicit-any */
+import {
+  getNewArrivals,
+  getProductsInACategory,
+  getShoppingItems,
+} from "@/services/productsService";
 import { collectionsActions } from "@/slices/collectionsSlice";
 import { newArrivalsActions } from "@/slices/newArrivalsSlice";
 import { convertToShoppingItem } from "@/utils/convertJsonProductToShoppingItem";
@@ -7,7 +12,6 @@ export const getNewArrivalsDispatch =
   () =>
   async (
     dispatch: (arg0: {
-      // eslint-disable-next-line @typescript-eslint/no-explicit-any
       payload: any;
       type: "newArrival/setNewArrivals" | "newArrival/setIsLoading";
     }) => void
@@ -15,7 +19,6 @@ export const getNewArrivalsDispatch =
     try {
       const products = await getNewArrivals();
       //   convert items to shopping item
-      // eslint-disable-next-line @typescript-eslint/no-explicit-any
       const prds = [...products.data.data.data].map((item: any) => {
         console.log(item);
         return convertToShoppingItem(item);
@@ -40,7 +43,6 @@ export const getAllShoppingItemsDispatch =
     sizes?: string,
     limit?: string
   ) =>
-  // eslint-disable-next-line @typescript-eslint/no-explicit-any
   async (dispatch: any) => {
     dispatch(collectionsActions.setIsLoading(true));
     try {
@@ -57,14 +59,31 @@ export const getAllShoppingItemsDispatch =
       );
 
       console.log(res);
-      // eslint-disable-next-line @typescript-eslint/no-explicit-any
       const products = res.data.data.data.map((item: any) =>
         convertToShoppingItem(item)
       );
       dispatch(collectionsActions.setCollections(products));
+
       dispatch(collectionsActions.setIsLoading(false));
     } catch (error) {
       console.log(error);
       dispatch(collectionsActions.setIsLoading(false));
+    }
+  };
+
+export const getProductsInACategoryDispatch =
+  (category: string) => async (dispatch: any) => {
+    try {
+      const res = await getProductsInACategory(category);
+
+      console.log(res);
+
+      const products = res.data.data.data.map((item: any) =>
+        convertToShoppingItem(item)
+      );
+
+      dispatch(collectionsActions.setNavItems(products));
+    } catch (error) {
+      console.log(error);
     }
   };

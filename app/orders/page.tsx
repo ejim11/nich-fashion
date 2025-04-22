@@ -1,5 +1,10 @@
 import OrdersComp from "@/components/Orders/OrdersComp";
+import { Suspense } from "react";
 
 export default function Orders() {
-  return <OrdersComp />;
+  return (
+    <Suspense>
+      <OrdersComp />
+    </Suspense>
+  );
 }

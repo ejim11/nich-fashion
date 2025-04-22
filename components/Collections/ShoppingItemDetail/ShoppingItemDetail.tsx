@@ -86,7 +86,7 @@ const ShoppingItemDetail: React.FC<{ item: ShoppingItem }> = ({
         <div className="flex items-center font-satoshi text-[1.8rem] text-black font-medium">
           <Link href="/">Home</Link>
           <FiChevronRight className=" mr-[1.6rem]" />
-          <Link href="/collections">Collections</Link>
+          <Link href="/collections?category=voltex">Collections</Link>
           <FiChevronRight className=" mr-[1.6rem]" />
           <p className="text-[#ADADAD]">{shoppingItem?.name}</p>
         </div>

@@ -8,8 +8,10 @@ import { useAppDispatch } from "@/hooks/stateHooks";
 import { CartItem } from "@/types/cartItem";
 import { cartActions } from "@/slices/cartSlice";
 import { useRouter } from "next/navigation";
+import formatAmount from "@/utils/formatAmount";
 
 export type ColorCopy = {
+  id?: string;
   color: string;
   images: StaticImageData[];
   sizes: {
@@ -18,6 +20,7 @@ export type ColorCopy = {
     chosenQuantity: number;
   }[];
 };
+
 const ItemDetails = ({
   name,
   price,
@@ -41,6 +44,7 @@ const ItemDetails = ({
 
   const colorsCopy: ColorCopy[] = useMemo(() => {
     return colors.map((color: Color) => ({
+      id: color.id,
       color: color.color,
       images: color.images,
       sizes: color.sizes.map((size: Size) => ({
@@ -65,6 +69,7 @@ const ItemDetails = ({
         .reduce((acc, cur) => acc + cur, 0);
 
       return {
+        id: color.id,
         color: color.color,
         totalQuantityChosen: totalChosenQuantity,
       };
@@ -122,6 +127,7 @@ const ItemDetails = ({
         );
 
         return {
+          id: color.id,
           color: color.color,
           sizes: chosenSizes,
         };
@@ -134,15 +140,23 @@ const ItemDetails = ({
 
     // 2. get the shopping item - a prop
     //3. substitute the colors in the shopping item for the one you got at 1
-    const newShoppingItem: CartItem = { ...shoppingItem, colors: newColors };
+    const cartItem: CartItem = {
+      ...shoppingItem,
+      colors: newColors,
+      price: shoppingItem.discount
+        ? shoppingItem.price -
+          shoppingItem.price * (shoppingItem.discount / 100)
+        : shoppingItem.price,
+    };
 
     // 4 .add the item to the cart slice
-    dispatchFn(cartActions.addItemToCart(newShoppingItem));
+    dispatchFn(cartActions.addItemToCart(cartItem));
 
     // 5 .revert the changes in the colorCopyState
     const defaultColorsCopy = shoppingItem.colors
       .slice()
       .map((color: Color) => ({
+        id: color.id,
         color: color.color,
         images: color.images,
         sizes: color.sizes.map((size: Size) => ({
@@ -165,14 +179,18 @@ const ItemDetails = ({
 
   return (
     <div className="ml-[2rem] flex-1 font-satoshi flex flex-col">
-      <h2 className="text-[4.8rem]  font-bold text-black">{name}</h2>
+      <h2 className="text-[4.8rem]  font-bold text-black capitalize">{name}</h2>
       <div className="flex text-[3.2rem] font-bold my-[2.4rem]">
         <p className=" text-color-black   mr-[1rem]">
-          {discount > 0 ? `N${price - price * (discount / 100)}` : `N${price}`}
+          {discount > 0
+            ? `N${formatAmount(String(price - price * (discount / 100)))}`
+            : `N${formatAmount(String(price))}`}
         </p>
         {discount > 0 && (
           <div className="flex items-center">
-            <p className="text-[#00000066] line-through">N{price}</p>
+            <p className="text-[#00000066] line-through">
+              N{formatAmount(String(price))}
+            </p>
             <p className="bg-color-red-2 text-color-red-1 text-[1rem] ml-[1rem] rounded-[6rem] px-[1.2rem] leading-[1.5rem] py-[0.5rem]   ">
               -{discount}%
             </p>

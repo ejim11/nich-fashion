@@ -50,9 +50,9 @@ const CartItemComp = ({
         />
       </div>
       <div className="flex flex-col font-satoshi flex-1">
-        <p className="font-bold text-[2rem]">{name}</p>
+        <p className="font-bold text-[2rem] capitalize">{name}</p>
         <div className="flex items-center text-[1.4rem] text-black capitalize">
-          <p className="mr-[0.5rem]">Size: </p>
+          <p className="mr-[0.5rem]">Sizes: </p>
           {sizes.map((size: string) => (
             <p key={size} className="mr-[1rem]">
               {size}
@@ -60,7 +60,7 @@ const CartItemComp = ({
           ))}
         </div>
         <div className="flex items-center text-[1.4rem] text-black capitalize">
-          <p className="mr-[0.5rem]">Color: </p>
+          <p className="mr-[0.5rem]">Colors: </p>
           {colors.map((color: string) => (
             <p key={color} className="mr-[1rem]">
               {color}
@@ -68,7 +68,7 @@ const CartItemComp = ({
           ))}
         </div>
         <p className="text-[1.4rem]">{totalQuantity} item(s)</p>
-        <p className="mt-auto font-bold text-[2.4rem]">
+        <p className="mt-auto font-bold text-[2rem]">
           N{formatAmount(String(price * totalQuantity))}
         </p>
       </div>

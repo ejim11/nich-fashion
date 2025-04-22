@@ -17,6 +17,25 @@ import { AnimatePresence, motion } from "framer-motion";
 import SearchModal from "./SearchModal";
 import { searchAndFilterActions } from "@/slices/searchAndFilterSlice";
 
+const headerNavLinks: HeaderNavLink[] = [
+  {
+    title: "home",
+    link: "/",
+  },
+  {
+    title: "collections",
+    link: "/collections?category=voltex",
+  },
+  {
+    title: "contact",
+    link: "/contact",
+  },
+  {
+    title: "FAQs",
+    link: "/faqs",
+  },
+];
+
 const Header = () => {
   const dispatch = useAppDispatch();
 
@@ -32,25 +51,6 @@ const Header = () => {
 
   const [profileModalIsVisible, setProfileModalIsVisible] =
     useState<boolean>(false);
-
-  const headerNavLinks: HeaderNavLink[] = [
-    {
-      title: "home",
-      link: "/",
-    },
-    {
-      title: "collections",
-      link: "/collections?category=voltex",
-    },
-    {
-      title: "contact",
-      link: "/contact",
-    },
-    {
-      title: "FAQs",
-      link: "/faqs",
-    },
-  ];
 
   const logoutHandler = () => {
     setProfileModalIsVisible(false);
@@ -191,7 +191,6 @@ const Header = () => {
               Login
             </Link>
           )}
-          {/* <div className="fixed top-[8rem] right-[5rem] w-[20rem] h-[20rem] shadow-lg bg-white"></div> */}
         </div>
         <AnimatePresence>
           {searchModalIsVisible && <SearchModal />}

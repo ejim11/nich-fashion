@@ -1,35 +1,35 @@
 "use client";
 
-
-
-// import { useAppDispatch, useAppSelector } from "@/hooks/stateHooks";
-// import { useRouter } from "next/navigation";
-
-// import React, { useCallback, useEffect } from "react";
+import { autoLogin, autoLogout } from "@/actions/authActions";
+import { useAppDispatch, useAppSelector } from "@/hooks/stateHooks";
+import { useRouter } from "next/navigation";
+import { useCallback, useEffect } from "react";
 
 const AppWrapper: React.FC<{ children: React.ReactNode }> = ({ children }) => {
-  // const dispatchFn = useAppDispatch();
-  //   const router = useRouter();
+  const dispatchFn = useAppDispatch();
+  const router = useRouter();
 
-  //   const { remainingTime, refreshToken } = useAppSelector((state) => state.auth);
+  const { remainingTime, refreshToken } = useAppSelector((state) => state.auth);
 
-  //   const autoLogoutHandler = useCallback(() => {
-  //     const navToHome = () => {
-  //       router.push("/");
-  //     };
-  //     if (remainingTime) {
-  //       dispatchFn(autoLogout(remainingTime, navToHome));
-  //       dispatchFn(autoLogin(remainingTime, refreshToken));
-  //     }
-  //   }, [dispatchFn, refreshToken, remainingTime, router]);
+  const autoLogoutHandler = useCallback(() => {
+    const navToHome = () => {
+      router.push("/");
+    };
+    if (remainingTime && refreshToken) {
+      dispatchFn(autoLogout(remainingTime, navToHome));
+      dispatchFn(autoLogin(remainingTime, refreshToken, navToHome));
+    }
+  }, [dispatchFn, refreshToken, remainingTime, router]);
 
-  //   useEffect(() => {
-  //     autoLogoutHandler();
-  //   }, [autoLogoutHandler, dispatchFn]);
+  useEffect(() => {
+    autoLogoutHandler();
+  }, [autoLogoutHandler, dispatchFn]);
 
-
-
-  return <div className="mt-[7.5rem]">{children}</div>;
+  return (
+    <div className="mt-[7.5rem] max-w-full min-h-screen flex flex-col  bg-[#FFFBFB]">
+      {children}
+    </div>
+  );
 };
 
 export default AppWrapper;

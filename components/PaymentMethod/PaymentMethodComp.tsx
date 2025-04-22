@@ -6,11 +6,26 @@ import { FiChevronRight } from "react-icons/fi";
 import { RiBankLine } from "react-icons/ri";
 import { MdArrowForward } from "react-icons/md";
 import { useRouter } from "next/navigation";
+import { useAppDispatch, useAppSelector } from "@/hooks/stateHooks";
+import { initiatePaymentDispatch } from "@/actions/paystackActions";
+import { toastError, toastSuccess } from "@/utils/toastFuncs";
+import { FaRegCircleCheck } from "react-icons/fa6";
+import { LuBadgeAlert } from "react-icons/lu";
+import { FallingLines } from "react-loader-spinner";
+import { checkProductVariantsAvailabilityDispatch } from "@/actions/productVariantsActions";
 
 const PaymentMethodComp = () => {
+  const dispatch = useAppDispatch();
+
   const router = useRouter();
 
+  const [isLoading, setIsLoading] = useState<boolean>(false);
+
   const [paymentMethod, setPaymentMethod] = useState<string>("pay-online");
+
+  const { paymentInfo } = useAppSelector((state) => state.payment);
+
+  const { token } = useAppSelector((state) => state.auth);
 
   const methods = [
     {
@@ -23,11 +38,42 @@ const PaymentMethodComp = () => {
     },
   ];
 
+  const navFunc = (url: string): void => {
+    router.push(url);
+  };
+
+  const navToBankTransferConfirmPage = () => {
+    router.push("/payment-method/bank-transfer");
+  };
+
   const paymentHandler = () => {
     if (paymentMethod === "bank-transfer") {
-      router.push("/payment-method/bank-transfer");
+      dispatch(
+        checkProductVariantsAvailabilityDispatch(
+          paymentInfo.products,
+          setIsLoading,
+          toastSuccess,
+          toastError,
+          <FaRegCircleCheck className="w-[2.3rem] h-[2.3rem] text-color-primary-1" />,
+          <LuBadgeAlert className="w-[2.3rem] h-[2.3rem] red" />,
+          navToBankTransferConfirmPage
+        )
+      );
       return;
     }
+
+    dispatch(
+      initiatePaymentDispatch(
+        paymentInfo,
+        token,
+        setIsLoading,
+        toastSuccess,
+        toastError,
+        <FaRegCircleCheck className="w-[2.3rem] h-[2.3rem] text-color-primary-1" />,
+        <LuBadgeAlert className="w-[2.3rem] h-[2.3rem] red" />,
+        navFunc
+      )
+    );
   };
 
   return (
@@ -74,8 +120,19 @@ const PaymentMethodComp = () => {
           type="submit"
           className="flex py-[1.9rem] px-[5rem] bg-black text-white items-center justify-center font-satoshi font-medium rounded-[6.2rem] mt-[2.4rem]"
         >
-          <span>Proceed to pay</span>
-          <MdArrowForward className="w-[2.4rem] h-[2.4rem] ml-[1.2rem]" />
+          {isLoading ? (
+            <FallingLines
+              height="25"
+              width="25"
+              color={"white"}
+              visible={true}
+            />
+          ) : (
+            <>
+              <span>Proceed to pay</span>
+              <MdArrowForward className="w-[2.4rem] h-[2.4rem] ml-[1.2rem]" />
+            </>
+          )}
         </button>
       </div>
     </MainContainer>

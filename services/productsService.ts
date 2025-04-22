@@ -30,3 +30,7 @@ export const getShoppingItems = async (
 export const getTopSellingItems = async () => {
   return await products.get("?limit=4&sort=most_purchased");
 };
+
+export const getProductsInACategory = async (category: string) => {
+  return await products.get(`?category=${category}`);
+};

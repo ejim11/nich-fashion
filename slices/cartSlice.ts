@@ -26,6 +26,9 @@ const cartSlice = createSlice({
 
       state.cart = filteredCart;
     },
+    resetCart(state) {
+      state.cart = [];
+    },
   },
 });
 

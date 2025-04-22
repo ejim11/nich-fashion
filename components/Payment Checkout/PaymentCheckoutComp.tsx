@@ -1,9 +1,9 @@
 "use client";
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import MainContainer from "../MainContainer";
 import Link from "next/link";
 import { FiChevronRight } from "react-icons/fi";
-import { useAppSelector } from "@/hooks/stateHooks";
+import { useAppDispatch, useAppSelector } from "@/hooks/stateHooks";
 import InputComponent from "../InputComponent";
 import { SubmitHandler, useForm } from "react-hook-form";
 import { registrationOption } from "@/utils/inputValidator";
@@ -14,38 +14,105 @@ import {
 import formatAmount from "@/utils/formatAmount";
 import { MdArrowForward } from "react-icons/md";
 import { useRouter } from "next/navigation";
-// import { toastError, toastSuccess } from "@/utils/toastFuncs";
+import { getDeliveryStateDispatch } from "@/actions/deliveryStateAction";
+import { FallingLines } from "react-loader-spinner";
+import { updateUserDispatch } from "@/actions/userActions";
+import { toastError, toastSuccess } from "@/utils/toastFuncs";
+import { FaRegCircleCheck } from "react-icons/fa6";
+import { LuBadgeAlert } from "react-icons/lu";
+import { convertProductData } from "@/utils/convertCartItemsToDtoItems";
+import { paymentActions } from "@/slices/paymentSlice";
+
+const deliveryAddressData: { title: string; type: string }[] = [
+  {
+    title: "Same as home address",
+    type: "same",
+  },
+  {
+    title: "Use a different address",
+    type: "different",
+  },
+];
+
+const shippingMethods = [
+  {
+    title: "Customer pick-up",
+    method: "pick-up",
+  },
+  {
+    title: "Delivery",
+    method: "delivery",
+  },
+];
 
 type FormData = {
-  firstName: "";
-  lastName: "";
-  streetAddress: "";
-  city: "";
-  state: "";
-  zipCode?: "";
-  phoneNumber: "";
-  email: "";
-  country: "";
-  stateDelivery: "";
-  cityDelivery: "";
-  streetDelivery: "";
+  firstName: string;
+  lastName: string;
+  streetAddress: string;
+  city: string;
+  zipCode?: string;
+  phoneNumber: string;
+  email: string;
+  country: string;
+  cityDelivery: string;
+  deliveryPicker: string;
+  streetDelivery: string;
 };
 
 const PaymentCheckoutComp = () => {
+  const dispatch = useAppDispatch();
+
   const router = useRouter();
 
   const { cart } = useAppSelector((state) => state.cart);
 
+  const {
+    firstName,
+    lastName,
+    city,
+    country,
+    state,
+    phoneNumber,
+    streetAddress,
+    email,
+    zipCode,
+  } = useAppSelector((state) => state.user.details);
+
+  const { token } = useAppSelector((state) => state.auth);
+
+  const { id: discountId, percentOff } = useAppSelector(
+    (state) => state.discounts.promoInfo
+  );
+
+  const { fee } = useAppSelector((state) => state.deliveryState);
+
+  const [isLoading, setIsLoading] = useState<boolean>(false);
+
   const [billingAddressType, setBillingAddressType] = useState<string>("same");
+
   const [shippingMethod, setShippingMethod] = useState<string>("pick-up");
+
+  const [userStateLocation, setUserStateLocation] = useState<string>(
+    state ?? ""
+  );
+
+  const [userStateLocationErrorText, setUserStateLocationErrorText] =
+    useState<string>("");
+
+  const [deliveryPickerStateErrorText, setDeliveryPickerStateErrorText] =
+    useState<string>("");
+
+  const [deliveryPickerState, setDeliveryPickerState] = useState<string>("");
 
   const totalPrice = getTotalPriceOfCartItems(cart);
 
   const totalQty = getTotalQuantityOfCartItems(cart);
 
-  const discount = 0.2 * totalPrice;
+  const delivery = shippingMethod === "pick-up" ? 0 : fee ? fee : 4000;
 
-  const grandTotal = totalPrice - discount + 4000;
+  const discount = (percentOff / 100) * totalPrice;
+
+  const grandTotal = totalPrice - discount + delivery;
 
   const orderSummary = [
     {
@@ -58,7 +125,7 @@ const PaymentCheckoutComp = () => {
     },
     {
       title: "Delivery",
-      value: shippingMethod === "pick-up" ? 0 : 4000,
+      value: delivery,
     },
     {
       title: "Coupon discount",
@@ -66,54 +133,141 @@ const PaymentCheckoutComp = () => {
     },
   ];
 
-  const deliveryAddressData: { title: string; type: string }[] = [
-    {
-      title: "Same as home address",
-      type: "same",
-    },
-    {
-      title: "Use a different address",
-      type: "different",
-    },
-  ];
-
-  const shippingMethods = [
-    {
-      title: "Customer pick-up",
-      method: "pick-up",
-    },
-    {
-      title: "Delivery",
-      method: "delivery",
-    },
-  ];
-
   const {
     register,
     handleSubmit,
-    // reset,
+    reset,
     formState: { errors },
   } = useForm<FormData>({
     defaultValues: {
-      firstName: "",
-      lastName: "",
-      streetAddress: "",
-      city: "",
-      state: "",
-      zipCode: "",
-      phoneNumber: "",
-      email: "",
-      country: "",
-      stateDelivery: "",
+      firstName: firstName ?? "",
+      lastName: lastName ?? "",
+      streetAddress: streetAddress ?? "",
+      city: city ?? "",
+      zipCode: zipCode ?? "",
+      phoneNumber: phoneNumber ?? "",
+      email: email ?? "",
+      country: country ?? "",
+      deliveryPicker: "",
       cityDelivery: "",
       streetDelivery: "",
     },
   });
 
-  const submitPaymentCheckout: SubmitHandler<FormData> = (data) => {
-    console.log(data);
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
+  const onChangeUserStateLocationHandler = (e: any) => {
+    if (e.target.value) setUserStateLocationErrorText("");
+    setUserStateLocation(e.target.value);
+  };
+
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
+  const onChangeDeliveryPickerStateHandler = (e: any) => {
+    if (e.target.value) setDeliveryPickerStateErrorText("");
+    setDeliveryPickerState(e.target.value);
+  };
+
+  const resetForm = () => {
+    reset({
+      firstName: firstName ?? "",
+      lastName: lastName ?? "",
+      streetAddress: streetAddress ?? "",
+      city: city ?? "",
+      zipCode: zipCode ?? "",
+      phoneNumber: phoneNumber ?? "",
+      email: email ?? "",
+      country: country ?? "",
+      deliveryPicker: "",
+      cityDelivery: "",
+      streetDelivery: "",
+    });
+
     router.push("/payment-method");
   };
+
+  const submitPaymentCheckout: SubmitHandler<FormData> = (data) => {
+    if (!userStateLocation) {
+      setUserStateLocationErrorText("State is required");
+      return;
+    }
+
+    if (billingAddressType === "different" && !deliveryPickerState) {
+      setDeliveryPickerStateErrorText("State is required");
+      return;
+    }
+
+    const userData = Object.fromEntries(
+      Object.entries({
+        firstName: data.firstName,
+        lastName: data.lastName,
+        city: data.city,
+        country: data.country,
+        phoneNumber: data.phoneNumber,
+        state: userStateLocation,
+        streetAddress: data.streetAddress,
+        zipCode: data.zipCode,
+      }).filter(
+        // eslint-disable-next-line @typescript-eslint/no-unused-vars
+        ([_, value]) =>
+          value !== "undefined" && value !== undefined && value !== ""
+      )
+    );
+
+    const deliveryPicker =
+      billingAddressType === "different"
+        ? `${data.deliveryPicker}`
+        : `${firstName} ${lastName}`;
+
+    const deliveryAddress =
+      billingAddressType === "different"
+        ? `${data.streetDelivery}, ${data.cityDelivery}, ${deliveryPickerState}`
+        : `${data.streetAddress}, ${data.city}, ${userStateLocation}`;
+
+    const products = convertProductData(cart);
+
+    const paymentInfo = {
+      deliveryPicker,
+      deliveryAddress,
+      discountId: discountId ?? "",
+      totalAmount: grandTotal,
+      products,
+    };
+    dispatch(paymentActions.addPaymentInfo(paymentInfo));
+
+    dispatch(
+      updateUserDispatch(
+        userData,
+        token,
+        setIsLoading,
+        toastSuccess,
+        toastError,
+        <FaRegCircleCheck className="w-[2.3rem] h-[2.3rem] text-color-primary-1" />,
+        <LuBadgeAlert className="w-[2.3rem] h-[2.3rem] red" />,
+        resetForm
+      )
+    );
+  };
+
+  useEffect(() => {
+    // eslint-disable-next-line @typescript-eslint/no-explicit-any
+    let timer: any;
+    if (billingAddressType === "different" && deliveryPickerState) {
+      timer = setTimeout(() => {
+        dispatch(getDeliveryStateDispatch(deliveryPickerState));
+      }, 1000);
+      return;
+    }
+
+    if (userStateLocation && billingAddressType === "same") {
+      timer = setTimeout(() => {
+        dispatch(getDeliveryStateDispatch(userStateLocation));
+      }, 1000);
+      return;
+    }
+
+    return () => {
+      clearTimeout(timer);
+    };
+  }, [billingAddressType, deliveryPickerState, dispatch, userStateLocation]);
 
   return (
     <MainContainer>
@@ -186,7 +340,7 @@ const PaymentCheckoutComp = () => {
             validation={registrationOption.phoneNumber}
           />
           <InputComponent
-            placeholder={"Enter your Country"}
+            placeholder={"Enter your country"}
             type={"text"}
             register={register}
             error={errors}
@@ -196,17 +350,35 @@ const PaymentCheckoutComp = () => {
             pl="pl-[2rem]"
             validation={registrationOption.country}
           />
-          <InputComponent
-            placeholder={"Enter your state"}
-            type={"text"}
-            register={register}
-            error={errors}
-            label="State"
-            labelTextColor="text-[2rem] font-satoshi font-medium"
-            name={"state"}
-            pl="pl-[2rem]"
-            validation={registrationOption.state}
-          />
+          <div className="w-full flex flex-col mb-[2rem]">
+            <label
+              htmlFor="state"
+              className="capitalize   mb-[.5rem] text-[2rem] font-satoshi font-medium"
+            >
+              State
+            </label>
+            <div className="w-full flex flex-col">
+              <input
+                type="text"
+                name="state"
+                id="state"
+                placeholder="Enter your state"
+                value={userStateLocation}
+                onChange={onChangeUserStateLocationHandler}
+                className={`${
+                  userStateLocationErrorText
+                    ? "border-red-500 text-red-500"
+                    : "border-[#D9D9D9]"
+                } px-[2rem] py-[1.5rem] bg-white border w-full ring-0 outline-none focus:ring-0 rounded-lg focus:outline-none `}
+              />
+              {userStateLocationErrorText && (
+                <small className="text-red-500 mt-[0.5rem]">
+                  {userStateLocationErrorText}
+                </small>
+              )}
+            </div>
+          </div>
+
           <InputComponent
             placeholder={"Enter your city"}
             type={"text"}
@@ -236,7 +408,7 @@ const PaymentCheckoutComp = () => {
             error={errors}
             label="Zip code (optional)"
             labelTextColor="text-[2rem] font-satoshi font-medium"
-            name={"zipcode"}
+            name={"zipCode"}
             pl="pl-[2rem]"
             validation={registrationOption.zipCode}
           />
@@ -307,16 +479,44 @@ const PaymentCheckoutComp = () => {
               {billingAddressType === "different" && (
                 <div className="w-full">
                   <InputComponent
-                    placeholder={"Enter the state"}
+                    placeholder={"Enter full name"}
                     type={"text"}
-                    label="State"
+                    label="Fullname"
                     register={register}
                     error={errors}
                     labelTextColor="text-[2rem] font-satoshi font-medium"
-                    name={"stateDelivery"}
+                    name={"deliveryPicker"}
                     pl="pl-[2rem]"
-                    validation={registrationOption.stateBillingAddress}
+                    validation={registrationOption.fullname}
                   />
+                  <div className="w-full flex flex-col mb-[2rem]">
+                    <label
+                      htmlFor="delivery-state"
+                      className="capitalize   mb-[.5rem] text-[2rem] font-satoshi font-medium"
+                    >
+                      State
+                    </label>
+                    <div className="w-full flex flex-col">
+                      <input
+                        type="text"
+                        name="delivery-state"
+                        id="delivery-state"
+                        placeholder="Enter your state"
+                        value={deliveryPickerState}
+                        onChange={onChangeDeliveryPickerStateHandler}
+                        className={`${
+                          deliveryPickerStateErrorText
+                            ? "border-red-500 text-red-500"
+                            : "border-[#D9D9D9]"
+                        } px-[2rem] py-[1.5rem] bg-white border w-full ring-0 outline-none focus:ring-0 rounded-lg focus:outline-none `}
+                      />
+                      {deliveryPickerStateErrorText && (
+                        <small className="text-red-500 mt-[0.5rem]">
+                          {deliveryPickerStateErrorText}
+                        </small>
+                      )}
+                    </div>
+                  </div>
                   <InputComponent
                     placeholder={"Enter the city"}
                     type={"text"}
@@ -377,13 +577,30 @@ const PaymentCheckoutComp = () => {
               N{formatAmount(String(grandTotal))}
             </p>
           </div>
-          <button
-            type="submit"
-            className="flex py-[1.9rem] w-full bg-black text-white items-center justify-center font-satoshi font-medium rounded-[6.2rem] mt-[2.4rem]"
-          >
-            <span>Proceed</span>
-            <MdArrowForward className="w-[2.4rem] h-[2.4rem] ml-[1.2rem]" />
-          </button>
+          {token ? (
+            <button
+              type="submit"
+              className="flex py-[1.9rem] w-full bg-black text-white items-center justify-center font-satoshi font-medium rounded-[6.2rem] mt-[2.4rem]"
+            >
+              {isLoading ? (
+                <FallingLines
+                  height="25"
+                  width="25"
+                  color={"white"}
+                  visible={true}
+                />
+              ) : (
+                <>
+                  <span>Proceed</span>
+                  <MdArrowForward className="w-[2.4rem] h-[2.4rem] ml-[1.2rem]" />
+                </>
+              )}
+            </button>
+          ) : (
+            <p className="font-600 font-satoshi text-[1.8rem]">
+              Please login to proceed.
+            </p>
+          )}
         </div>
       </form>
     </MainContainer>

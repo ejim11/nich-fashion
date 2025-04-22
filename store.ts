@@ -5,6 +5,10 @@ import userSlice from "./slices/userSlice";
 import authSlice from "./slices/authSlice";
 import newArrivalsSlice from "./slices/newArrivalsSlice";
 import searchAndFilterSlice from "./slices/searchAndFilterSlice";
+import discountSlice from "./slices/discountSlice";
+import deliveryStateSlice from "./slices/deliveryStateSlice";
+import paymentSlice from "./slices/paymentSlice";
+import orderSlice from "./slices/orderSlice";
 
 const store = configureStore({
   reducer: {
@@ -14,6 +18,10 @@ const store = configureStore({
     auth: authSlice.reducer,
     newArrivals: newArrivalsSlice.reducer,
     searchAndFilter: searchAndFilterSlice.reducer,
+    discounts: discountSlice.reducer,
+    deliveryState: deliveryStateSlice.reducer,
+    payment: paymentSlice.reducer,
+    orders: orderSlice.reducer,
   },
 });
 
