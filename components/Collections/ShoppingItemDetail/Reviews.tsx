@@ -1,16 +1,48 @@
-import { Review } from "@/types/shoppingItem";
-import React, { useState } from "react";
-import { FiSliders } from "react-icons/fi";
-import { FiChevronDown } from "react-icons/fi";
+import { Review, ShoppingItem } from "@/types/shoppingItem";
+import React, { ChangeEvent, Dispatch, SetStateAction, useState } from "react";
+// import { FiSliders } from "react-icons/fi";
 import { FaStar } from "react-icons/fa";
 // import { BsThreeDots } from "react-icons/bs";
 import formatDate from "@/utils/formatDate";
 import AddReviewForm from "./AddReviewForm";
 import { AnimatePresence } from "framer-motion";
 
-const Reviews = ({ reviews }: { reviews?: Review[] }) => {
+const Reviews = ({
+  reviews,
+  setItemDetails,
+  productId,
+}: {
+  reviews?: Review[];
+  setItemDetails: Dispatch<SetStateAction<ShoppingItem>>;
+  productId: string;
+}) => {
   const [isAddReviewModalVisible, setIsAddReviewModalVisible] =
     useState<boolean>(false);
+
+  const [sortReviewsBy, setSortReviewsBy] = useState<string>("latest");
+
+  const [reviewsAmount, setReviewsAmount] = useState<number>(2);
+
+  const sortedReviews =
+    reviews && reviews?.length > 0
+      ? reviews.sort((a, b) => {
+          if (sortReviewsBy === "oldest") {
+            return (
+              new Date(a.dateCreated).getTime() -
+              new Date(b.dateCreated).getTime()
+            );
+          } else {
+            return (
+              new Date(b.dateCreated).getTime() -
+              new Date(a.dateCreated).getTime()
+            );
+          }
+        })
+      : [];
+
+  const onChangeSortByHandler = (e: ChangeEvent<HTMLSelectElement>) => {
+    setSortReviewsBy(e.target.value);
+  };
 
   return (
     <section className="mt-[4rem] flex flex-col relative">
@@ -25,16 +57,28 @@ const Reviews = ({ reviews }: { reviews?: Review[] }) => {
           </span>
         </p>
         <div className="flex items-center">
-          <button className="bg-[#F0F0F0] w-[4.8rem] h-[4.8rem] rounded-full flex items-center justify-center ">
+          {/* <button className="bg-[#F0F0F0] w-[4.8rem] h-[4.8rem] rounded-full flex items-center justify-center ">
             <FiSliders className="text-[#000000] w-[2.2rem] h-[2.2rem]" />
-          </button>
-          <button
+          </button> */}
+          <div className="flex items-center bg-[#F0F0F0] py-[1.6rem] px-[2rem] rounded-[6.2rem] font-satoshi mx-[1rem] w-[12.5rem]">
+            <select
+              name="sort-reviews"
+              id="sort-reviews"
+              value={sortReviewsBy}
+              onChange={onChangeSortByHandler}
+              className="bg-transparent focus:ring-0 focus:outline-none w-full cursor-pointer font-satoshi font-semibold"
+            >
+              <option value="latest">Latest</option>
+              <option value="oldest">Oldest</option>
+            </select>
+          </div>
+          {/* <button
             type="button"
             className="flex items-center bg-[#F0F0F0] py-[1.6rem] px-[2rem] rounded-[6.2rem] font-satoshi mx-[1rem]"
           >
-            <span className="mr-[2rem] font-medium">Latest</span>
+            <span className="mr-[2rem] font-medium">{}</span>
             <FiChevronDown className="w-[1.6rem] h-[1.6rem]" />
-          </button>
+          </button> */}
           <button
             onClick={() => {
               setIsAddReviewModalVisible(true);
@@ -47,7 +91,7 @@ const Reviews = ({ reviews }: { reviews?: Review[] }) => {
         </div>
       </div>
       <div className="grid grid-cols-2 mt-[3rem] w-[90%] mx-auto gap-[2rem]">
-        {reviews?.map((review: Review) => {
+        {sortedReviews.slice(0, reviewsAmount)?.map((review: Review) => {
           const date = formatDate(review.dateCreated);
 
           return (
@@ -74,7 +118,7 @@ const Reviews = ({ reviews }: { reviews?: Review[] }) => {
               <p className="font-bold font-satoshi text-[2rem] leading-[2.2rem] my-[1.5rem]">
                 {review.reviewer}
               </p>
-              <p className="text-[rgba(0,0,0,0.6)] font-satoshi leading-[2.2rem] mb-[2.4rem]">{`"${review.comment}"`}</p>
+              <p className="text-[rgba(0,0,0,0.6)] font-satoshi leading-[2.2rem] mb-[2.4rem]">{`"${review.review}"`}</p>
               <p className="mt-auto font-medium font-satoshi leading-[2.2rem] text-[rgba(0,0,0,0.6)] ">
                 Posted on{" "}
                 {`${date?.month} ${date?.dateInNumber}, ${date?.year}`}
@@ -83,16 +127,24 @@ const Reviews = ({ reviews }: { reviews?: Review[] }) => {
           );
         })}
       </div>
-      <button
-        type="button"
-        className="mt-[4.8rem] border border-[rgba(0,0,0,0.1)] py-[1.5rem] px-[4.5rem] mx-auto rounded-[6.2rem] font-satoshi font-medium"
-      >
-        Load More Reviews
-      </button>
+      {reviewsAmount <= 10 && (
+        <button
+          type="button"
+          className="mt-[4.8rem] border border-[rgba(0,0,0,0.1)] py-[1.5rem] px-[4.5rem] mx-auto rounded-[6.2rem] font-satoshi font-medium"
+          onClick={() => {
+            setReviewsAmount(11);
+          }}
+        >
+          Load More Reviews
+        </button>
+      )}
       <AnimatePresence>
         {isAddReviewModalVisible && (
           <AddReviewForm
             setIsAddReviewModalVisible={setIsAddReviewModalVisible}
+            setItemDetails={setItemDetails}
+            setIsModalVisible={setIsAddReviewModalVisible}
+            productId={productId}
           />
         )}
       </AnimatePresence>
