@@ -1,12 +1,12 @@
 import OrderItemDetail from "@/components/Orders/OrderItemDetail";
 import { Suspense } from "react";
 
-export default function OrderItemDetails({
+export default async function OrderItemDetails({
   params,
 }: {
-  params: { orderId: string };
+  params: Promise<{ orderId: string }>;
 }) {
-  const { orderId } = params;
+  const { orderId } = await params;
   return (
     <Suspense>
       <OrderItemDetail orderId={orderId} />
