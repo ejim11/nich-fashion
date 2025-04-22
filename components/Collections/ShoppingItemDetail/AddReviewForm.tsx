@@ -1,22 +1,79 @@
+import { createReviewDispatch } from "@/actions/reviewsActions";
+import { useAppDispatch } from "@/hooks/stateHooks";
+import { ShoppingItem } from "@/types/shoppingItem";
+import { toastError, toastSuccess } from "@/utils/toastFuncs";
 import { motion } from "framer-motion";
-import React, { Dispatch, SetStateAction, useState } from "react";
+import React, { ChangeEvent, Dispatch, SetStateAction, useState } from "react";
 import { FaStar } from "react-icons/fa";
+import { FaRegCircleCheck } from "react-icons/fa6";
+import { LuBadgeAlert } from "react-icons/lu";
+import { FallingLines } from "react-loader-spinner";
 
 const AddReviewForm = ({
   setIsAddReviewModalVisible,
+  setItemDetails,
+  setIsModalVisible,
+  productId,
 }: {
   setIsAddReviewModalVisible: Dispatch<SetStateAction<boolean>>;
+  setItemDetails: Dispatch<SetStateAction<ShoppingItem>>;
+  setIsModalVisible: Dispatch<SetStateAction<boolean>>;
+  productId: string;
 }) => {
-  const stars = Array.from({ length: 5 }, (_, index) => index + 1);
+  const dispatch = useAppDispatch();
 
-  console.log(stars);
+  const stars = Array.from({ length: 5 }, (_, index) => index + 1);
 
   const [chosenStars, setChosenStars] = useState<number>(0);
 
+  const [isLoading, setIsLoading] = useState<boolean>(false);
+
+  const [reviewer, setReviewer] = useState<string>("");
+
   const [review, setReview] = useState<string>("");
+
+  const isFormFilled = !!reviewer && !!review && chosenStars;
+
+  console.log(isFormFilled);
 
   const onReviewChangeHandler = (e: { target: { value: string } }): void => {
     setReview(e.target.value);
+  };
+
+  const onSetReviewerChangeHandler = (e: ChangeEvent<HTMLInputElement>) => {
+    setReviewer(e.target.value);
+  };
+
+  const resetFunc = () => {
+    setReview("");
+    setReviewer("");
+    setChosenStars(0);
+  };
+
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
+  const addReviewHandler = (e: any) => {
+    e.preventDefault();
+
+    const data = {
+      reviewer,
+      review,
+      stars: chosenStars,
+      productId: productId,
+    };
+
+    dispatch(
+      createReviewDispatch(
+        data,
+        setItemDetails,
+        setIsModalVisible,
+        setIsLoading,
+        toastSuccess,
+        toastError,
+        <FaRegCircleCheck className="w-[2.3rem] h-[2.3rem] text-color-primary-1" />,
+        <LuBadgeAlert className="w-[2.3rem] h-[2.3rem] red" />,
+        resetFunc
+      )
+    );
   };
 
   return (
@@ -59,15 +116,37 @@ const AddReviewForm = ({
           </button>
         ))}
       </div>
-      <form>
-        <textarea
-          name="review"
-          id="review"
-          rows={5}
-          value={review}
-          onChange={onReviewChangeHandler}
-          className="bg-white rounded-[2rem] w-[55rem] border-[0.1rem] border-[rgba(0,0,0,0.1)] resize-none focus:ring-0 focus:outline-none outline-none ring-0 p-[1.5rem] text-black font-satoshi"
-        />
+      <form onSubmit={addReviewHandler}>
+        <div className="flex flex-col mb-[2rem]">
+          <label htmlFor="reviewer" className="mb-[1rem]">
+            Fullname
+          </label>
+          <input
+            type="text"
+            name="reviewer"
+            id="reviewer"
+            value={reviewer}
+            onChange={onSetReviewerChangeHandler}
+            placeholder="Enter your name"
+            className="bg-white rounded-[0.6rem] w-[55rem] border-[0.1rem] border-[rgba(0,0,0,0.1)] resize-none focus:ring-0 focus:outline-none outline-none ring-0 p-[1.5rem] text-black font-satoshi"
+          />
+        </div>
+        <div className="flex flex-col ">
+          <label htmlFor="review" className="text-[1.8rem] mb-[1rem]">
+            Review
+          </label>
+          <textarea
+            name="review"
+            id="review"
+            rows={5}
+            value={review}
+            onChange={onReviewChangeHandler}
+            placeholder="Enter your review"
+            className="bg-white rounded-[0.6rem] w-[55rem] border-[0.1rem] border-[rgba(0,0,0,0.1)] resize-none focus:ring-0 
+            focus:outline-none outline-none ring-0 p-[1.5rem] text-black font-satoshi"
+          />
+        </div>
+
         <div className=" flex font-satoshi mt-[1.5rem] justify-end">
           <button
             onClick={() => {
@@ -79,10 +158,20 @@ const AddReviewForm = ({
             Cancel
           </button>
           <button
+            disabled={!isFormFilled}
             type="submit"
-            className="px-[3rem] py-[1.5rem] bg-black text-white border border-black rounded-[6.2rem]"
+            className="disabled:bg-gray-400 disabled:border-gray-400 disabled:cursor-not-allowed px-[3rem] py-[1.5rem] bg-black text-white border border-black rounded-[6.2rem]"
           >
-            Write a Review
+            {isLoading ? (
+              <FallingLines
+                height="25"
+                width="25"
+                color={"white"}
+                visible={true}
+              />
+            ) : (
+              " Write a Review"
+            )}
           </button>
         </div>
       </form>
