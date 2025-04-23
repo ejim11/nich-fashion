@@ -97,13 +97,17 @@ input[type="number"] {
   }
 }
 
-.Toastify__toast-theme--light {
+.Toastify__progress-bar--success {
+  background: grey !important;
+}
+
+/* .Toastify__toast-theme--light {
   color: "rgba(131, 66, 255, 1)" !important;
 }
 
 .Toastify__toast-body > * {
   color: "red" !important;
-}
+} */
 
 /* Add this to your global CSS file */
 
