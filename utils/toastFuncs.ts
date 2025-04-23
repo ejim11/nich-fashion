@@ -27,7 +27,7 @@ export const toastSuccess = (msg: string, icon: ToastIcon) => {
     progress: undefined,
     theme: "light",
     transition: Bounce,
-    style: { color: "#1B365D" },
+    style: { color: "black" },
     icon: icon,
   });
 };

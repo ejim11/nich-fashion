@@ -15,7 +15,7 @@ export type Size = {
 export type Review = {
   id: string;
   reviewer: string;
-  comment: string;
+  review: string;
   dateCreated: string;
   stars: number;
 };

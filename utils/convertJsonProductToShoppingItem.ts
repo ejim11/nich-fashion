@@ -62,7 +62,7 @@ export function convertToShoppingItem(jsonData: any): ShoppingItem {
         ? jsonData.reviews.map((review: any) => ({
             id: review.id,
             reviewer: review.reviewer,
-            comment: review.review,
+            review: review.review,
             dateCreated: review.dateCreated,
             stars: review.stars,
           }))
