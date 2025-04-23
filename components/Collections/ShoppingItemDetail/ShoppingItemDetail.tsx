@@ -1,5 +1,4 @@
 "use client";
-import { ShoppingItem } from "@/types/shoppingItem";
 import Link from "next/link";
 import React, { ReactNode, useEffect, useState } from "react";
 import { FiChevronRight } from "react-icons/fi";
@@ -13,6 +12,7 @@ import ItemDetails from "./ItemDetails";
 import ItemColorPicker from "./ItemColorPicker";
 import { useAppDispatch, useAppSelector } from "@/hooks/stateHooks";
 import { getNewArrivalsDispatch } from "@/actions/productsActions";
+import { ShoppingItem } from "@/types/shoppingItem";
 
 const detailsNav: { text: string; slug: string }[] = [
   {
@@ -34,41 +34,45 @@ const ShoppingItemDetail: React.FC<{ item: ShoppingItem }> = ({
 }) => {
   const dispatch = useAppDispatch();
 
-  const { isLoading, items } = useAppSelector((state) => state.newArrivals);
+  const [itemDetails, setItemDetails] = useState<ShoppingItem>(shoppingItem);
 
-  // const shoppingItem: ShoppingItem | undefined = collections.filter(
-  //   (item: ShoppingItem) => item.id === itemId
-  // )[0];
+  const { isLoading, items } = useAppSelector((state) => state.newArrivals);
 
   const [detailsType, setDetailsType] = useState<string>("description");
 
   const [itemColorImgs, setItemColorImgs] = useState(
-    shoppingItem.colors[0].images
+    itemDetails.colors[0].images
   );
 
   const [choosenImgIndex, setChoosenImgIndex] = useState<number>(0);
 
   const [selectedColor, setSelectedColor] = useState<string>(
-    shoppingItem.colors[0].color
+    itemDetails.colors[0].color
   );
 
   const [colorIndex, setColorIndex] = useState<number>(0);
 
   const onSelectColorImgs = (index: number) => {
-    setItemColorImgs(shoppingItem.colors[index].images);
+    setItemColorImgs(itemDetails.colors[index].images);
     setColorIndex(index);
   };
 
   const componentViewed = (): ReactNode => {
     switch (detailsType) {
       case "description":
-        return <ItemDescription texts={shoppingItem.longDescription || ""} />;
+        return <ItemDescription texts={itemDetails.longDescription || ""} />;
       case "additional-info":
-        return <AdditionalInfo shoppingItem={shoppingItem} />;
+        return <AdditionalInfo shoppingItem={itemDetails} />;
       case "review":
-        return <Reviews reviews={shoppingItem?.reviews} />;
+        return (
+          <Reviews
+            reviews={itemDetails?.reviews}
+            setItemDetails={setItemDetails}
+            productId={itemDetails?.id}
+          />
+        );
       default:
-        return <ItemDescription texts={shoppingItem?.longDescription || ""} />;
+        return <ItemDescription texts={itemDetails?.longDescription || ""} />;
     }
   };
 
@@ -88,11 +92,11 @@ const ShoppingItemDetail: React.FC<{ item: ShoppingItem }> = ({
           <FiChevronRight className=" mr-[1.6rem]" />
           <Link href="/collections?category=voltex">Collections</Link>
           <FiChevronRight className=" mr-[1.6rem]" />
-          <p className="text-[#ADADAD]">{shoppingItem?.name}</p>
+          <p className="text-[#ADADAD]">{itemDetails?.name}</p>
         </div>
         <div className="my-[6rem] flex  max-w-full">
           <ItemColorPicker
-            colors={shoppingItem.colors}
+            colors={itemDetails.colors}
             selectedColor={selectedColor}
             onSelectColor={setSelectedColor}
             onSelectColorImgs={onSelectColorImgs}
@@ -100,18 +104,18 @@ const ShoppingItemDetail: React.FC<{ item: ShoppingItem }> = ({
           />
           <ShoppingItemImages
             imgs={itemColorImgs}
-            itemName={shoppingItem?.name}
+            itemName={itemDetails?.name}
             chosenImgIndex={choosenImgIndex}
             onSelectImgIndex={setChoosenImgIndex}
           />
           <ItemDetails
-            name={shoppingItem.name}
-            price={shoppingItem.price}
-            discount={shoppingItem.discount}
-            shortDescription={shoppingItem.shortDescription}
-            colors={shoppingItem.colors}
+            name={itemDetails.name}
+            price={itemDetails.price}
+            discount={itemDetails.discount}
+            shortDescription={itemDetails.shortDescription}
+            colors={itemDetails.colors}
             colorIndex={colorIndex}
-            shoppingItem={shoppingItem}
+            shoppingItem={itemDetails}
           />
         </div>
       </div>
