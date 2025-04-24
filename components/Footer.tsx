@@ -42,8 +42,8 @@ const Footer = () => {
 
   return (
     <footer className="bg-[#FFFBFB]   flex flex-col font-satoshi  mt-auto">
-      <div className="flex w-full px-[8rem] py-[7rem] ">
-        <div className="w-[25rem] mr-[10rem]">
+      <div className="flex md:flex-wrap w-full px-[8rem] sxl:px-[5rem] xmd:px-[3rem] sm:px-[2rem] py-[7rem] ">
+        <div className="w-[25rem] mr-[10rem] xmd:mr-[3rem] md:mr-0 md:w-full md:mb-[3rem] ssm:flex ssm:flex-col ssm:items-center ssm:text-center">
           <div className="w-[9.3rem] h-[4.3rem]">
             <Image
               src={logo}
@@ -70,13 +70,16 @@ const Footer = () => {
             ))}
           </div>
         </div>
-        <div className="flex-1 flex justify-between">
+        <div className="flex-1 flex justify-between sm:gap-[3rem] ssm:grid-cols-1  sm:flex-auto sm:grid sm:grid-cols-2">
           {footerLinks.map(
             (item: {
               title: string;
               links: { text: string; link: string }[];
             }) => (
-              <div key={item.title} className="flex flex-col">
+              <div
+                key={item.title}
+                className="flex flex-col ssm:items-center ssm:text-center"
+              >
                 <p className="font-medium tracking-[0.3rem] uppercase text-black mb-[2rem] leading-[1.8rem]">
                   {item.title}
                 </p>
@@ -97,7 +100,7 @@ const Footer = () => {
           )}
         </div>
       </div>
-      <div className="border-t border-[#0000001A] py-[2rem] mx-[8rem] flex justify-between items-center">
+      <div className="border-t border-[#0000001A] py-[2rem] mx-[8rem] sxl:mx-[5rem] xmd:mx-[3rem] sm:mx-[1rem] flex justify-between items-center">
         <p>nich © 2025, All Rights Reserved</p>
         <div className="flex items-center ml-auto">
           {cardImgs.map((img: StaticImageData, i: number) => (
