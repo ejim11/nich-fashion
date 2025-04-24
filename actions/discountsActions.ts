@@ -21,8 +21,15 @@ export const applyForDiscountDispatch =
     try {
       const res = await applyForDiscountService({ code: code }, token);
 
-      dispatch(discountsActions.addPromoInfo(res.data.data));
-      toastSuccess("You can use promo code", successIcon);
+      if (!res.data.data.message)
+        dispatch(discountsActions.addPromoInfo(res.data.data));
+
+      toastSuccess(
+        res.data.data.message
+          ? res.data.data.message
+          : "You can use promo code",
+        successIcon
+      );
       setIsLoading(false);
       resetFunc();
     } catch (error: any) {
