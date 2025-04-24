@@ -36,13 +36,13 @@ const FAQITem = ({
         onClick={onToggleDisplayEventInfoHandler}
         initial={false}
       >
-        <span className="font-bold text-color-black text-[2.2rem] leading-[2.8rem] font-satoshi ">
+        <span className="font-bold text-color-black text-[2.2rem] leading-[2.8rem] font-satoshi  smd:text-left">
           {title}
         </span>
         <motion.div
           animate={{ rotate: isOpen ? 0 : -90 }}
           transition={{ duration: 0.2 }}
-          className={`w-[8.4rem] shadow-custom h-[8.4rem]  ${
+          className={`w-[8.4rem] smd:w-[5rem] smd:h-[5rem] shadow-custom h-[8.4rem]  ${
             isOpen ? "bg-black text-color-white" : "bg-white text-black"
           } rounded-full flex items-center justify-center`}
         >
