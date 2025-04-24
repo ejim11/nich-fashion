@@ -33,7 +33,7 @@ const CollectionItem = ({ collection }: { collection: ShoppingItem }) => {
       href={`/collections/${collection.id}`}
       className="relative flex flex-col"
     >
-      <div className="bg-color-grey-4 rounded-[2rem] px-[5rem] py-[1.8rem]">
+      <div className="bg-color-grey-4 rounded-[2rem] px-[5rem] py-[1.8rem] w-full">
         <Image
           src={collection.image}
           alt={`${collection.name} image`}
@@ -61,7 +61,7 @@ const CollectionItem = ({ collection }: { collection: ShoppingItem }) => {
           )}
         </button> */}
       </div>
-      <div className="text-[1.8rem] leading-[3.1rem] font-bold flex items-center">
+      <div className="text-[1.8rem] leading-[3.1rem] font-bold flex items-center flex-wrap">
         <p className="font-satoshi text-color-black   mr-[1rem]">
           {collection.discount > 0
             ? `N${formatAmount(
@@ -73,7 +73,7 @@ const CollectionItem = ({ collection }: { collection: ShoppingItem }) => {
             : `N${formatAmount(String(collection.price))}`}
         </p>
         {collection.discount > 0 && (
-          <div className="flex items-center">
+          <div className="flex items-center ">
             <p className="text-[#00000066] line-through">
               N{formatAmount(String(collection.price))}
             </p>
