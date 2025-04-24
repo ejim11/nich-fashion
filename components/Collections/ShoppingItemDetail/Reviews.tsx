@@ -90,53 +90,61 @@ const Reviews = ({
           </button>
         </div>
       </div>
-      <div className="grid grid-cols-2 mt-[3rem] w-[90%] mx-auto gap-[2rem]">
-        {sortedReviews.slice(0, reviewsAmount)?.map((review: Review) => {
-          const date = formatDate(review.dateCreated);
+      {sortedReviews?.length <= 0 ? (
+        <p className="text-[2rem] font-satoshi font-semibold text-center mt-[3rem]">
+          You have no reviews!
+        </p>
+      ) : (
+        <div>
+          <div className="grid grid-cols-2 mt-[3rem] w-[90%] mx-auto gap-[2rem]">
+            {sortedReviews.slice(0, reviewsAmount)?.map((review: Review) => {
+              const date = formatDate(review.dateCreated);
 
-          return (
-            <div
-              key={review.id}
-              className="border border-[#0000001A] py-[2.8rem] px-[3.2rem] rounded-[2rem] flex flex-col"
-            >
-              <div className="flex items-center justify-between">
-                <div className="flex">
-                  {Array.from(
-                    { length: review?.stars || 3 },
-                    (_, index) => index
-                  ).map((star: number) => (
-                    <FaStar
-                      key={star}
-                      className="text-[#FFC633] w-[2.2rem] h-[2.2rem]"
-                    />
-                  ))}
-                </div>
-                {/* <button>
+              return (
+                <div
+                  key={review.id}
+                  className="border border-[#0000001A] py-[2.8rem] px-[3.2rem] rounded-[2rem] flex flex-col"
+                >
+                  <div className="flex items-center justify-between">
+                    <div className="flex">
+                      {Array.from(
+                        { length: review?.stars || 3 },
+                        (_, index) => index
+                      ).map((star: number) => (
+                        <FaStar
+                          key={star}
+                          className="text-[#FFC633] w-[2.2rem] h-[2.2rem]"
+                        />
+                      ))}
+                    </div>
+                    {/* <button>
                   <BsThreeDots className="text-[rgba(0,0,0,0.4)] w-[2rem] h-[2rem]" />
                 </button> */}
-              </div>
-              <p className="font-bold font-satoshi text-[2rem] leading-[2.2rem] my-[1.5rem]">
-                {review.reviewer}
-              </p>
-              <p className="text-[rgba(0,0,0,0.6)] font-satoshi leading-[2.2rem] mb-[2.4rem]">{`"${review.review}"`}</p>
-              <p className="mt-auto font-medium font-satoshi leading-[2.2rem] text-[rgba(0,0,0,0.6)] ">
-                Posted on{" "}
-                {`${date?.month} ${date?.dateInNumber}, ${date?.year}`}
-              </p>
-            </div>
-          );
-        })}
-      </div>
-      {reviewsAmount <= 10 && (
-        <button
-          type="button"
-          className="mt-[4.8rem] border border-[rgba(0,0,0,0.1)] py-[1.5rem] px-[4.5rem] mx-auto rounded-[6.2rem] font-satoshi font-medium"
-          onClick={() => {
-            setReviewsAmount(11);
-          }}
-        >
-          Load More Reviews
-        </button>
+                  </div>
+                  <p className="font-bold font-satoshi text-[2rem] leading-[2.2rem] my-[1.5rem]">
+                    {review.reviewer}
+                  </p>
+                  <p className="text-[rgba(0,0,0,0.6)] font-satoshi leading-[2.2rem] mb-[2.4rem]">{`"${review.review}"`}</p>
+                  <p className="mt-auto font-medium font-satoshi leading-[2.2rem] text-[rgba(0,0,0,0.6)] ">
+                    Posted on{" "}
+                    {`${date?.month} ${date?.dateInNumber}, ${date?.year}`}
+                  </p>
+                </div>
+              );
+            })}
+          </div>
+          {reviewsAmount <= 10 && (
+            <button
+              type="button"
+              className="mt-[4.8rem] border border-[rgba(0,0,0,0.1)] py-[1.5rem] px-[4.5rem] mx-auto rounded-[6.2rem] font-satoshi font-medium"
+              onClick={() => {
+                setReviewsAmount(11);
+              }}
+            >
+              Load More Reviews
+            </button>
+          )}
+        </div>
       )}
       <AnimatePresence>
         {isAddReviewModalVisible && (
