@@ -36,7 +36,7 @@ const FAQITem = ({
         onClick={onToggleDisplayEventInfoHandler}
         initial={false}
       >
-        <span className="font-bold text-color-black text-[2.2rem] leading-[2.8rem] font-satoshi  smd:text-left">
+        <span className="flex-1 font-bold text-color-black text-[2.2rem] leading-[2.8rem] font-satoshi  smd:text-left">
           {title}
         </span>
         <motion.div
