@@ -68,8 +68,8 @@ const ContactUsForm = () => {
   };
 
   return (
-    <div className="w-[45%]">
-      <p className="font-satoshi text-[2rem] leading-[2.9rem] mb-[2.4rem]">
+    <div className="w-[45%] lg:w-[50%] md:w-full">
+      <p className="font-satoshi text-[2rem] leading-[2.9rem] mb-[2.4rem] smd:text-center">
         Feel free to contact us anytime. We will get back to you as soon as we
         can.
       </p>
