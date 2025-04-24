@@ -16,6 +16,7 @@ const HeaderNavigationLink = ({ navItem }: { navItem: HeaderNavLink }) => {
           className={`leading-[2.4rem] hover:text-[#00000099] duration-100 ease-in transition-all ${
             pathname === navItem.link ? "text-[#00000099]  " : ""
           } `}
+          data-close="close"
         >
           {navItem.title}
         </Link>
