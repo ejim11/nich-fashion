@@ -65,10 +65,10 @@ const FAQsComp = () => {
     <main>
       <MainContainer>
         <div>
-          <h3 className="text-[4rem] font-dmsans font-bold  text-color-blue-1 mb-[5rem] text-center">
+          <h3 className="text-[4rem] font-dmsans font-bold  text-color-blue-1 mb-[5rem] text-center xl:text-[3.5rem] smd:text-[2.8rem]">
             Frequently Asked Questions
           </h3>
-          <div className="w-[90%] mx-auto">
+          <div className="w-[90%] mx-auto md:w-full">
             {/* <LayoutGroup> */}
             {faqs.map((faq, i) => (
               <FAQITem
