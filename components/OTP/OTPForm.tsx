@@ -51,7 +51,7 @@ const OTPForm = () => {
           numInputs={6}
           isInputNum={true}
           successStyle={"!border-color-purple-1"}
-          inputStyle="!border-[0.2rem] !border-color-purple-1 ring-0 outline-none focus:ring-0  focus:outline-0  !rounded-[0.8rem] !text-color-black-1 !active:border-color-purple-1 !:outline-color-purple   !w-[7rem] !h-[6rem] !text-[2rem] !font-outfit otp "
+          inputStyle="!border-[0.2rem] !border-color-purple-1 ring-0 outline-none focus:ring-0  focus:outline-0  !rounded-[0.8rem] !text-color-black-1 !active:border-color-purple-1 !:outline-color-purple   !w-[7rem] sm:!w-[5rem] sm:!h-[4rem] sssm:!w-[4rem] vssm:!w-[3.3rem] !h-[6rem] !text-[2rem] !font-outfit otp "
           separator={<span className="w-[2rem]"></span>}
         />
         <button
