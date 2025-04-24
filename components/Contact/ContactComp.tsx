@@ -31,12 +31,12 @@ const ContactComp = () => {
   return (
     <MainContainer>
       <section>
-        <h2 className="text-[4.8rem] font-monserrat font-extrabold text-center mb-[5rem]">
+        <h2 className="text-[4.8rem] font-monserrat font-extrabold text-center mb-[5rem] smd:mb-[2rem]  xl:text-[3.5rem] smd:text-[2.8rem]">
           Contact Us
         </h2>
-        <div className="w-full flex justify-between">
+        <div className="w-full flex justify-between md:flex-col">
           <ContactUsForm />
-          <div className="w-[48%] bg-[#D9D9D9] px-[4.6rem] rounded-[2rem] flex flex-col justify-center">
+          <div className="w-[48%] bg-[#D9D9D9] px-[4.6rem] rounded-[2rem] flex flex-col justify-center lg:p-[2rem] md:w-full md:mt-[3rem]">
             {contactUsInfo.map((item: { text: string; icon: ReactNode }) => (
               <div
                 key={item.text}
