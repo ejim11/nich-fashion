@@ -43,6 +43,12 @@ html {
   }
 }
 
+@media all and (max-width: 350px) {
+  html {
+    font-size: 50%;
+  }
+}
+
 body {
   font-size: 1.6rem;
 }
@@ -142,7 +148,7 @@ input[type="number"] {
 
 /* Add this to your global CSS file */
 
-.scrollbar-hide::-webkit-scrollbar {
+.scrollbar-images::-webkit-scrollbar {
   height: 0.5rem;
   /* @media all and (max-width: 700px) {
   height: 1rem;
@@ -150,17 +156,17 @@ input[type="number"] {
 }
 
 /* Track */
-.scrollbar-hide::-webkit-scrollbar-track {
+.scrollbar-images::-webkit-scrollbar-track {
   background: #e5e5e5;
 }
 
 /* Handle */
-.scrollbar-hide::-webkit-scrollbar-thumb {
+.scrollbar-images::-webkit-scrollbar-thumb {
   background: #000000;
 }
 
 /* Handle on hover */
-.scrollbar-hide::-webkit-scrollbar-thumb:hover {
+.scrollbar-images::-webkit-scrollbar-thumb:hover {
   background: #000000;
 }
 
