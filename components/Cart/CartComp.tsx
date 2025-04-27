@@ -23,12 +23,12 @@ const CartComp = () => {
             <FiChevronRight className=" mr-[1.6rem]" />
             <Link href="/collections?category=voltex">Collections</Link>
             <FiChevronRight className=" mr-[1.6rem]" />
-            <p className="text-[#ADADAD]">Cart</p>
+            <p className="text-[#ADADAD] ">Cart</p>
           </div>
-          <h3 className="font-extrabold text-[4.8rem] font-monserrat uppercase my-[4.8rem]">
+          <h3 className="font-extrabold text-[4.8rem] font-monserrat uppercase my-[4.8rem] xl:text-[3.5rem] smd:text-[2.8rem] ">
             your cart
           </h3>
-          <div className="flex ">
+          <div className="flex  xl:justify-between xmd:flex-wrap">
             <CartList cart={cart} />
             <OrderSummary cart={cart} />
           </div>
