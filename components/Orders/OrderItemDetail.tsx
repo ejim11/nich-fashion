@@ -73,7 +73,7 @@ const OrderItemDetail = ({ orderId }: { orderId: string }) => {
 
   return (
     <MainContainer>
-      <h3 className="font-extrabold text-[4.8rem] font-monserrat capitalize mb-[2.4rem] text-black">
+      <h3 className="font-extrabold text-[4.8rem] xl:text-[4rem] smd:text-[2.8rem] font-monserrat capitalize mb-[2.4rem] text-black">
         track your order
       </h3>
       {isLoading ? (
@@ -81,11 +81,11 @@ const OrderItemDetail = ({ orderId }: { orderId: string }) => {
       ) : (
         order.id && (
           <>
-            <div className="flex items-center justify-between w-full font-monserrat mb-[3rem]">
-              <p className="text-[3.2rem] font-semibold text-black">
+            <div className="flex items-center justify-between w-full font-monserrat mb-[3rem] xmd:flex-wrap">
+              <p className="text-[3.2rem] font-semibold text-black xmd:w-full xmd:text-[2.5rem] sm:text-[1.8rem]">
                 Order {email.slice(0, 2).toUpperCase()}-{order.id.slice(10)}
               </p>
-              <p className="text-[2.4rem] font-medium">
+              <p className="text-[2.4rem] font-medium sm:text-[1.8rem]">
                 Ordered: {formattedOrderCreatedDate?.month}{" "}
                 {formattedOrderCreatedDate?.dateInNumber},{" "}
                 {formattedOrderCreatedDate?.year}
@@ -103,100 +103,108 @@ const OrderItemDetail = ({ orderId }: { orderId: string }) => {
                 <p className="font-semibold">Your package is on its way!</p>
               </div>
             )}
-            <div className="bg-[rgba(255,255,255,1)] p-[5rem] ">
-              <div className="bg-[rgba(217,217,217,1)] h-[1.1rem] w-full mb-[3rem] rounded-[3rem]">
-                <div
-                  style={{ width: `${(orderStateIndex + 1) * 20}%` }}
-                  className="h-[1.1rem] rounded-[3rem] bg-black"
-                ></div>
-              </div>
-              <div className="w-full flex mb-[5rem] overflow-x-auto order-states">
-                <div className="  flex items-center ">
-                  {orderStates
-                    .slice(0, orderStateIndex + 1)
-                    .map((item, index) => (
+            {order.shippingMethod === "pick-up" ? (
+              <p>You can pick your order at our store in Umuahia str, Abia.</p>
+            ) : (
+              <div className="bg-[rgba(255,255,255,1)] p-[5rem] lg:p-[3rem] smd:p-[2rem]">
+                <div className="bg-[rgba(217,217,217,1)] h-[1.1rem] w-full mb-[3rem] rounded-[3rem]">
+                  <div
+                    style={{ width: `${(orderStateIndex + 1) * 20}%` }}
+                    className="h-[1.1rem] rounded-[3rem] bg-black"
+                  ></div>
+                </div>
+                <div className="w-full flex mb-[5rem] overflow-x-auto order-states">
+                  <div className="  flex items-center ">
+                    {orderStates
+                      .slice(0, orderStateIndex + 1)
+                      .map((item, index) => (
+                        <div
+                          key={item.title}
+                          className={` flex  items-center text-center`}
+                        >
+                          <div className="flex flex-col items-center sm:mr-[0.5rem]">
+                            <div
+                              className={`w-[4.6rem] sm:w-[3rem] sm:h-[3rem] h-[4.6rem] bg-black text-white rounded-full flex items-center justify-center mb-[1.6rem]`}
+                            >
+                              <FaCheck className="w-[2.8rem] h-[2.8rem] sm:w-[2rem] sm:h-[2rem]" />
+                            </div>
+                            <p className="capitalize ">{item.title}</p>
+                          </div>
+                          {index !== orderStateIndex ? (
+                            <div className="flex-1 mx-[1rem] sm:hidden">
+                              <Image
+                                src={arrowImg}
+                                alt="arrow image"
+                                priority
+                                width={300}
+                                height={50}
+                                className="w-full h-full"
+                              />
+                            </div>
+                          ) : index === orderStates.length - 1 ? null : (
+                            <div className="flex-1 mx-[1rem]  sm:hidden">
+                              <Image
+                                src={arrowDottedImg}
+                                alt="arrow image"
+                                priority
+                                width={300}
+                                height={50}
+                                className="w-full h-full"
+                              />
+                            </div>
+                          )}
+                        </div>
+                      ))}
+                  </div>
+                  <div className="flex-1 flex items-center justify-between pl-[3rem]">
+                    {orderStates.slice(orderStateIndex + 1).map((item) => (
                       <div
                         key={item.title}
-                        className={` flex  items-center text-center`}
+                        className={` flex flex-col items-center text-center mx-[1rem] capitalize`}
                       >
-                        <div className="flex flex-col items-center">
-                          <div
-                            className={`w-[4.6rem] h-[4.6rem] bg-black text-white rounded-full flex items-center justify-center mb-[1.6rem]`}
-                          >
-                            <FaCheck className="w-[2.8rem] h-[2.8rem]" />
-                          </div>
-                          <p className="capitalize ">{item.title}</p>
+                        <div
+                          className={`w-[3.5rem]  h-[3.5rem] bg-transparent border border-[rgba(190,190,190,1)] text-white rounded-full flex items-center justify-center mb-[1.6rem]`}
+                        >
+                          <FaCheck className="w-[2rem] sm:w-[1.5rem] sm:h-[1.5rem] h-[2rem] text-[rgba(190,190,190,1)]" />
                         </div>
-                        {index !== orderStateIndex ? (
-                          <div className="flex-1 mx-[1rem]">
-                            <Image
-                              src={arrowImg}
-                              alt="arrow image"
-                              priority
-                              width={300}
-                              height={50}
-                              className="w-full h-full"
-                            />
-                          </div>
-                        ) : index === orderStates.length - 1 ? null : (
-                          <div className="flex-1 mx-[1rem] ">
-                            <Image
-                              src={arrowDottedImg}
-                              alt="arrow image"
-                              priority
-                              width={300}
-                              height={50}
-                              className="w-full h-full"
-                            />
-                          </div>
-                        )}
+
+                        <p className="text-[rgba(190,190,190,1)]">
+                          {item.title}
+                        </p>
                       </div>
                     ))}
+                  </div>
                 </div>
-                <div className="flex-1 flex items-center justify-between pl-[3rem]">
-                  {orderStates.slice(orderStateIndex + 1).map((item) => (
-                    <div
-                      key={item.title}
-                      className={` flex flex-col items-center text-center mx-[1rem] capitalize`}
-                    >
-                      <div
-                        className={`w-[3.5rem] h-[3.5rem] bg-transparent border border-[rgba(190,190,190,1)] text-white rounded-full flex items-center justify-center mb-[1.6rem]`}
-                      >
-                        <FaCheck className="w-[2rem] h-[2rem] text-[rgba(190,190,190,1)]" />
-                      </div>
-
-                      <p className="text-[rgba(190,190,190,1)]">{item.title}</p>
-                    </div>
-                  ))}
+                <div className="bg-[rgba(243,243,243,1)] px-[7.6rem] xmd:p-[3.5rem] smd:p-[2rem] sm:p-[1.5rem] py-[6.5rem] rounded-[1.6rem] border-[0.1rem] text-black border-[rgba(215,213,213,1)]">
+                  <p className="text-[3.2rem] font-semibold font-monserrat mb-[1.3rem]  xmd:text-[2.5rem] sm:text-[1.8rem]">
+                    Shipment Details
+                  </p>
+                  <p className="font-satoshi text-[2.4rem] sm:text-[1.8rem]">
+                    Carrier: <span className="font-bold">{order.carrier}</span>
+                  </p>
+                  <p className="font-satoshi text-[2.4rem] sm:text-[1.8rem]">
+                    Carrier Phone no:{" "}
+                    <span className="font-bold">
+                      {order.carrierPhoneNumber}
+                    </span>
+                  </p>
+                  <p className="font-satoshi text-[2.4rem] sm:text-[1.8rem]">
+                    Shipping Address:{" "}
+                    <span className="font-bold capitalize">
+                      {order.deliveryAddress}
+                    </span>
+                  </p>
+                </div>
+                <div className="mt-[2rem] flex justify-end">
+                  <button
+                    type="button"
+                    className="bg-black text-white px-[3rem] py-[1rem] rounded-[2rem]"
+                  >
+                    Contact support
+                  </button>
                 </div>
               </div>
-              <div className="bg-[rgba(243,243,243,1)] px-[7.6rem] py-[6.5rem] rounded-[1.6rem] border-[0.1rem] text-black border-[rgba(215,213,213,1)]">
-                <p className="text-[3.2rem] font-semibold font-monserrat mb-[1.3rem] ">
-                  Shipment Details
-                </p>
-                <p className="font-satoshi text-[2.4rem]">
-                  Carrier: <span className="font-bold">{order.carrier}</span>
-                </p>
-                <p className="font-satoshi text-[2.4rem]">
-                  Carrier Phone no:{" "}
-                  <span className="font-bold">{order.carrierPhoneNumber}</span>
-                </p>
-                <p className="font-satoshi text-[2.4rem]">
-                  Shipping Address:{" "}
-                  <span className="font-bold capitalize">
-                    {order.deliveryAddress}
-                  </span>
-                </p>
-              </div>
-              <div className="mt-[2rem] flex justify-end">
-                <button
-                  type="button"
-                  className="bg-black text-white px-[3rem] py-[1rem] rounded-[2rem]"
-                >
-                  Contact support
-                </button>
-              </div>
-            </div>
+            )}
           </>
         )
       )}

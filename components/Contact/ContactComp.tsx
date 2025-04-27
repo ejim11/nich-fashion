@@ -31,7 +31,7 @@ const ContactComp = () => {
   return (
     <MainContainer>
       <section>
-        <h2 className="text-[4.8rem] font-monserrat font-extrabold text-center mb-[5rem] smd:mb-[2rem]  xl:text-[3.5rem] smd:text-[2.8rem]">
+        <h2 className="text-[4.8rem] font-monserrat font-extrabold text-center mb-[5rem] smd:mb-[2rem]  xl:text-[3.5rem] smd:text-[2.8rem] ">
           Contact Us
         </h2>
         <div className="w-full flex justify-between md:flex-col">

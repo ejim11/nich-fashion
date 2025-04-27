@@ -91,7 +91,7 @@ const AddReviewForm = ({
           ease: "easeIn",
         },
       }}
-      className="absolute top-0  right-0 z-[40] bg-[rgba(255,251,251,1)] p-[2.5rem]  border-[0.1rem] border-[rgba(0,0,0,0.1)] rounded-[2rem] shadow-md"
+      className="w-[55rem] sm:w-full sm:p-[1.5rem] sm:shadow-lg  absolute top-0  right-0 z-[40] bg-[rgba(255,251,251,1)] p-[2.5rem]  border-[0.1rem] border-[rgba(0,0,0,0.1)] rounded-[2rem] shadow-md"
     >
       <p className="font-medium font-satoshi leading-[2.2rem] text-[rgba(0,0,0,0.92)] mb-[1rem]">
         Rate me
@@ -125,7 +125,7 @@ const AddReviewForm = ({
             value={reviewer}
             onChange={onSetReviewerChangeHandler}
             placeholder="Enter your name"
-            className="bg-white rounded-[0.6rem] w-[55rem] border-[0.1rem] border-[rgba(0,0,0,0.1)] resize-none focus:ring-0 focus:outline-none outline-none ring-0 p-[1.5rem] text-black font-satoshi"
+            className="w-full bg-white rounded-[0.6rem] border-[0.1rem] border-[rgba(0,0,0,0.1)] resize-none focus:ring-0 focus:outline-none outline-none ring-0 p-[1.5rem] text-black font-satoshi"
           />
         </div>
         <div className="flex flex-col ">
@@ -139,7 +139,7 @@ const AddReviewForm = ({
             value={review}
             onChange={onReviewChangeHandler}
             placeholder="Enter your review"
-            className="bg-white rounded-[0.6rem] w-[55rem] border-[0.1rem] border-[rgba(0,0,0,0.1)] resize-none focus:ring-0 
+            className="bg-white rounded-[0.6rem] w-full border-[0.1rem] border-[rgba(0,0,0,0.1)] resize-none focus:ring-0 
             focus:outline-none outline-none ring-0 p-[1.5rem] text-black font-satoshi"
           />
         </div>

@@ -18,13 +18,13 @@ const ItemColorPicker = ({
   onSelectImgIndex: Dispatch<SetStateAction<number>>;
 }) => {
   return (
-    <div className="flex flex-col font-satoshi w-[16rem]">
+    <div className="flex flex-col font-satoshi w-[16rem] xlg:w-full  md:order-2 xlg:mb-[3rem] md:mb-[4rem] md:mt-[4rem]">
       <p className="text-[rgba(0,0,0,0.6)] mb-[1rem]">Select color</p>
-      <div>
+      <div className=" xlg:grid-cols-4 xlg:grid xlg:gap-[2rem] md:grid-cols-3 smd:grid-cols-2">
         {colors.map((color: Color, index: number) => (
           <div
             key={color.color}
-            className="flex items-center cursor-pointer mb-[1.6rem] last:mb-0"
+            className="flex items-center cursor-pointer mb-[1.6rem] last:mb-0 xlg:mb-0"
             onClick={() => {
               // if (color.color === selectedColor) {
               //   onSelectColor("");

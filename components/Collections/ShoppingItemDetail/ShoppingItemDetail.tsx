@@ -85,7 +85,7 @@ const ShoppingItemDetail: React.FC<{ item: ShoppingItem }> = ({
   }, []);
 
   return (
-    <div className="w-full flex flex-col overflow-hidden">
+    <div className="w-full flex flex-col overflow-hidden ">
       <div className="w-full flex flex-col">
         <div className="flex items-center font-satoshi text-[1.8rem] text-black font-medium">
           <Link href="/">Home</Link>
@@ -94,7 +94,7 @@ const ShoppingItemDetail: React.FC<{ item: ShoppingItem }> = ({
           <FiChevronRight className=" mr-[1.6rem]" />
           <p className="text-[#ADADAD]">{itemDetails?.name}</p>
         </div>
-        <div className="my-[6rem] flex  max-w-full">
+        <div className="my-[6rem] flex  max-w-full xlg:flex-wrap">
           <ItemColorPicker
             colors={itemDetails.colors}
             selectedColor={selectedColor}
@@ -121,11 +121,11 @@ const ShoppingItemDetail: React.FC<{ item: ShoppingItem }> = ({
       </div>
       <div className="mt-[4rem]">
         {/* other infos */}
-        <div className=" w-full flex justify-evenly relative">
+        <div className=" w-full flex justify-evenly relative smd:justify-between">
           {detailsNav.map((item: { text: string; slug: string }) => (
             <button
               key={item.slug}
-              className={`capitalize flex text-[2.4rem] font-bold font-satoshi py-[1.6rem] border-b-[0.6rem] relative z-[20] transition-all duration-150 ease-in ${
+              className={`capitalize flex text-[2.4rem] sm:text-[1.7rem] font-bold font-satoshi py-[1.6rem] border-b-[0.6rem] relative z-[20] transition-all duration-150 ease-in ${
                 detailsType === item.slug
                   ? "text-black border-black"
                   : "border-transparent text-[#757575]"
@@ -139,7 +139,7 @@ const ShoppingItemDetail: React.FC<{ item: ShoppingItem }> = ({
           ))}
           <div className="h-[0.6rem] bg-[#E5E2E2] absolute bottom-0 left-0 right-0 z-10 w-full"></div>
         </div>
-        <div>
+        <div className="sm:relative">
           {/* {switch} */}
           {componentViewed()}
         </div>

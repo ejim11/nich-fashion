@@ -171,7 +171,7 @@ const CollectionsNav: React.FC<{ children: ReactNode }> = ({ children }) => {
 
   return (
     <MainContainer
-      customPadding={` px-[8rem] py-[7rem] xl:px-[5rem] xl:py-[5rem] xmd:px-[3rem] sm:px-[2rem] `}
+      customPadding={` px-[5rem] py-[7rem] xl:px-[5rem] xl:py-[5rem] xmd:px-[3rem] sm:px-[2rem] `}
     >
       <div
         className={`${
@@ -229,10 +229,12 @@ const CollectionsNav: React.FC<{ children: ReactNode }> = ({ children }) => {
           </div>
         </div>
 
-        <div className="flex-1 ml-[3.4rem] xlg:ml-0">
+        <div className={`flex-1   ${pathname ? "" : "ml-[3.4rem] xlg:ml-0"}`}>
           <button
             type="button"
-            className="xlg:flex items-center mb-[2rem] border px-[2rem] py-[1rem] rounded-[0.6rem] hidden border-black"
+            className={`${
+              pathname ? "hidden" : "xlg:flex "
+            } items-center mb-[2rem] border px-[2rem] py-[1rem] rounded-[0.6rem] hidden border-black`}
             onClick={() => {
               setIsFilterModalOpen(true);
             }}

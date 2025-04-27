@@ -86,7 +86,7 @@ const PaymentMethodComp = () => {
         <p className="text-[#ADADAD]">Payment method</p>
       </div>
       <div className="min-h-screen mt-[5rem]">
-        <h3 className="font-monserrat text-[4.8rem] font-extrabold mb-[3.5rem] text-black uppercase">
+        <h3 className="font-monserrat text-[4.8rem] xl:text-[4rem] smd:text-[2.8rem]  font-extrabold mb-[3.5rem] text-black uppercase">
           Payment method
         </h3>
         <div>
@@ -94,7 +94,7 @@ const PaymentMethodComp = () => {
             <button
               key={item.title}
               type="button"
-              className="flex bg-white items-center border rounded-[1.42rem] p-[2rem]  w-[48%] transition-all duration-150 ease-in mb-[1.6rem] last:mb-0"
+              className="flex bg-white items-center border rounded-[1.42rem] p-[2rem]  w-[48%] xmd:w-[50%] smd:w-[60%] sm:w-full transition-all duration-150 ease-in mb-[1.6rem] last:mb-0"
               onClick={() => {
                 setPaymentMethod(item.method);
               }}
@@ -118,7 +118,7 @@ const PaymentMethodComp = () => {
         <button
           onClick={paymentHandler}
           type="submit"
-          className="flex py-[1.9rem] px-[5rem] bg-black text-white items-center justify-center font-satoshi font-medium rounded-[6.2rem] mt-[2.4rem]"
+          className="flex py-[1.9rem] sm:w-full px-[5rem] bg-black text-white items-center justify-center font-satoshi font-medium rounded-[6.2rem] mt-[2.4rem]"
         >
           {isLoading ? (
             <FallingLines

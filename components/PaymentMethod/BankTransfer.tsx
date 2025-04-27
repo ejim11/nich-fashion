@@ -91,7 +91,7 @@ const BankTransferComp = () => {
 
   return (
     <MainContainer>
-      <div className="p-[3rem] border-b-[0.1rem] border-b-[rgba(175,175,175,1)] ">
+      <div className="p-[3rem]  smd:px-0 smd:py-[2rem] border-b-[0.1rem] border-b-[rgba(175,175,175,1)] ">
         <p className="text-[1.4rem] leading-[2.4rem] text-[rgba(25,25,25,1)] ">
           Amount to pay
         </p>
@@ -99,11 +99,11 @@ const BankTransferComp = () => {
           NGN {formatAmount(String(paymentInfo.totalAmount))}
         </p>
       </div>
-      <div className="p-[3rem] font-satoshi">
-        <p className="font-medium text-[2.8rem] leading-[2.1rem] text-black mb-[1.6rem]">
+      <div className="p-[3rem] smd:px-0 smd:py-[2rem] font-satoshi">
+        <p className="font-medium text-[2.8rem] sm:text-[2rem] leading-[2.1rem] text-black mb-[1.6rem]">
           Payment Method: Bank Transfer
         </p>
-        <p className="text-[2rem] leading-[2.1rem]">
+        <p className="text-[2rem] sm:text-[1.8rem] leading-[2.1rem]">
           Important Note: Please you must click on “I have made payment” button
           for your order to be processed.
         </p>
@@ -111,7 +111,7 @@ const BankTransferComp = () => {
           {paymentDetails.map((detail) => (
             <div
               key={detail.title}
-              className="flex w-[70%] justify-between items-center text-black mb-[1.4rem] last:mb-0"
+              className="flex w-[70%] sm:w-full justify-between items-center text-black mb-[1.4rem] last:mb-0"
             >
               <p className="font-medium leading-[2.1rem]">{detail.title}</p>
               <p className="font-bold leading-[2.1rem]">{detail.value}</p>
@@ -119,7 +119,7 @@ const BankTransferComp = () => {
           ))}
         </div>
       </div>
-      <div className="px-[3rem] pb-[3rem] font-satoshi text-black">
+      <div className="px-[3rem]  smd:px-0 smd:py-[2rem] pb-[3rem] font-satoshi text-black">
         <p className="text-[2.4rem] font-medium leading-[2.1rem]">
           Proof of Payment
         </p>
@@ -127,7 +127,7 @@ const BankTransferComp = () => {
           You can also add your proof of payment if available
         </p>
         <div
-          className="flex flex-col w-[60%] mx-auto items-center px-[1.5rem] py-[3rem] text-center border-2 border-black rounded-[0.6rem] border-dotted"
+          className="flex flex-col w-[60%] mx-auto items-center px-[1.5rem] py-[3rem] text-center border-2 border-black rounded-[0.6rem] border-dotted smd:w-[80%] sm:w-[90%]"
           // onDrop={onDropEventImageHandler}
           // onDragOver={handleDragOver}
         >

@@ -45,22 +45,19 @@ const Reviews = ({
   };
 
   return (
-    <section className="mt-[4rem] flex flex-col relative">
+    <section className="mt-[4rem] flex flex-col relative sm:static">
       <p className="text-[2rem] font-satoshi font-medium leading-[2.2rem] mb-[3rem] text-black">
         Rating & Reviews
       </p>
-      <div className="flex items-center justify-between">
-        <p className="text-black text-[2.4rem] font-bold font-satoshi">
+      <div className="flex items-center justify-between sm:flex-wrap">
+        <p className="text-black text-[2.4rem] font-bold font-satoshi sm:mr-[1rem]">
           All Reviews{" "}
           <span className="text-[1.6rem] font-normal leading-[2.2rem]">
             ({reviews?.length})
           </span>
         </p>
         <div className="flex items-center">
-          {/* <button className="bg-[#F0F0F0] w-[4.8rem] h-[4.8rem] rounded-full flex items-center justify-center ">
-            <FiSliders className="text-[#000000] w-[2.2rem] h-[2.2rem]" />
-          </button> */}
-          <div className="flex items-center bg-[#F0F0F0] py-[1.6rem] px-[2rem] rounded-[6.2rem] font-satoshi mx-[1rem] w-[12.5rem]">
+          <div className="flex items-center bg-[#F0F0F0] py-[1.6rem] px-[2rem] rounded-[6.2rem] font-satoshi mx-[1rem] sm:mx-0 w-[12.5rem]">
             <select
               name="sort-reviews"
               id="sort-reviews"
@@ -72,19 +69,13 @@ const Reviews = ({
               <option value="oldest">Oldest</option>
             </select>
           </div>
-          {/* <button
-            type="button"
-            className="flex items-center bg-[#F0F0F0] py-[1.6rem] px-[2rem] rounded-[6.2rem] font-satoshi mx-[1rem]"
-          >
-            <span className="mr-[2rem] font-medium">{}</span>
-            <FiChevronDown className="w-[1.6rem] h-[1.6rem]" />
-          </button> */}
+
           <button
             onClick={() => {
               setIsAddReviewModalVisible(true);
             }}
             type="button"
-            className="bg-black text-white rounded-[6.2rem] py-[1.6rem] px-[2rem] font-medium font-satoshi"
+            className="bg-black text-white rounded-[6.2rem] py-[1.6rem] px-[2rem] font-medium font-satoshi sm:ml-[1rem]"
           >
             Write Review
           </button>
@@ -95,15 +86,15 @@ const Reviews = ({
           You have no reviews!
         </p>
       ) : (
-        <div>
-          <div className="grid grid-cols-2 mt-[3rem] w-[90%] mx-auto gap-[2rem]">
+        <div className="flex flex-col items-center">
+          <div className="grid grid-cols-2 mt-[3rem] w-[90%] mx-auto gap-[2rem] md:w-full sm:grid-cols-1">
             {sortedReviews.slice(0, reviewsAmount)?.map((review: Review) => {
               const date = formatDate(review.dateCreated);
 
               return (
                 <div
                   key={review.id}
-                  className="border border-[#0000001A] py-[2.8rem] px-[3.2rem] rounded-[2rem] flex flex-col"
+                  className="border border-[#0000001A] py-[2.8rem] smd:p-[2rem] px-[3.2rem] rounded-[2rem] flex flex-col"
                 >
                   <div className="flex items-center justify-between">
                     <div className="flex">
@@ -136,7 +127,7 @@ const Reviews = ({
           {reviewsAmount <= 10 && (
             <button
               type="button"
-              className="mt-[4.8rem] border border-[rgba(0,0,0,0.1)] py-[1.5rem] px-[4.5rem] mx-auto rounded-[6.2rem] font-satoshi font-medium"
+              className="mt-[4.8rem] border border-[rgba(0,0,0,0.1)] py-[1.5rem] px-[4.5rem] mx-auto rounded-[6.2rem] font-satoshi font-medium  "
               onClick={() => {
                 setReviewsAmount(11);
               }}

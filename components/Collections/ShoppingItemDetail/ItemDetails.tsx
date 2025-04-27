@@ -178,8 +178,10 @@ const ItemDetails = ({
   };
 
   return (
-    <div className="ml-[2rem] flex-1 font-satoshi flex flex-col">
-      <h2 className="text-[4.8rem]  font-bold text-black capitalize">{name}</h2>
+    <div className="ml-[2rem] flex-1 font-satoshi flex flex-col md:ml-0  md:order-3">
+      <h2 className="text-[4.8rem] sm:text-[3.5rem]  font-bold text-black capitalize">
+        {name}
+      </h2>
       <div className="flex text-[3.2rem] font-bold my-[2.4rem]">
         <p className=" text-color-black   mr-[1rem]">
           {discount > 0
@@ -223,26 +225,34 @@ const ItemDetails = ({
       <div className="mb-[1.5rem] flex flex-col">
         <p className="text-[rgba(0,0,0,0.6)] mb-[2.4rem]">Choose size</p>
         <div className="flex flex-col h-[20rem] overflow-y-auto chosenColorSizes">
-          {colorsCopyState[colorIndex].sizes.map((size: SizeCopy) => (
-            <div key={size.size} className="flex items-center mb-[1.6rem]">
-              <p className="w-[10rem] bg-[rgba(194,194,194,1)] mr-[2.4rem] font-medium font-satoshi text-[rgba(0,0,0,1)] text-center capitalize text-[1.4rem] py-[1.2rem] rounded-[2rem]">
-                {size.size}
-              </p>
-              <QuantityCalculator
-                size={size}
-                color={colorsCopyState[colorIndex]}
-                setColorCopyQuantityHandler={
-                  onSetChosenColorSizeQuantityHandler
-                }
-              />
-              <div className="flex items-center ml-auto">
-                <div className="w-[1.3rem] h-[1.3rem] bg-[rgba(0,128,0,1)] rounded-full mr-[1rem]"></div>
-                <p className="font-satoshi text-[1.8rem] text-black">
-                  In Stock
+          {colorsCopyState[colorIndex].sizes.length > 0 ? (
+            colorsCopyState[colorIndex].sizes.map((size: SizeCopy) => (
+              <div key={size.size} className="flex items-center mb-[1.6rem]">
+                <p className="w-[8rem] bg-[rgba(194,194,194,1)] mr-[2.4rem] font-medium font-satoshi text-[rgba(0,0,0,1)] text-center capitalize text-[1.4rem] py-[1.2rem] rounded-[2rem]">
+                  {size.size}
                 </p>
+                <QuantityCalculator
+                  size={size}
+                  color={colorsCopyState[colorIndex]}
+                  setColorCopyQuantityHandler={
+                    onSetChosenColorSizeQuantityHandler
+                  }
+                />
+                <div className="flex items-center ml-auto">
+                  <div
+                    className={`${
+                      size.quantity > 0 ? "bg-[rgba(0,128,0,1)]" : "bg-red-500"
+                    } w-[1.3rem] h-[1.3rem]  rounded-full mr-[1rem]`}
+                  ></div>
+                  <p className={`font-satoshi text-[1.8rem] text-black`}>
+                    {size.quantity > 0 ? "In Stock" : "No Stock"}
+                  </p>
+                </div>
               </div>
-            </div>
-          ))}
+            ))
+          ) : (
+            <p>All sizes are out of stock for this color</p>
+          )}
         </div>
       </div>
       <div className="flex w-full justify-between mt-auto font-satoshi font-medium text-center">

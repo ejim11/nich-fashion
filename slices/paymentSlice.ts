@@ -8,6 +8,7 @@ const paymentSlice = createSlice({
       deliveryAddress: "",
       discountId: "",
       totalAmount: 0,
+      shippingMethod: "",
       products: [],
     },
   },
@@ -19,6 +20,7 @@ const paymentSlice = createSlice({
         discountId,
         totalAmount,
         products,
+        shippingMethod,
       } = action.payload;
 
       state.paymentInfo.deliveryAddress = deliveryAddress;
@@ -26,14 +28,15 @@ const paymentSlice = createSlice({
       state.paymentInfo.discountId = discountId;
       state.paymentInfo.totalAmount = totalAmount;
       state.paymentInfo.products = products;
+      state.paymentInfo.shippingMethod = shippingMethod;
     },
-    resetPayment (state,) {
+    resetPayment(state) {
       state.paymentInfo.deliveryAddress = "";
       state.paymentInfo.deliveryPicker = "";
       state.paymentInfo.discountId = "";
       state.paymentInfo.totalAmount = 0;
       state.paymentInfo.products = [];
-    }
+    },
   },
 });
 
