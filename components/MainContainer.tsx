@@ -10,7 +10,7 @@ const MainContainer: React.FC<{
       className={` ${classname ? classname : ""} ${
         customPadding
           ? customPadding
-          : "px-[8rem] sxl:px-[5rem] sxl:py-[5rem] xmd:px-[3rem] sm:px-[2rem] py-[8rem]"
+          : "px-[8rem] sxl:px-[5rem] sxl:py-[6rem] xmd:px-[3rem] sm:px-[2rem] py-[8rem]"
       } bg-[#FFFBFB] `}
     >
       {children}
