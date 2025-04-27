@@ -15,7 +15,7 @@ const DiscountComp = () => {
           Hurry! Offer ends January 31!
         </p>
         <Link
-          href={"/shop"}
+          href={"/collections?category=voltex"}
           className=" text-center block py-[1.6rem] px-[5.4rem] border bg-color-black text-color-white rounded-[6.2rem] w-max  transition-all duration-100 ease-in font-satoshi font-medium  leading-[2.1rem] capitalize"
         >
           shop now
