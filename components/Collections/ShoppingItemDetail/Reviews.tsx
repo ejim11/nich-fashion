@@ -83,7 +83,7 @@ const Reviews = ({
       </div>
       {sortedReviews?.length <= 0 ? (
         <p className="text-[2rem] font-satoshi font-semibold text-center mt-[3rem]">
-          You have no reviews!
+          There are no reviews!
         </p>
       ) : (
         <div className="flex flex-col items-center">
