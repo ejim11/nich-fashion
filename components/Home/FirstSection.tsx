@@ -30,7 +30,7 @@ const FirstSection = () => {
             style.
           </p>
           <Link
-            href="/shop"
+            href="/collections?category=voltex"
             className="bg-color-black text-color-white  font-satoshi font-medium py-[1.5rem] px-[5.8rem] capitalize rounded-[6.2rem]"
           >
             Shop Now
