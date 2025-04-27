@@ -64,7 +64,7 @@ const OrderSummary = ({ cart }: { cart: CartItem[] }) => {
   };
 
   return (
-    <div className="border-[0.1rem] border-[rgba(0,0,0,0.1)] font-satoshi rounded-[2rem] w-[60rem] sticky top-0 right-0  h-auto self-start px-[2.4rem] py-[2rem]">
+    <div className="border-[0.1rem] border-[rgba(0,0,0,0.1)] font-satoshi rounded-[2rem] w-[60rem] xl:w-[48%] xmd:w-full sticky top-0 right-0  h-auto self-start px-[2.4rem] sm:px-[2rem] py-[2rem]">
       <p className="font-bold text-[2.4rem] capitalize mb-[2.4rem]">
         order summary
       </p>
@@ -101,8 +101,8 @@ const OrderSummary = ({ cart }: { cart: CartItem[] }) => {
       </div>
       {token ? (
         <div className="flex flex-col">
-          <div className="flex font-satoshi">
-            <div className="flex-1 mr-[1.5rem] relative">
+          <div className="flex font-satoshi sm:flex-wrap">
+            <div className="flex-1 mr-[1.5rem] relative sm:flex-none sm:w-full">
               <FiTag className="absolute top-[1.4rem] left-[1.8rem] text-[rgba(0,0,0,0.4)] w-[2.4rem] h-[2.4rem]" />
               <input
                 type="text"
@@ -116,7 +116,7 @@ const OrderSummary = ({ cart }: { cart: CartItem[] }) => {
             </div>
             <button
               type="button"
-              className="px-[3.8rem] py-[1.3rem] bg-black text-white rounded-[6.2rem] capitalize font-medium "
+              className="px-[3.8rem] sm:w-full sm:mt-[2rem] py-[1.3rem] bg-black text-white rounded-[6.2rem] capitalize font-medium "
               onClick={applyForDiscountHandler}
             >
               {isLoading ? (

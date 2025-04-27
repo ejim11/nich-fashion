@@ -6,6 +6,7 @@ export const saveBankTransferDetails = async (data: any, token: string) => {
 
   // Add the basic payment fields
   formData.append("deliveryPicker", data.deliveryPicker);
+  formData.append("shippingMethod", data.shippingMethod);
   formData.append("deliveryAddress", data.deliveryAddress);
   formData.append("totalAmount", data.totalAmount.toString());
   formData.append("file", data.file, data.file.name);

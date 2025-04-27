@@ -6,12 +6,12 @@ import Link from "next/link";
 
 const DiscountComp = () => {
   return (
-    <section className="flex mb-[10rem] bg-gradient-to-r from-[#A09F9F1A] to-[#E5E5E5] rounded-[2rem] overflow-hidden ">
-      <div className="flex-1 flex justify-center pl-[10rem] flex-col">
-        <h3 className="text-[4.8rem] font-montserrat font-bold leading-[5.8rem] text-color-black">
+    <section className="flex sm:flex-col sm:py-[2.5rem] sm:items-center mb-[10rem] bg-gradient-to-r from-[#A09F9F1A] to-[#E5E5E5] rounded-[2rem] overflow-hidden ">
+      <div className="flex-1 flex justify-center pl-[10rem] xl:pl-[5rem] xmd:pl-[3rem]  smd:pl-[2rem] sm:pl-0 sm:items-center mb-[3rem] flex-col">
+        <h3 className="text-[4.8rem] xmd:text-[4rem] smd:text-[3rem] font-montserrat font-bold leading-[5.8rem] smd:leading-[3rem] text-color-black">
           50% Off All Cloth
         </h3>
-        <p className="my-[1.6rem] font-satoshi text-[2.4rem] leading-[2.2rem]">
+        <p className="my-[1.6rem] font-satoshi text-[2.4rem] smd:text-[2rem] leading-[2.2rem]">
           Hurry! Offer ends January 31!
         </p>
         <Link
@@ -21,7 +21,7 @@ const DiscountComp = () => {
           shop now
         </Link>
       </div>
-      <div className="h-full relative w-[45%]">
+      <div className="h-full relative w-[45%] smd:w-[55%]">
         <Image
           src={discountImg1}
           alt="discount image "
@@ -30,7 +30,7 @@ const DiscountComp = () => {
           height={500}
           className="w-full h-full "
         />
-        <div className="absolute bottom-0  w-[30rem] right-0 ">
+        <div className="absolute bottom-0  w-[30rem] right-0  sm:hidden">
           <Image
             src={discountImg2}
             alt="discount image "

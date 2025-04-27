@@ -26,7 +26,7 @@ const SearchModal = () => {
   const onHideSearchModalHandler = () => {
     dispatch(searchAndFilterActions.toggleSearchModal(false));
     dispatch(searchAndFilterActions.setSearchText(""));
-    router.replace(`/collections?category=voltex`);
+    // router.replace(`/collections?category=voltex`);
   };
 
   useEffect(() => {

@@ -1,6 +1,6 @@
 /* eslint-disable @typescript-eslint/no-explicit-any */
 "use client";
-import React, { ReactNode, useEffect, useMemo } from "react";
+import React, { ReactNode, useEffect, useMemo, useState } from "react";
 import { CollectionCategory } from "./enum/collectionCategory.enum";
 import MainContainer from "../MainContainer";
 import FiltersComp from "./FiltersComp";
@@ -15,6 +15,7 @@ import {
   getProductsInACategoryDispatch,
 } from "@/actions/productsActions";
 import { searchAndFilterActions } from "@/slices/searchAndFilterSlice";
+import { RiMenu2Line } from "react-icons/ri";
 
 type FilterItem = {
   title: string;
@@ -31,6 +32,8 @@ const CollectionsNav: React.FC<{ children: ReactNode }> = ({ children }) => {
   const searchParams = useSearchParams();
 
   const pathname: string = usePathname().slice(13);
+
+  const [isFilterModalOpen, setIsFilterModalOpen] = useState<boolean>(false);
 
   const collectionCategories = [
     CollectionCategory.Voltex,
@@ -167,8 +170,14 @@ const CollectionsNav: React.FC<{ children: ReactNode }> = ({ children }) => {
   }, []);
 
   return (
-    <MainContainer customPadding={` px-[8rem] py-[7rem]`}>
-      <div className={`${pathname ? "hidden" : "flex"}`}>
+    <MainContainer
+      customPadding={` px-[5rem] py-[7rem] xl:px-[5rem] xl:py-[5rem] xmd:px-[3rem] sm:px-[2rem] `}
+    >
+      <div
+        className={`${
+          pathname ? "hidden" : "flex"
+        } md:overflow-x-auto collectionCat md:py-[1rem]`}
+      >
         {collectionCategories.map((cat: CollectionCategory) => (
           <button
             onClick={() => {
@@ -187,24 +196,54 @@ const CollectionsNav: React.FC<{ children: ReactNode }> = ({ children }) => {
       </div>
       <div className="w-full flex  mt-[4.1rem] relative">
         <div
-          className={`w-[45rem] ${
-            pathname ? " hidden" : "flex flex-col"
-          } h-max sticky top-[8rem] px-[2.3rem] py-[1.9rem] left-0 bg-white border border-[rgba(0,0,0,0.1)] rounded-[2rem]`}
+          className={`${
+            pathname
+              ? " hidden"
+              : `flex  w-[45rem] sxl:w-[40rem]  h-max sticky top-[8rem] flex-col xlg:transition-all xlg:duration-150 xlg:ease-in ${
+                  isFilterModalOpen
+                    ? "xlg:opacity-100  xlg:translate-x-0 xlg:fixed xlg:top-0 xlg:bottom-0 xlg:right-0 xlg:left-0  xlg:z-[100] xlg:w-full xlg:bg-[rgba(0,0,0,0.4)] xlg:h-screen "
+                    : "xlg:opacity-0 xlg:-translate-x-[100%] xlg:hidden"
+                } `
+          }  `}
+          data-close="close"
+          onClick={(e: any) => {
+            if (e.target.dataset.close) setIsFilterModalOpen(false);
+          }}
         >
-          <FiltersComp category={searchParamsObject.category ?? ""} />
-          <PriceRangeComp category={searchParamsObject.category ?? ""} />
-          <ColorsComp category={searchParamsObject.category ?? ""} />
-          <Sizes category={searchParamsObject.category ?? ""} />
-          <DressStyle category={searchParamsObject.category ?? ""} />
+          <div
+            className={`w-full xlg:w-[50%] xmd:w-[60%] md:w-[70%] smd:w-[80%] xlg:overflow-y-auto apply-filter h-full px-[2.3rem] py-[1.9rem] left-0 bg-white border border-[rgba(0,0,0,0.1)] rounded-[2rem] xlg:rounded-[0rem] xlg:flex-1`}
+          >
+            <FiltersComp category={searchParamsObject.category ?? ""} />
+            <PriceRangeComp category={searchParamsObject.category ?? ""} />
+            <ColorsComp category={searchParamsObject.category ?? ""} />
+            <Sizes category={searchParamsObject.category ?? ""} />
+            <DressStyle category={searchParamsObject.category ?? ""} />
+            <button
+              type="button"
+              className="mt-[3rem] py-[1.5rem] bg-black text-white rounded-[6rem] w-full font-satoshi font-medium leading-[1.8rem] "
+              onClick={submitFilters}
+              data-close="close"
+            >
+              Apply Filter
+            </button>
+          </div>
+        </div>
+
+        <div className={`flex-1   ${pathname ? "" : "ml-[3.4rem] xlg:ml-0"}`}>
           <button
             type="button"
-            className="mt-[3rem] py-[1.5rem] bg-black text-white rounded-[6rem] w-full font-satoshi font-medium leading-[1.8rem] "
-            onClick={submitFilters}
+            className={`${
+              pathname ? "hidden" : "xlg:flex "
+            } items-center mb-[2rem] border px-[2rem] py-[1rem] rounded-[0.6rem] hidden border-black`}
+            onClick={() => {
+              setIsFilterModalOpen(true);
+            }}
           >
-            Apply Filter
+            Filter
+            <RiMenu2Line className="w-[2.4rem] h-[2.4rem] text-black ml-[2rem]" />
           </button>
+          {children}
         </div>
-        <div className="flex-1 ml-[3.4rem] ">{children}</div>
       </div>
     </MainContainer>
   );

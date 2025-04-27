@@ -58,7 +58,7 @@ const OrdersComp = () => {
 
   return (
     <MainContainer classname="min-h-screen">
-      <h3 className="font-extrabold text-[4.8rem] font-monserrat uppercase mb-[4.8rem]">
+      <h3 className="font-extrabold text-[4.8rem]  xl:text-[4rem] smd:text-[2.8rem] font-monserrat uppercase mb-[4.8rem]">
         Orders
       </h3>
       <div className="w-full flex flex-col">
@@ -73,9 +73,9 @@ const OrdersComp = () => {
             <Link
               key={item.id}
               href={`/orders/${item.id}`}
-              className="flex flex-col p-[3rem] border border-gray-200 rounded-[2rem] mb-[3rem] last:mb-0 hover:bg-gray-100 transition-all duration-150 ease-in"
+              className="flex flex-col p-[3rem] smd:p-[2rem] sm:p-[1.5rem] border border-gray-200 rounded-[2rem] mb-[3rem] last:mb-0 hover:bg-gray-100 transition-all duration-150 ease-in"
             >
-              <span className="font-bold text-[2rem] font-satoshi uppercase">
+              <span className="font-bold text-[2rem] sm:text-[1.8rem] font-satoshi uppercase">
                 {email.slice(0, 2)}-{item.id}
               </span>
             </Link>

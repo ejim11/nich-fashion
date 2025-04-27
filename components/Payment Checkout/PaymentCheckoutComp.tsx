@@ -230,6 +230,7 @@ const PaymentCheckoutComp = () => {
       discountId: discountId ?? "",
       totalAmount: grandTotal,
       products,
+      shippingMethod: shippingMethod,
     };
     dispatch(paymentActions.addPaymentInfo(paymentInfo));
 
@@ -279,18 +280,18 @@ const PaymentCheckoutComp = () => {
         <p className="text-[#ADADAD]">Payment Checkout</p>
       </div>
       <form
-        className="flex relative mt-[5rem]"
+        className="flex relative mt-[5rem] w-full xmd:flex-wrap"
         noValidate
         onSubmit={handleSubmit(submitPaymentCheckout)}
       >
-        <div className="flex-1 mr-[2.4rem] font-satoshi">
-          <p className="font-monserrat text-[4.8rem] font-extrabold mb-[3.5rem] text-black">
+        <div className="flex-1 mr-[2.4rem] font-satoshi xmd:w-full xmd:flex-none">
+          <p className="font-monserrat text-[4.8rem] xl:text-[4rem] smd:text-[2.8rem]  font-extrabold mb-[3.5rem] text-black">
             PAYMENT CHECKOUT
           </p>
           <p className="font-satoshi text-[2.2rem] text-black mb-[3.6rem]">
             Billing Details
           </p>
-          <div className="flex w-full justify-between">
+          <div className="flex w-full justify-between sm:flex-wrap">
             <InputComponent
               placeholder={"Enter your first name"}
               type={"text"}
@@ -301,7 +302,7 @@ const PaymentCheckoutComp = () => {
               name={"firstName"}
               validation={registrationOption.firstName}
               pl="pl-[2rem]"
-              containerWidth="w-[48%]"
+              containerWidth="w-[48%] sm:w-full"
             />
             <InputComponent
               placeholder={"Enter your last name"}
@@ -313,7 +314,7 @@ const PaymentCheckoutComp = () => {
               name={"lastName"}
               validation={registrationOption.lastName}
               pl="pl-[2rem]"
-              containerWidth="w-[48%]"
+              containerWidth="w-[48%] sm:w-full"
             />
           </div>
 
@@ -416,13 +417,13 @@ const PaymentCheckoutComp = () => {
             <p className="font-satoshi text-[2rem] font-medium mb-[1.5rem]">
               Shipping Method
             </p>
-            <div className="flex w-full justify-between mb-[2rem]">
+            <div className="flex w-full justify-between mb-[2rem] sm:flex-wrap">
               {shippingMethods.map(
                 (data: { title: string; method: string }) => (
                   <button
                     key={data.title}
                     type="button"
-                    className="flex bg-white items-center border rounded-[1.42rem] py-[1rem] px-[1.5rem] w-[48%] transition-all duration-150 ease-in"
+                    className="flex bg-white items-center border rounded-[1.42rem] py-[1rem] px-[1.5rem] w-[48%] sm:w-full sm:mb-[2rem] sm:last:mb-0 transition-all duration-150 ease-in"
                     onClick={() => {
                       setShippingMethod(data.method);
                     }}
@@ -449,13 +450,13 @@ const PaymentCheckoutComp = () => {
               <p className="font-satoshi text-[2rem] font-medium mb-[1.5rem]">
                 Delivery Address
               </p>
-              <div className="flex w-full justify-between mb-[2rem]">
+              <div className="flex w-full justify-between mb-[2rem] sm:flex-wrap">
                 {deliveryAddressData.map(
                   (data: { title: string; type: string }) => (
                     <button
                       key={data.title}
                       type="button"
-                      className="flex bg-white items-center border rounded-[1.42rem] py-[1rem] px-[1.5rem] w-[48%] transition-all duration-150 ease-in"
+                      className="flex bg-white items-center border rounded-[1.42rem] py-[1rem] px-[1.5rem] w-[48%] sm:w-full sm:mb-[2rem] sm:last:mb-0 transition-all duration-150 ease-in"
                       onClick={() => {
                         setBillingAddressType(data.type);
                       }}
@@ -544,7 +545,7 @@ const PaymentCheckoutComp = () => {
             </div>
           )}
         </div>
-        <div className="w-[60rem] border rounded-[2rem] sticky self-start top-[7.5rem] py-[2rem] px-[2.4rem]">
+        <div className="w-[60rem] border rounded-[2rem] sticky self-start top-[7.5rem] py-[2rem] px-[2.4rem] sm:px-[2rem] 2xl:w-[50rem] xlg:w-[45rem] xmd:w-full xmd:mt-[3rem]">
           <p className="font-bold text-[2.4rem] capitalize mb-[2.4rem]">
             order summary
           </p>

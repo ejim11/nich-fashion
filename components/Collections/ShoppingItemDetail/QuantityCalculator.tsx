@@ -38,9 +38,10 @@ const QuantityCalculator = ({
   return (
     <div className="flex  w-max bg-[rgba(240,240,240,1)] rounded-[1rem] overflow-hidden">
       <button
+        disabled={size.quantity < 0}
         type="button"
         onClick={decreaseQtyHandler}
-        className="p-[1.5rem] hover:bg-gray-300"
+        className="p-[1.5rem] hover:bg-gray-300 disabled:cursor-not-allowed disabled:"
       >
         <FaMinus />
       </button>
@@ -51,7 +52,12 @@ const QuantityCalculator = ({
         className="w-[8rem] text-center ring-0 focus:ring-0 outline-none focus:outline-none"
         readOnly
       />
-      <button type="button" onClick={increaseQtyHandler} className="p-[1.5rem]">
+      <button
+        disabled={size.quantity < 0}
+        type="button"
+        onClick={increaseQtyHandler}
+        className="p-[1.5rem]"
+      >
         <FaPlus />
       </button>
     </div>

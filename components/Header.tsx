@@ -16,6 +16,7 @@ import { userLogout } from "@/actions/authActions";
 import { AnimatePresence, motion } from "framer-motion";
 import SearchModal from "./SearchModal";
 import { searchAndFilterActions } from "@/slices/searchAndFilterSlice";
+import { RiMenu3Line } from "react-icons/ri";
 
 const headerNavLinks: HeaderNavLink[] = [
   {
@@ -47,6 +48,8 @@ const Header = () => {
 
   const { details } = useAppSelector((state) => state.user);
 
+  const [isMenuVisible, setIsMenuVisible] = useState<boolean>(false);
+
   const [scaleUp, setScaleUp] = useState<boolean>(false);
 
   const [profileModalIsVisible, setProfileModalIsVisible] =
@@ -71,6 +74,11 @@ const Header = () => {
 
   const openSearchModal = () => {
     dispatch(searchAndFilterActions.toggleSearchModal(true));
+  };
+
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
+  const closeMenuModal = (e: any) => {
+    if (e.target.dataset.close) setIsMenuVisible(false);
   };
 
   useEffect(() => {
@@ -103,7 +111,7 @@ const Header = () => {
           </Link>
         </div>
       )}
-      <header className="flex h-[7.5rem]   items-center px-[8rem] bg-color-white justify-between border-b border-[#F0EEED]">
+      <header className="flex h-[7.5rem]   items-center px-[8rem] sxl:px-[5rem] xmd:px-[3rem] sm:px-[2rem] bg-color-white justify-between border-b border-[#F0EEED]">
         <div className="w-[9.3rem] h-[4.3rem]">
           <Image
             src={logo}
@@ -114,11 +122,23 @@ const Header = () => {
             className="w-full h-full"
           />
         </div>
-        <div>
-          <nav>
-            <ul className="flex items-center font-satoshi capitalize text-[1.8rem] text-color-black">
+
+        <div
+          className={`mx-auto smd:fixed smd:w-full smd:h-screen smd:top-0 smd:bottom-0 smd:left-0 smd:right-0 smd:z-[100] smd:bg-[rgba(0,0,0,0.4)] smd:transition-all smd:duration-150 smd:ease-in ${
+            isMenuVisible
+              ? "smd:opacity-100 smd:translate-x-0"
+              : "smd:opacity-0 smd:-translate-x-[100%]"
+          }`}
+          data-close="close"
+          onClick={closeMenuModal}
+        >
+          <nav className="smd:bg-gray-200 smd:h-full smd:w-[40%] sm:w-[60%] smd:p-[2rem]">
+            <ul className="flex items-center smd:items-start smd:flex-col font-satoshi capitalize text-[1.8rem] text-color-black">
               {headerNavLinks.map((navItem: HeaderNavLink) => (
-                <li key={navItem.title} className="mr-[5rem] last:mr-0">
+                <li
+                  key={navItem.title}
+                  className="mr-[5rem] last:mr-0 smd:mr-0 smd:mb-[1rem]"
+                >
                   <HeaderNavigationLink navItem={navItem} />
                 </li>
               ))}
@@ -190,6 +210,17 @@ const Header = () => {
             >
               Login
             </Link>
+          )}
+          {!isMenuVisible && (
+            <button
+              type="button"
+              className="ml-[2rem] hidden smd:block"
+              onClick={() => {
+                setIsMenuVisible(true);
+              }}
+            >
+              <RiMenu3Line className="w-[2.4rem] h-[2.4rem] " />
+            </button>
           )}
         </div>
         <AnimatePresence>

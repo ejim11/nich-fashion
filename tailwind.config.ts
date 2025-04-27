@@ -7,6 +7,41 @@ export default {
     "./app/**/*.{js,ts,jsx,tsx,mdx}",
   ],
   theme: {
+    screens: {
+      "5xl": { max: "2200px" },
+      // => @media (max-width: 2200px) { ... }
+      "4xl": { max: "2000px" },
+      // => @media (max-width: 2000px) { ... }
+      "3xl": { max: "1535px" },
+      // => @media (max-width: 1535px) { ... }
+      "2xl": { max: "1350px" },
+      // => @media (max-width: 1535px) { ... }
+      xl: { max: "1279px" },
+      // => @media (max-width: 1279px) { ... }
+      sxl: { max: "1200px" },
+      // => @media (max-width: 1200px) { ... }
+      xlg: { max: "1150px" },
+      // => @media (max-width: 1150px) { ... }
+      lg: { max: "1024px" },
+      // => @media (max-width: 1024px) { ... }
+      xmd: { max: "950px" },
+      // => @media (max-width: 950px) { ... }
+      md: { max: "850px" },
+      // => @media (max-width: 850px) { ... }
+      smd: { max: "750px" },
+      // => @media (max-width: 750px) { ... }
+      sm: { max: "650px" },
+      // => @media (max-width: 650px) { ... }
+      ssm: { max: "500px" },
+      // => @media (max-width: 500px) { ... }
+      sssm: { max: "400px" },
+      // => @media (max-width: 400px) { ... }
+      vssm: { max: "350px" },
+      // => @media (max-width: 350px) { ... }
+      sh: { raw: "(max-height: 900px)" },
+      // => @media (max-width: 750px) { ... }
+      ssh: { raw: "(max-height: 750px)" },
+    },
     extend: {
       colors: {
         "color-current": "curentColor",

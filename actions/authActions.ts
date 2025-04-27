@@ -97,7 +97,7 @@ export const loginWithOtpDispatch =
       );
 
       // login expires an hour
-      const expirationTime = new Date(new Date().getTime() + 30 * 1000);
+      const expirationTime = new Date(new Date().getTime() + 3600 * 1000);
 
       // calculating the remaining time
       const remainingTime = calculateExpirationTime(
@@ -160,7 +160,7 @@ export const autoLogin =
   async (dispatch: any) => {
     if (tokenDuration > 6000 && tokenDuration <= 60000) {
       clearTimeout(logoutTimer);
-      const expirationTime = new Date(new Date().getTime() + 30 * 1000);
+      const expirationTime = new Date(new Date().getTime() + 3600 * 1000);
       // User is still active
       const res = await sendRefreshToken(refreshToken);
 
