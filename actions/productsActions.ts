@@ -20,7 +20,6 @@ export const getNewArrivalsDispatch =
       const products = await getNewArrivals();
       //   convert items to shopping item
       const prds = [...products.data.data.data].map((item: any) => {
-        console.log(item);
         return convertToShoppingItem(item);
       });
       dispatch(newArrivalsActions.setNewArrivals(prds));
@@ -58,7 +57,6 @@ export const getAllShoppingItemsDispatch =
         limit
       );
 
-      console.log(res);
       const products = res.data.data.data.map((item: any) =>
         convertToShoppingItem(item)
       );
@@ -75,8 +73,6 @@ export const getProductsInACategoryDispatch =
   (category: string) => async (dispatch: any) => {
     try {
       const res = await getProductsInACategory(category);
-
-      console.log(res);
 
       const products = res.data.data.data.map((item: any) =>
         convertToShoppingItem(item)
