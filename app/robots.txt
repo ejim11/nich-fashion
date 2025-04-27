@@ -1,0 +1,9 @@
+# *
+User-agent: *
+Allow: /
+
+# Host
+Host: https://nich-fashion.vercel.app/
+
+# Sitemaps
+Sitemap: https://nich-fashion.vercel.app/sitemap.xml

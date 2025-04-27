@@ -24,6 +24,18 @@ const monserrat = Montserrat({
 export const metadata: Metadata = {
   title: "Nich Fashion",
   description: "Get the best accessories from us!",
+  metadataBase: new URL("https://nich-fashion.vercel.app/"),
+  authors: [{ name: "Ejim Favour," }, { name: "Qrest Company" }],
+  openGraph: {
+    description: "Get the best accessories from us!",
+    type: "website",
+    url: "https://nich-fashion.vercel.app/",
+    images: [
+      {
+        url: "https://nich-fashion.s3.us-east-2.amazonaws.com/uploads/logo+(2).png",
+      },
+    ],
+  },
 };
 
 export default function RootLayout({
