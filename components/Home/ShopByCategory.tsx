@@ -40,7 +40,7 @@ const ShopByCategory = () => {
                   priority
                   width={500}
                   height={500}
-                  className="w-full h-full xmd:object-contain"
+                  className="w-full h-full object-contain"
                 />
               </div>
             </div>
