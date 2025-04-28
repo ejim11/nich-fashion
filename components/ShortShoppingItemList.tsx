@@ -24,14 +24,14 @@ const ShortShoppingItemList = ({
     <section className="my-[10rem] flex flex-col items-center ">
       <TitleAndBodyContainer title={title}>
         {isLoading ? (
-          <div className="grid-cols-4 xmd:grid-cols-2 sm:grid-cols-1 gap-[10rem] 2xl:gap-[7rem] xl:gap-[4rem] xlg:gap-[3rem] grid w-full">
+          <div className="grid-cols-4 xmd:grid-cols-2 vssm:grid-cols-1 gap-[10rem] 2xl:gap-[7rem] xl:gap-[4rem] xlg:gap-[3rem] sm:gap-[2rem] grid w-full">
             <ShoppingItemSkeleton />
             <ShoppingItemSkeleton />
             <ShoppingItemSkeleton />
             <ShoppingItemSkeleton />
           </div>
         ) : (
-          <div className="grid-cols-4 xmd:grid-cols-2 sm:grid-cols-1 gap-[10rem] 2xl:gap-[7rem] xl:gap-[4rem] xlg:gap-[3rem] grid w-full">
+          <div className="grid-cols-4 xmd:grid-cols-2 vssm:grid-cols-1  gap-[10rem] 2xl:gap-[7rem] xl:gap-[4rem] xlg:gap-[3rem] sm:gap-[2rem] grid w-full">
             {data.map((item: ShoppingItem) => (
               <CollectionItem collection={item} key={item.id} />
             ))}
