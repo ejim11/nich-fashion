@@ -44,7 +44,7 @@ const CollectionsComp = () => {
   return (
     <div className="">
       {isLoading ? (
-        <div className="grid grid-cols-3  gap-x-[2rem] gap-y-[8rem] xmd:gap-y-[3rem] xmd:grid-cols-2 vssm:grid-cols-1">
+        <div className="grid grid-cols-3  gap-x-[2rem] gap-y-[8rem] xmd:gap-y-[3rem] xmd:grid-cols-2 vssm:grid-cols-1 sm:gap-[2rem]">
           <ShoppingItemSkeleton />
           <ShoppingItemSkeleton />
           <ShoppingItemSkeleton />
@@ -62,7 +62,7 @@ const CollectionsComp = () => {
         <div className="flex flex-col">
           <div
             ref={sectionRef}
-            className="grid grid-cols-3 gap-x-[2rem] gap-y-[3rem] xmd:grid-cols-2 vssm:grid-cols-1"
+            className="grid grid-cols-3 gap-x-[2rem] gap-y-[3rem] xmd:grid-cols-2 vssm:grid-cols-1 sm:gap-[2rem]"
           >
             {currentItems.map((collection: ShoppingItem) => (
               <CollectionItem collection={collection} key={collection.id} />

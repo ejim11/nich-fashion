@@ -22,7 +22,7 @@ const ShopByCategory = () => {
   return (
     <section className="mb-[10rem]">
       <TitleAndBodyContainer title="shop by category">
-        <div className="flex flex-wrap w-full justify-between  mx-auto xmd:grid xmd:grid-cols-2 xmd:gap-[3rem] sm:grid-cols-2">
+        <div className="flex flex-wrap w-full justify-between  mx-auto xmd:grid xmd:grid-cols-2 xmd:gap-[3rem] sm:gap-[2rem] sm:grid-cols-2">
           {categories.map((item: ItemCategory, i: number) => (
             <div
               key={item.title}
