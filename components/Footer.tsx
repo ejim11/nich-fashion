@@ -1,3 +1,4 @@
+"use client";
 import React, { ReactNode } from "react";
 import logo from "../assets/logo.svg";
 import Image, { StaticImageData } from "next/image";
@@ -9,8 +10,11 @@ import masterImg from "../assets/footer/master.png";
 import paypalImg from "../assets/footer/paypal.png";
 import applePayImg from "../assets/footer/apple-pay.png";
 import gPayImg from "../assets/footer/gpay.png";
+import { usePathname } from "next/navigation";
 
 const Footer = () => {
+  const pathname = usePathname();
+
   const cardImgs: StaticImageData[] = [
     visaImg,
     masterImg,
@@ -41,7 +45,11 @@ const Footer = () => {
   ];
 
   return (
-    <footer className="bg-[#FFFBFB]   flex flex-col font-satoshi  mt-auto">
+    <footer
+      className={`bg-[#FFFBFB]    flex-col font-satoshi  mt-auto ${
+        pathname.includes("dashboard") ? "hidden" : "flex"
+      }`}
+    >
       <div className="flex md:flex-wrap w-full px-[8rem] sxl:px-[5rem] xmd:px-[3rem] sm:px-[2rem] py-[7rem] ">
         <div className="w-[25rem] mr-[10rem] xmd:mr-[3rem] md:mr-0 md:w-full md:mb-[3rem] ssm:flex ssm:flex-col ssm:items-center ssm:text-center">
           <div className="w-[9.3rem] h-[4.3rem]">
