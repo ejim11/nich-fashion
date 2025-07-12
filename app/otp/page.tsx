@@ -8,7 +8,7 @@ export default function OTP() {
     <MainContainer classname="min-h-screen flex justify-center items-center font-satoshi">
       <AuthContainer
         width="w-auto sm:w-full"
-        text={"Enter 6 digit code sent to adc@gmail.com"}
+        text={"Enter 6 digit code sent to your mail"}
       >
         <OTPForm />
       </AuthContainer>
