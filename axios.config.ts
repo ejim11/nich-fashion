@@ -56,3 +56,7 @@ export const bankTransfer = axios.create({
 export const reviews = axios.create({
   baseURL: `${base}/reviews`,
 });
+
+export const aggregate = axios.create({
+  baseURL: `${base}/aggregate`,
+});
