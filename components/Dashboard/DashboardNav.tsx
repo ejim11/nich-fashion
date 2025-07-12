@@ -69,8 +69,6 @@ const adminDashboardNav: AdminDashboardNav[] = [
 const DashboardNav: React.FC<{ children: ReactNode }> = ({ children }) => {
   const pathname = usePathname();
 
-  console.log(pathname);
-
   return (
     <div className="flex h-screen ">
       <div className="w-[34.5rem] bg-black text-white ">
