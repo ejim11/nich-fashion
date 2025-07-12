@@ -16,8 +16,6 @@ const AppWrapper: React.FC<{ children: React.ReactNode }> = ({ children }) => {
 
   const { role } = useAppSelector((state) => state.user.details);
 
-  console.log(role);
-
   const autoLogoutHandler = useCallback(() => {
     const navToHome = () => {
       router.push("/");
@@ -41,6 +39,8 @@ const AppWrapper: React.FC<{ children: React.ReactNode }> = ({ children }) => {
         } else {
           router.replace("/");
         }
+      } else {
+        router.replace("/");
       }
     }
   }, [isLoggedIn, role, router, token]);
