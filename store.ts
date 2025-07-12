@@ -9,6 +9,7 @@ import discountSlice from "./slices/discountSlice";
 import deliveryStateSlice from "./slices/deliveryStateSlice";
 import paymentSlice from "./slices/paymentSlice";
 import orderSlice from "./slices/orderSlice";
+import adminDashboardSlice from "./slices/adminDashboardSlice";
 
 const store = configureStore({
   reducer: {
@@ -22,6 +23,7 @@ const store = configureStore({
     deliveryState: deliveryStateSlice.reducer,
     payment: paymentSlice.reducer,
     orders: orderSlice.reducer,
+    adminDashboard: adminDashboardSlice.reducer,
   },
 });
 
