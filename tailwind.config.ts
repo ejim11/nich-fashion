@@ -68,6 +68,7 @@ export default {
         custom: "0px 5px 16px 0px rgba(8, 15, 52, 0.06)",
         "custom-2": "0px 5px 16px 0px rgba(8, 15, 52, 0.06)",
         "custom-3": "0px 6px 16px 0px rgba(132, 132, 132, 0.25)",
+        "custom-4": "0px 4px 20px 0px rgba(221, 221, 221, 0.8)",
       },
     },
   },
