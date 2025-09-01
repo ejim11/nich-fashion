@@ -15,8 +15,6 @@ const DashboardComp = () => {
 
   const { details } = useAppSelector((state) => state.user);
 
-  console.log(details);
-
   // eslint-disable-next-line @typescript-eslint/no-unused-vars
   const [isLoading, setIsLoading] = useState<boolean>(false);
 
