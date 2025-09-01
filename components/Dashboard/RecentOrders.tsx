@@ -25,10 +25,10 @@ const RecentOrders = ({ isLoading }: { isLoading: boolean }) => {
   };
 
   return (
-    <div className="bg-white rounded-[2rem] border border-[rgba(248,249,250,1)] flex flex-col px-[3rem] py-[2.3rem] shadow-custom-4 mt-[2.4rem]">
-      <p className="capitalize text-[2rem] mb-[3rem] font-bold font-satoshi">
+    <div className="bg-white rounded-[2rem] border border-[rgba(248,249,250,1)] flex flex-col px-[3rem] py-[2.3rem] shadow-custom-4 my-[2.4rem]">
+      <h3 className="capitalize text-[2rem] mb-[3rem] font-bold font-satoshi">
         recent orders
-      </p>
+      </h3>
       <div className="w-full">
         <table className="w-full">
           <thead className="">
