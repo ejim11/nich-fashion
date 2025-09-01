@@ -1,6 +1,7 @@
 import {
   getAdminDashboard,
   getRecentOrders,
+  getRecentProductInventory,
 } from "@/services/adminDashboardService";
 import { adminDashboardActions } from "@/slices/adminDashboardSlice";
 import { Dispatch, SetStateAction } from "react";
@@ -13,20 +14,34 @@ export const getAdminDashboardDispatch =
       payload: any;
       type:
         | "adminDashboard/setOverviewCardDetails"
-        | "adminDashboard/setRecentOrders";
+        | "adminDashboard/setRecentOrders"
+        | "adminDashboard/setInventory";
     }) => void
   ) => {
     setIsLoading(true);
 
     try {
-      const res = await getAdminDashboard(token);
+      const [stats, recentOrders, products] = await Promise.all([
+        getAdminDashboard(token),
+        getRecentOrders(token),
+        getRecentProductInventory(token),
+      ]);
 
-      const recentOrders = await getRecentOrders(token);
-
-      dispatch(adminDashboardActions.setOverviewCardDetails(res.data.data));
-      dispatch(
-        adminDashboardActions.setRecentOrders(recentOrders.data.data.data)
+      const inventory = products.data.data.map(
+        (item: {
+          product_id: string;
+          product_name: string;
+          totalquantity: string;
+        }) => ({
+          id: item.product_id,
+          name: item.product_name,
+          stock: Number(item.totalquantity),
+        })
       );
+
+      dispatch(adminDashboardActions.setOverviewCardDetails(stats.data.data));
+      dispatch(adminDashboardActions.setRecentOrders(recentOrders.data.data));
+      dispatch(adminDashboardActions.setInventory(inventory));
     } catch (err) {
       console.log(err);
     }
