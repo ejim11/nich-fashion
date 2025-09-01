@@ -45,6 +45,9 @@ const adminDashboardSlice = createSlice({
     setRecentOrders: (state, action) => {
       state.recentOrders = action.payload;
     },
+    setInventory: (state, action) => {
+      state.inventory = action.payload;
+    },
   },
 });
 
