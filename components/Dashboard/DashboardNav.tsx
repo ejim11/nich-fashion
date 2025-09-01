@@ -14,6 +14,9 @@ import { IoSettingsOutline } from "react-icons/io5";
 import { RiLogoutBoxRLine } from "react-icons/ri";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
+import { useAppDispatch } from "@/hooks/stateHooks";
+import { userActions } from "@/slices/userSlice";
+import { userLogout } from "@/actions/authActions";
 
 type AdminDashboardNav = {
   icon: ReactNode;
@@ -67,7 +70,19 @@ const adminDashboardNav: AdminDashboardNav[] = [
 ];
 
 const DashboardNav: React.FC<{ children: ReactNode }> = ({ children }) => {
+  const dispatch = useAppDispatch();
   const pathname = usePathname();
+
+  const logoutHandler = () => {
+    dispatch(
+      userActions.setUserDetails({
+        id: "",
+        email: "",
+        role: "",
+      })
+    );
+    dispatch(userLogout());
+  };
 
   return (
     <div className="flex h-screen ">
@@ -105,7 +120,10 @@ const DashboardNav: React.FC<{ children: ReactNode }> = ({ children }) => {
               </li>
             ))}
             <li>
-              <button className="flex items-center capitalize text-white text-[1.8rem] font-satoshi px-[4.5rem] py-[1.6rem] ">
+              <button
+                className="flex items-center capitalize text-white text-[1.8rem] font-satoshi px-[4.5rem] py-[1.6rem] "
+                onClick={logoutHandler}
+              >
                 <RiLogoutBoxRLine className={iconClassname} />
                 <span className="ml-[2rem]">Sign out</span>
               </button>
