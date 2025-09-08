@@ -50,7 +50,7 @@ const OverviewCard = ({ isLoading }: { isLoading: boolean }) => {
   ];
 
   return (
-    <div className="bg-white rounded-[2rem] border border-[rgba(248,249,250,1)] flex flex-col px-[3rem] py-[2.3rem] shadow-custom-4">
+    <section className="bg-white rounded-[2rem] border border-[rgba(248,249,250,1)] flex flex-col px-[3rem] py-[2.3rem] shadow-custom-4">
       <h3 className="text-[2rem] font-bold font-satoshi">Overview card</h3>
       <div className="flex justify-between mt-[3rem] gap-[3rem] ">
         {adminData.map((data: AdminData) => (
@@ -84,7 +84,7 @@ const OverviewCard = ({ isLoading }: { isLoading: boolean }) => {
           </div>
         ))}
       </div>
-    </div>
+    </section>
   );
 };
 
