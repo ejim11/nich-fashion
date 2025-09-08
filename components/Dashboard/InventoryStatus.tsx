@@ -24,7 +24,7 @@ const InventoryStatus = () => {
   }
 
   return (
-    <div className="bg-white rounded-[2rem] border border-[rgba(248,249,250,1)] flex flex-col px-[3rem] py-[2.3rem] shadow-custom-4 ">
+    <section className="bg-white rounded-[2rem] border border-[rgba(248,249,250,1)] flex flex-col px-[3rem] py-[2.3rem] shadow-custom-4 mb-[2.8rem] ">
       <h3 className="capitalize text-[2rem] mb-[3rem] font-bold font-satoshi">
         inventory status
       </h3>
@@ -52,7 +52,7 @@ const InventoryStatus = () => {
           </div>
         ))}
       </div>
-    </div>
+    </section>
   );
 };
 

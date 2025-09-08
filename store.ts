@@ -10,6 +10,7 @@ import deliveryStateSlice from "./slices/deliveryStateSlice";
 import paymentSlice from "./slices/paymentSlice";
 import orderSlice from "./slices/orderSlice";
 import adminDashboardSlice from "./slices/adminDashboardSlice";
+import userManagementSlice from "./slices/userManagementSlice";
 
 const store = configureStore({
   reducer: {
@@ -24,6 +25,7 @@ const store = configureStore({
     payment: paymentSlice.reducer,
     orders: orderSlice.reducer,
     adminDashboard: adminDashboardSlice.reducer,
+    userManagement: userManagementSlice.reducer,
   },
 });
 

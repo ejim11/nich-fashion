@@ -108,13 +108,21 @@ input[type="number"] {
 
 /* react paginate */
 .paginate-page-link {
-  border: 1px solid rgba(0, 0, 0, 0.1);
-  color: black;
-  background-color: #fff;
-  padding: 0.25rem 0.75rem;
+  color: rgba(0, 0, 0, 0.5);
+  background-color: white;
+  display: flex;
+  width: 4rem;
+  height: 4rem;
+  align-items: center;
+  justify-content: center;
   border-radius: 8px;
   margin: 0 0.5rem;
   font-weight: 500;
+  animation-duration: 2000ms;
+  animation-timing-function: ease-in;
+
+  transition: all;
+  -webkit-animation: forwards;
 }
 
 .paginate-page-link:hover {
@@ -123,8 +131,20 @@ input[type="number"] {
 }
 
 .paginate-page-link.paginate-active-page-link {
-  background-color: rgba(0, 0, 0, 1);
-  color: #fff;
+  background-color: rgba(0, 0, 0, 0.06);
+  color: black;
+}
+
+@keyframes example {
+  to {
+    background-color: black;
+  }
+}
+
+.paginate-page-link.paginate-active-page-link:hover {
+  color: white;
+  animation-name: example;
+  animation-duration: 0.5s;
 }
 
 /* toatisfy styles */
