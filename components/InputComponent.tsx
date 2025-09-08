@@ -24,6 +24,7 @@ type InputProps = {
   my?: string;
   inputBg?: string;
   min?: number;
+  inputRadius?: string;
 };
 
 const InputComponent: React.FC<InputProps> = (props) => {
@@ -37,8 +38,8 @@ const InputComponent: React.FC<InputProps> = (props) => {
     return props.error &&
       props.error[props.name] &&
       props.error[props.name].message
-      ? "text-color-red-1 border-color-red-1"
-      : "border-[#D9D9D9] text-color-black";
+      ? "text-red-800 border-red-800"
+      : "border-[#D9D9D9] text-black";
   };
 
   const getPasswordIcon = (): React.ReactNode => {
@@ -104,9 +105,9 @@ const InputComponent: React.FC<InputProps> = (props) => {
             props.border ? props.border : "border"
           } py-[1rem] relative ${props.pl ? props.pl : "pl-[4rem]"} pr-[1rem] ${
             props.width ? props.width : "w-full"
-          } ${props.height && props.height} ${
-            props.shadow && props.shadow
-          } rounded-lg outline-0 ${getErrorClass()} md:w-full`}
+          } ${props.height && props.height} ${props.shadow && props.shadow} ${
+            props.inputRadius ?? "rounded-[0.8rem]"
+          } outline-0 ${getErrorClass()} md:w-full`}
         />
         {props.icon}
         {getPasswordIcon()}
